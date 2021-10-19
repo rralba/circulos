@@ -6,6 +6,7 @@
   <h1 class="text-center">Círculo de Eficiencia Nivel 3</h1>
 </span>
 <form id="editmr" name="editmr" action="{{ route('mejoras.update') }}">
+  <input type="hidden" id="check" name="check" value="{{ $mejora->status }}" readonly>
    {{ csrf_field() }}
     <div class="row">
           <div class="form-group col-md-4"></div>
@@ -38,7 +39,7 @@
         </div>
         <div class="form-group col-md-4">
           <label for="inputEmail4"><h6>Autoriza</h6></label>
-          <input type="text" class="form-control" id="employee_search" value="{{ $mejora->jefes->nombre }}">
+          <input type="text" class="form-control cancelado" id="employee_search" value="{{ $mejora->jefes->nombre }}">
         </div>
         <div class="form-group col-md-4">
           <label for="inputPassword4"><h6>Posición</h6></label>
@@ -66,6 +67,23 @@
         </div>
         <div class="row">
           <div class="col-md-10"></div>
+          @if (($mejora->status) == 0)
+            <div class=" form-group col-md-2">  
+            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Status:</h4></label>
+            <select type="text" class="form-control" id="status" name="status">
+              @if (($mejora->status)== 0)
+                <option value="{{ $mejora->status }}" selected>Cancelada</option>
+              @endif
+              @if (($mejora->status)== 1)
+                <option value="{{ $mejora->status }}" selected>En Proceso</option>
+              @endif
+              @if (($mejora->status)== 2)
+                <option value="{{ $mejora->status }}" selected>Terminada</option>
+              @endif
+                <option value="1">En Proceso</option>
+              </select>
+          </div>
+          @else
           <div class=" form-group col-md-2">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Status:</h4></label>
             <select type="text" class="form-control" id="status" name="status">
@@ -83,12 +101,13 @@
                 <option value="2">Terminada</option>
               </select>
           </div>
+          @endif
         </div>
         <div class="row" id="valor">
           <div class="col-md-7"></div>
           <div class=" form-group col-md-3 justify-content-end" id="valorvalid">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Valor Corporativo:</h4></label>
-            <select type="text" class="form-control float-left" style="width: 80%;" id="valor" name="valor">
+            <select type="text" class="form-control float-left cancelado" style="width: 80%;" id="valor" name="valor">
                 <option value="{{ $mejora->valor }}" selected>{{ $mejora->valor }}</option>
                 <option value="Calidad">Calidad</option>
                 <option value="Costos">Costos</option>
@@ -104,7 +123,7 @@
           </div>
           <div class="form-group col-md-2 justify-content-end" id="desperdiciovalid">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Lean Manufacturing:</h4></label>
-            <select type="text" class="form-control float-right" id="desperdicio" name="desperdicio">
+            <select type="text" class="form-control float-right cancelado" id="desperdicio" name="desperdicio">
                 <option value="{{ $mejora->desperdicio }}" selected>{{ $mejora->desperdicio }}</option>
                 <option value="Ahorro de Energia">Ahorro de Energia</option>
                 <option value="Ahorro de Suministros">Ahorro de Suministros</option>
@@ -132,19 +151,19 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>A Mejorar</h6></label>
-            <textarea class="form-control tomayus" maxlength="249" id="mejorar" name="mejorar" rows="4">{{ $mejora->amejorar }}</textarea>
+            <textarea class="form-control tomayus cancelado" maxlength="249" id="mejorar" name="mejorar" rows="4">{{ $mejora->amejorar }}</textarea>
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>Objetivo</h6></label>
-            <textarea type="text" class="form-control tomayus" maxlength="249" id="objetivo" name="objetivo" rows="4">{{ $mejora->objetivo }}</textarea>
+            <textarea type="text" class="form-control tomayus cancelado" maxlength="249" id="objetivo" name="objetivo" rows="4">{{ $mejora->objetivo }}</textarea>
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>Solución</h6></label>
-            <textarea type="text" class="form-control tomayus" maxlength="249" id="solucion" name="solucion" rows="4">{{ $mejora->solucion }}</textarea>
+            <textarea type="text" class="form-control tomayus cancelado" maxlength="249" id="solucion" name="solucion" rows="4">{{ $mejora->solucion }}</textarea>
           </div> 
         </div>
       <?php $x=0;?>
@@ -161,7 +180,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="inputEmail4"><h6>Nombre</h6></label>
-            <input type="text" class="form-control nombre{{$x}}" id="employee_search{{$x}}" value="{{ $integrante->nombre }}">
+            <input type="text" class="form-control nombre{{$x}} cancelado" id="employee_search{{$x}}" value="{{ $integrante->nombre }}">
           </div>
           <div class="form-group col-md-4">
             <label for="inputPassword4"><h6>Posición</h6></label>
@@ -184,7 +203,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="inputEmail4"><h6>Nombre</h6></label>
-            <input type="text" class="form-control nombre{{$x}}" id="employee_search{{$x}}">
+            <input type="text" class="form-control nombre{{$x}} cancelado" id="employee_search{{$x}}">
           </div>
           <div class="form-group col-md-4">
             <label for="inputPassword4"><h6>Posición</h6></label>
@@ -219,6 +238,11 @@
     // CSRF Token
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
+
+      var c = $('#check').val();
+      if (c == 0){
+        $('.cancelado').prop("disabled", true);
+      };
 
       $('#limpiar1').click(function() {
                 $('.ficha1').val('0');

@@ -10,7 +10,7 @@
   
     <input type="hidden" id="id" name="id" value="{{ $propuesta->id }}">
     <input type="hidden" id="identificador" name="identificador" value="{{ $propuesta->identificador }}">
-    <input type="hidden" id="registro" name="registro" value="{{ date("Y-m-d") }}">
+    <input type="hidden" id="registro" name="registro" value="{{ $propuesta->registro }}">
       <div class="row">
         <div class="form-group col-md-4">
           <label for="inputEmail4"><h6>Dirección</h6></label>
@@ -287,12 +287,207 @@
           <textarea type="text" class="form-control" rows="4" maxlength="299" id="observacioness" name="observaciones"></textarea>
       </div> 
   </div>
+</div>
+  <br>
+  <br>
+  <div class="container-fluid" id="evaluacion">
+    <div class="row ml-0 mr-0 col-12">
+    <div class="row ml-0 mr-0 col-2 borde mr-4 justify-content-center tituloeval">
+      <h3 class="m-1 font-weight-bold">EVALUADOR</h3> 
+    </div>
+    <div class="row ml-0 mr-0 col-8 ml-5 mr-5 borde justify-content-center tituloeval">
+      <h3 class="m-1 font-weight-bold">CRITERIOS DE APROBACIÓN Y/O EVALUACIÓN DE MEJORAS</h3>
+    </div>
+    <div class="row ml-0 mr-0 col-1 ml-4">
+      <div class="borde text-center tituloeval" style="width: 50%;">
+        <h3 class="m-1 font-weight-bold">SI</h3>      
+      </div>
+      <div class="borde text-center tituloeval" style="width: 50%;">
+        <h3 class="m-1 font-weight-bold">NO</h3>
+      </div>      
+    </div>  
+  </div>
+  <br>
+  <div class="row ml-0 mr-0 col-12">
+    <div class="row ml-0 mr-0 col-2 borde mr-4 justify-content-center align-content-center">
+      <h3>ÁREA OPERATIVA</h3> 
+    </div>
+    <div class="row ml-0 mr-0 col-8 ml-5 mr-5">
+      <div class="borde">
+        <div class="col-11 mb-3 mt-3">
+          <h3>¿Esta relacionada con incremento de sueldo, compensaciones, contratación de personal, promociones o evaluaciones?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Cumple con las políticas y directrices de la empresa?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Requiere una alta inversión inicial para su realización?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Puede ser implementada en su totalidad por el autor, o en su defecto este puede intervenir en el proceso?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Su implementación puede ser llevada a cabo con material, equipo recuperado y personal del departamento?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Puede ser implementada en otras áreas o departamentos con procesos y equipos similares o iguales?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Esta relacionada o es parte de un trabajo de mantenimiento?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Es un requerimiento o petición especial solicitada por el autor?</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row ml-0 mr-0 col-1 ml-4">
+      <div class="input-group col-12">
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p1" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p1" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p2" id="inputeval" value="1" checked>
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p2" id="inputeval" value="0">
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p3" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p3" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p4" id="inputeval" value="1" checked>
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p4" id="inputeval" value="0">
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p5" id="inputeval" value="1" checked>
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p5" id="inputeval" value="0">
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p6" id="inputeval" value="1" checked>
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p6" id="inputeval" value="0">
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p7" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p7" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p8" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p8" id="inputeval" value="1" checked>
+        </div>
+      </div>      
+    </div>  
+  </div>
+  <br>
+  <div class="row ml-0 mr-0 col-12">
+    <div class="row ml-0 mr-0 col-2 borde mr-4 justify-content-center align-content-center">
+      <h3 class="text-center">ASESOR CÍRCULOS DE EFICIENCIA</h3>  
+    </div>
+    <div class="row ml-0 mr-0 col-8 ml-5 mr-5">
+      <div class="borde">
+        <div class="col-11 mb-3 mt-3">
+          <h3>¿La idea es similar, comparte parecido o se desprende de otros proyectos del departamento o programas de trabajo?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿Forma parte o se deriva de algún Círculo de Eficiencia registrado con anterioridad?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿La mejora cuenta con avances en su implementación o se encuentra terminada en campo?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿El tiempo de implementación es mayor a 3 meses?</h3>
+        </div>
+        <div class="col-11 mb-3">
+          <h3>¿El grupo esta integrado entre 1 a 5 personas?</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row ml-0 mr-0 col-1 ml-4">
+      <div class="input-group col-12">
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p9" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p9" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p10" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p10" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p11" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p11" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p12" id="inputeval" value="0">
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p12" id="inputeval" value="1" checked>
+        </div>
+      </div>
+      <div class="input-group col-12">  
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center" style="background-color: #C0C0C0">
+          <input class="form-check-input mr-0" type="radio" name="p13" id="inputeval" value="1" checked>
+        </div>
+        <div class="col-6 form-check form-check-inline borde mr-0 justify-content-center">
+          <input class="form-check-input mr-0" type="radio" name="p13" id="inputeval" value="0"> 
+        </div>
+      </div>      
+    </div>  
+  </div>    
+  </div>
   <br> 
+  <div class="container">
   <div class="row" id="botones">
   <div class="container-contact100-form-btn">
-    <button class="contact100-form-btn col-6" type="submit" id="aprobada" name="aprobada" value="0">
+    <button class="contact100-form-btn col-6" type="button" id="aprobada2" name="aprobada2">
       <span>
         Aprobada
+        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+      </span>
+    </button>
+    <button class="contact100-form-btn col-6" type="submit" id="aprobadavalid1" name="aprobada" value="0">
+      <span>
+        Aprobar
         <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
       </span>
     </button>
@@ -310,8 +505,8 @@
     </button>
   </div> 
 </div>
-</form> 
 </div>
+</form> 
 <script type="text/javascript">
 
   window.addEventListener("keypress", function(event){

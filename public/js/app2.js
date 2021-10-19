@@ -1,19 +1,63 @@
  $(document).ready(function(){
         //validacio 
         $('#aprobadavalid').hide();
+        $('#aprobadavalid1').hide();
         $('#observalid').hide();
+        $('#evaluacion').hide();
         $('#observacioness').prop("required", false);
         $('#valor').prop("required", true);
-            $('#desperdicio').prop("required", true);
+        $('#desperdicio').prop("required", true);
         $("#aprobada1").on( "click", function() {
             $('#aprobada1').hide();
             $('#aprobadavalid').show();
+            $('#aprobada2').show();
+            $('#aprobadavalid1').hide();
             $('#observalid').show();
             $('#observacioness').prop("required", true);
+            $('#evaluacion').hide();
+            $('#inputeval').prop("required", false);
             $('#valorvalid').hide();
             $('#desperdiciovalid').hide();
             $('#valor').prop("required", false);
             $('#desperdicio').prop("required", false);
+        });
+        $("#aprobada2").on( "click", function() {
+            $('#aprobada2').hide();
+            $('#aprobadavalid1').show();
+            $('#aprobada1').show();
+            $('#aprobadavalid').hide();
+            $('#evaluacion').show();
+            $('#inputeval').prop("required", true);
+            $('#observalid').hide();
+            $('#observacioness').prop("required", false);
+            $('#valorvalid').show();
+            $('#desperdiciovalid').show();
+            $('#valor').prop("required", true);
+            $('#desperdicio').prop("required", true);
+        });
+
+        $('#aprobadavalid1').click(function() {
+            var radio1 = $("input[type='radio'][name=p1]:checked").val();
+            var radio2 = $("input[type='radio'][name=p2]:checked").val();
+            var radio3 = $("input[type='radio'][name=p3]:checked").val();
+            var radio4 = $("input[type='radio'][name=p4]:checked").val();
+            var radio5 = $("input[type='radio'][name=p5]:checked").val();
+            var radio6 = $("input[type='radio'][name=p6]:checked").val();
+            var radio7 = $("input[type='radio'][name=p7]:checked").val();
+            var radio8 = $("input[type='radio'][name=p8]:checked").val();
+            var radio9 = $("input[type='radio'][name=p9]:checked").val();
+            var radio10 = $("input[type='radio'][name=p10]:checked").val();
+            var radio11 = $("input[type='radio'][name=p11]:checked").val();
+            var radio12 = $("input[type='radio'][name=p12]:checked").val();
+            var radio13 = $("input[type='radio'][name=p13]:checked").val();
+            
+            if ((radio1 == 1)&&(radio2 == 1)&&(radio3 == 1)&&(radio4 == 1)&&(radio5 == 1)&&(radio6 == 1)&&(radio7 == 1)&&(radio8 == 1)&&(radio9 == 1)&&(radio10 == 1)&&(radio11 == 1)&&(radio12 == 1)&&(radio13 == 1)) {
+                return true;
+            } 
+            else {
+                alert("No cumple con todos los puntos, la propuesta debe ser rechazada");
+                return false;
+            }
         });
 
         var results = document.getElementById("var").value;
@@ -75,6 +119,27 @@
                 document.getElementById("Medio Ambiente").checked = true;
             }
 
-            });          
+            });   
+
+        document.getElementById("notaconf").onblur =function (){    
+            this.value = parseFloat(this.value.replace(/,/g, ""))
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        document.getElementById("notas1").onblur =function (){    
+            this.value = parseFloat(this.value.replace(/,/g, ""))
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } 
+
+        document.getElementById("notas2").onblur =function (){    
+            this.value = parseFloat(this.value.replace(/,/g, ""))
+            .toFixed(2)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } 
 
             

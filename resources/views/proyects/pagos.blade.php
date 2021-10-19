@@ -501,6 +501,7 @@
             <?php $pagosumar=0; ?>
             @foreach(json_decode($json) as $proyect)
                 @if (($proyect->pago) == 1)
+                <input type="hidden" name="proyect_id[]" value="{{ $proyect->proyect_id }}">
                     <input type="hidden" name="id[]" value="{{ $proyect->id }}">
                     <input type="hidden" name="empleado[]" value="{{ $proyect->empleado_id }}">
                     <input type="hidden" name="pago[]" value="{{ number_format(($proyect->beneficio),0, '.', '') }}">

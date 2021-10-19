@@ -16,7 +16,8 @@
     <link href="{!! asset('font-awesome/css/font-awesome.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/w3.css') !!}" rel="stylesheet"> 
     <link href="{!! asset('css/app.css') !!}" rel="stylesheet">
-    <link href="{!! asset('css/main.css') !!}" rel="stylesheet"> 
+    <link href="{!! asset('css/main.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/style.css') !!}" rel="stylesheet"> 
     <!-- jquery-ui -->
     <link href="{!! asset('jqueryui/jquery-ui.css') !!}" rel="stylesheet">
     <script src="{!! asset('jqueryui/jquery-ui.js') !!}" ></script>
@@ -84,7 +85,7 @@
                                     <a class="dropdown-item" href="{{ route('proyects.finished') }}">Terminados</a>
                                 @endcan
                                 @can('procesos.index')
-                                    <a class="dropdown-item" href="{{ route('procesos.index') }}">En Proceso de Pago</a>
+                                    <a class="dropdown-item" href="{{ route('procesos.index') }}">Proceso de Pago</a>
                                 @endcan
                                 @can('cancelados.edit')
                                     <a class="dropdown-item" href="{{ route('cancelados.edit') }}">Maestro</a>
@@ -96,7 +97,7 @@
                             @endcan
                         </div>
                         <div class="dropdown p-1">
-                            @can('proyects.index')
+                            @can('mr.index')
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Mejoras Rápidas
                             </a>
@@ -104,9 +105,21 @@
                                 @can('mr.index')
                                     <a class="dropdown-item" href="{{ route('mr.index') }}">En Proceso</a>
                                 @endcan
+                                @can('mr.finished')
+                                    <a class="dropdown-item" href="{{ route('mr.finished') }}">Terminadas</a>
+                                @endcan
+                                @can('mrprocesos.create')
+                                    <a class="dropdown-item" href="{{ route('mrprocesos.create') }}">Proceso de pago</a>
+                                @endcan
+                                @can('mr.index')
+                                    <a class="dropdown-item" href="{{ route('mrprocesos.index') }}">Pagadas</a>
+                                @endcan
+                                @can('mr.destroy')
+                                    <a class="dropdown-item" href="{{ route('mr.destroy') }}">Canceladas</a>
+                                @endcan
                              </div>
                             @endcan
-                        </div>
+                        </div> 
                         <div class="dropdown p-1">
                             @can('proyects.index')
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

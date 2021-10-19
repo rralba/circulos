@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 <br>
-<h1 class="text-center">Circulos de Eficiencia Nivel 3 en Proceso</h1>
+<h1 class="text-center">Circulos de Eficiencia Nivel 3 Terminados</h1>
 <hr>
 <br>   
     <div class="table-responsive">
@@ -37,11 +37,13 @@
                                         class="btn btn-sm btn-outline-primary fa fa-print" title="Imprimir Mejora Rapida">
                                     </a>
                                 </td>
+                                @can('mrprocesos.create')
                                 <td width="07px">
-                                    <a href="{{ route('mejoras.edit', $mejora->id) }}"
-                                        class="btn btn-sm btn-outline-primary fa fa-pencil" title="Editar Mejora Rapida">
+                                    <a href="{{ route('mejoras.validar', $mejora->id) }}"
+                                        class="btn btn-sm btn-outline-primary fa fa-check-square-o" title="Editar Mejora Rapida">
                                     </a>
                                 </td>
+                                @endcan
                             </tr>
                         @endforeach   
                 </tbody>

@@ -17,18 +17,22 @@
     font-size: 10px;
 }
 
+.invisible{
+  display: none !important;
+}
+
 .imprimible {
-        font-size: 9px;
-        margin: 0;
-        padding: 0;
-        orphans: 4;
-        widows: 4;
-    }
+  font-size: 9px;
+  margin: 0;
+  padding: 0;
+  orphans: 4;
+  widows: 4;
+}
 
 .imprime {
-        margin: 0;
-        padding: 0;
-    }
+  margin: 0;
+  padding: 0;
+}
 
 .mr .contenido{
   font-size: 16px;
@@ -41,7 +45,58 @@ option{
 .cardhome{
   z-index: -999;
 }
+.lineatexto{
+  text-align: center;
+  font-size: 18px;
+}
+.lineadesc{
+  text-align: left;
+  font-size: 20px;
+}
+.titulos{
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+}
+.datosmr{
+  text-align: left: ;
+  font-size: 16px;
+}
+.bordermr{
+  border: solid 1px !important;
+  padding: 4px;
+}
+.bordeline{
+  border-bottom: solid 1px !important;
+}
 
+.mudas{
+  font-size: 18px;
+  text-align: left;
+}
+.titulosmr{
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+}
+.notasmr{
+  font-size: 20px;
+  text-align: left;
+}
+.mlp{
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 5px;
+}
+.notas{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.evaluacion{
+    size: letter;
+    margin: 1em;
+   }
 
 .checkbox-lg .custom-control-label::before, 
 .checkbox-lg .custom-control-label::after {
@@ -80,6 +135,15 @@ option{
     width: 100%;
     position: relative;
     overflow: hidden;
+}
+
+.borde{
+  border: solid 1px;
+}
+
+.etiqueta{
+  border-bottom: 1px solid;
+  text-align: center;
 }
 
 /* Change this breakpoint if you change the breakpoint of the navbar */
@@ -135,27 +199,24 @@ option{
         page-break-before:always;
       } */
 
-
     html, body{
         size: letter;
         margin: 0;
         background: white;
         padding: 0;
     }
-    .imprime br{
-      display: none;
-    }
+   
     .imprime{
-      margin: 0;
-      margin-top: 20px;
-      padding: 0;
-      orphans: 4;
-      widows: 4;
-    }
-    .imprime, h3{
-      font-size: 15px;
+      size: letter;
+      /* background-color: red; */
+      width: 100%;
+      margin: 0mm;
+      padding: 0mm;
     }
 
+    .conta{
+      margin-bottom: 10px;
+    }
     .conta .imagen1{
       width: 320px;
       height: 80px;
@@ -178,7 +239,7 @@ option{
     }
     
     #titulo{
-        font-size: 20px;
+        font-size: 26px;
     }
     .imprime .custom-control-label{
       padding: 0;
@@ -212,20 +273,113 @@ option{
         orphans: 4;
         widows: 4;
     }
-
-
-    .imprimible, h4, h6{
-      font-size: 9px;
+   .evaluacion{
+    size: letter;
+    width: 100%;
+    margin:  0;
+    padding: 0;
+   }
+   .bs{
+    margin-top: 20px;
+    margin-bottom: 10px;
+   }
+   .invisible{
+    display: none;
+   }
+   .evopt .row{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+   }
+    .evopt .medio{
+      margin-left: 1rem !important;
+      margin-right: 1rem !important;
     }
- 
-    .table-striped>tbody>tr:nth-child(odd)>td{
-     background-color: #ff0;
-    }
-    .table-striped>tbody>tr:nth-child(even)>td{
-     background-color: #ccc;
-    }
-    .table-striped>thead>tr>th {
-       background-color: #eee;
-    }
+.lineadiv{
+  display: none;
+}
+.salto{
+  display: block;
+  page-break-before:always;  
 }
 
+.evaluacion .lineatexto{
+  text-align: center;
+  font-size: 13px;
+}
+.imprime .lineatexto{
+  text-align: center;
+  font-size: 14px;
+}
+.evaluacion .titulos{
+  font-weight: bold;
+  font-size: 13px;
+}
+.mudas{
+  font-size: 20px;
+  text-align: left;
+}
+.lineatexto{
+  text-align: center;
+  font-size: 16px;
+}
+.lineadesc{
+  text-align: left;
+  font-size: 20px;
+}
+.titulos{
+  font-weight: bold;
+  font-size: 18px;
+}
+.titulosmr{
+  font-weight: bold;
+  font-size: 22px;
+}
+.notasmr{
+  font-size: 20px;
+  text-align: left;
+}
+.totalmr{
+  font-size: 11px;
+}
+.printnotes{
+  width: 100%;
+}
+.datosmr{
+  text-align: left;
+  font-size: 12px;
+}
+.firmas{
+  width: 100%;
+  bottom: 10px;
+  position:fixed;
+}
+
+/* estilos de tabla */
+.table-striped>tbody>tr:nth-child(odd)>td{
+     background-color: #ffffff;
+    }
+    .table-striped>tbody>tr:nth-child(even)>td{
+     background-color: rgba(0, 0, 0, 0.075);
+    }
+    .table-striped>thead>tr>th {
+       background-color: rgb(9 25 41 / 36%);
+    }
+
+  }
+
+
+    /* .imprimible, h4, h6{
+      font-size: 9px;
+    } */
+  
+  /* estilos de tabla */
+    .table-striped>tbody>tr:nth-child(odd)>td{
+     background-color: #ffffff;
+    }
+    .table-striped>tbody>tr:nth-child(even)>td{
+     background-color: rgba(0, 0, 0, 0.075);
+    }
+    .table-striped>thead>tr>th {
+       background-color: rgb(9 25 41 / 36%);
+    }

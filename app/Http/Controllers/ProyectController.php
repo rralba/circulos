@@ -336,6 +336,22 @@ class ProyectController extends Controller
 
     public function procesosindexbenef(Proyect $proyect, beneficio $beneficio, Request $request)
     {
+        $pychk = db::table('proyects')
+        ->select('id')
+        ->where('proyects.proy_status', '=','3')
+        ->get();
+        foreach ($pychk as $dat)
+        {
+        $pagoschk = db::table('beneficios')
+                    ->where('proyect_id', '=', $dat->id)
+                    ->where('status','=', '1')
+                    ->count();
+                    if (($pagoschk)> 36) {
+                        $proychk = Proyect::where('id', '=', $dat->id)->first();
+                        $proychk->proy_status = '2';
+                        $proychk->save();
+                    }
+        }
         $data = db::table('proyects')
         ->where('proyects.proy_status', '=','3')
         ->join('beneficios', 'proyects.id', '=', 'beneficios.proyect_id')
@@ -344,7 +360,7 @@ class ProyectController extends Controller
         ->where('beneficios.status', '=', '0')
         ->get();
         return view('proyects.procesosbenef', compact('data', 'proyect', 'beneficio'));
-        //dd($request->all());  
+        //dd($pagoschk);  
     }
 
     public function procesosdest(Request $request)
@@ -678,9 +694,9 @@ class ProyectController extends Controller
             $beneficio->num_pago = $nump[$r];
             $beneficio->mes_pago = $request->mes_pago;
             $beneficio->save();
-            if(($nump[$r])== 50)
+            if(($nump[$r])== 36)
             {
-                $proyec = Proyect::where('id', '=', $requestt)->first();
+                $proyec = Proyect::where('id', '=', $request->proyect_id[$r])->first();
                 $proyec->proy_status = '2';
                 $proyec->save();
             }
@@ -691,9 +707,8 @@ class ProyectController extends Controller
         $empl = $request->empleado;
         $prev = $request->pago;
         $rea = $request->real;
-        $data = [];
         $i=0;
-        foreach ($request->id as $request) {
+        foreach ($request->id as $requesttt) {
             reconocimiento::create([
                 'beneficio_id' => $benef[$i],
                 'empleado' => $empl[$i],
@@ -703,7 +718,7 @@ class ProyectController extends Controller
             $i++;
         }
           return redirect()->action([ProyectController::class, 'printpago'], [$fol]);  
-        //return redirect()->route('reconocimientos.printpago', [$fol]);
+        //dd($rea);
     }
 
     public function printpago($fol)

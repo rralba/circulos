@@ -138,6 +138,20 @@ Route::post('proyects/{proyect}/beneficios/descuento', 'ProyectController@descue
 //mejoras rapidas
 Route::get('mejorarapida', 'MejorasrapidasController@index')->name('mr.index')
 ->middleware('permission:mr.index');
+Route::get('mejorarapida/finished', 'MejorasrapidasController@terminadas')->name('mr.finished')
+->middleware('permission:mr.finished');
+Route::get('mejorarapida/pagadas', 'MejorasrapidasController@pagadas')->name('mrprocesos.index')
+->middleware('permission:mr.index');
+Route::get('mejorarapida/canceladas', 'MejorasrapidasController@canceladas')->name('mr.destroy')
+->middleware('permission:mr.destroy');
+Route::get('mejorarapidas/procesopago', 'MejorasrapidasController@procesopago')->name('mrprocesos.create')
+->middleware('permission:mrprocesos.create');
+Route::get('mejorarapidas/ejecutarpago', 'MejorasrapidasController@ejecutarpago')->name('mejoras.procesopago')
+->middleware('permission:mrprocesos.create');
+Route::get('mejorarapidas/pago/{gpgo}', 'MejorasrapidasController@mr')->name('mejoras.mrpago')
+->middleware('permission:mrprocesos.create');
+Route::post('mejorarapidas/reporte/', 'MejorasrapidasController@mreport')->name('mejoras.report')
+->middleware('permission:mrprocesos.create');
 Route::POST('mejorarapidas', 'MejorasrapidasController@store')->name('mr.store')
 ->middleware('permission:mr.create');
 Route::get('mejorarapida/create', 'MejorasrapidasController@create')->name('mr.create')
@@ -146,7 +160,15 @@ Route::get('mejorarapidas/print/{mejora}', 'MejorasrapidasController@print')->na
 ->middleware('permission:mr.index');
 Route::get('mejorarapidas/edit/{mejora}', 'MejorasrapidasController@edit')->name('mejoras.edit')
 ->middleware('permission:mr.edit');
+Route::get('mejorarapidas/validar/{mejora}', 'MejorasrapidasController@validar')->name('mejoras.validar')
+->middleware('permission:mr.edit');
+Route::get('mejorarapidas/evaluar/{mejora}', 'MejorasrapidasController@evaluar')->name('mejoras.evaluar')
+->middleware('permission:mr.edit');
+Route::get('mejorarapidas/aterm/{mejora}', 'MejorasrapidasController@aterm')->name('mejoras.aterm')
+->middleware('permission:mr.edit');
 Route::get('mejorarapidas/update', 'MejorasrapidasController@update')->name('mejoras.update')
+->middleware('permission:mr.edit');
+Route::post('mejorarapidas/eval', 'MejorasrapidasController@eval')->name('mr.evaluar')
 ->middleware('permission:mr.edit');
 
 //Propuestas

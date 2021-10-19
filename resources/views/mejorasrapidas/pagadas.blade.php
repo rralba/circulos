@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 <br>
-<h1 class="text-center">Circulos de Eficiencia Nivel 3 en Proceso</h1>
+<h1 class="text-center">Circulos de Eficiencia Nivel 3 Pagados</h1>
 <hr>
 <br>   
     <div class="table-responsive">
@@ -35,11 +35,6 @@
                                 <td width="07px">
                                     <a  href="{{ route('mejoras.print', $mejora->id) }}"
                                         class="btn btn-sm btn-outline-primary fa fa-print" title="Imprimir Mejora Rapida">
-                                    </a>
-                                </td>
-                                <td width="07px">
-                                    <a href="{{ route('mejoras.edit', $mejora->id) }}"
-                                        class="btn btn-sm btn-outline-primary fa fa-pencil" title="Editar Mejora Rapida">
                                     </a>
                                 </td>
                             </tr>

@@ -25,7 +25,7 @@
                </div> 
                 <div class="col-md-2">
                   <label for="registro"><h4 class="p-0 m-0">Registro:</h4></label>
-                  <input type="text" class="form-control" id="registro" name="registro" style="width: 100px;" value="{{ date("Y-m-d") }}" readonly>
+                  <input type="text" class="form-control" id="registroprop" name="registroprop" style="width: 100px;" value="{{ date("Y-m-d") }}" readonly>
                 </div>
               </div>
               <br>

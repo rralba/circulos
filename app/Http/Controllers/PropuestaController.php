@@ -113,7 +113,7 @@ class PropuestaController extends Controller
             $propuesta->identificador = 4;
           }
         }
-          $propuesta->registro = $request->input('registro');
+          $propuesta->registro = $request->input('registroprop');
           $propuesta->direccion = $request->input('direccion');
           $propuesta->subdireccion = $request->input('subdireccion');
           $propuesta->departamento = $request->input('departamento');

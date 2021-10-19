@@ -3,6 +3,12 @@
             this.value = (this.value + '').replace(/[^0-9]/g, '');
         });
 
+        var date = new Date();
+        var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        $(function() {
+          $("#registroprop").val(FormData('yyyy-mm-dd', today));
+        });
+
         $(function() { 
             $(".datepicker").datepicker({
               dateFormat: "yy-mm-dd",
@@ -10,7 +16,8 @@
               autoclose: true,
               defaultDate: "+1w",
               changeMonth: true,
-              numberOfMonths: 2
+              numberOfMonths: 2,
+              minDate: today
             }); 
         }); 
 
@@ -31,6 +38,28 @@
           });
         }); 
 
+          //seccion de ocultar y mostrar contenido en formulario de evaluacion MR
+          $('#sinbenef').hide(); //ocultar mediante id
+          $('#conbenef').hide(); //ocultar mediante id
+          $('#evalsave').hide(); //ocultar mediante id
+
+          $("#inputevalsb").on( "click", function() {
+            $('#sinbenef').show(); //muestro mediante id
+            $('#conbenef').hide(); //muestro mediante id
+            $('#evalsave').show(); //ocultar mediante id
+            $('.requeridon1').prop("required", false);
+            $('.beneficioeval').prop("required", true);
+            $('.requeridon1').val("0");
+          });
+
+          $("#inputevalcb").on( "click", function() {
+            $('#sinbenef').hide(); //muestro mediante id
+            $('#conbenef').show(); //muestro mediante id
+            $('#evalsave').show(); //ocultar mediante id
+            $('.requeridon1').prop("required", true);
+            $('.beneficioeval').prop("required", false);
+          });
+
             //seccion de ocultar y mostrar contenido en formulario de propuestas
 
             $('#filanivel1').hide(); //ocultar mediante id
@@ -38,7 +67,7 @@
             $('#filaper1').hide(); //ocultar mediante id
             $('#filaper2').hide(); //ocultar mediante id
 
-             $("#nivel1").on( "click", function() {
+        $("#nivel1").on( "click", function() {
             $('#filanivel1').show(); //muestro mediante id
             $('#filanivel2').hide(); //muestro mediante id
             $('#filaper2').hide(); //muestro mediante id
@@ -80,16 +109,186 @@
         $("#beneficio_eco").val(value);
     });
 
-
   $("#inicio").on("change", function(){ 
     startDate = $(this).datepicker("getDate"); 
-    $("#final").datepicker("option", "minDate", startDate); 
+    $("#final").datepicker("option", "minDate", startDate);
   }); 
   
   $("#final").on("change", function(){ 
     endDate = $(this).datepicker("getDate"); 
-    $("#inicio").datepicker("option", "maxDate", endDate); 
+    $("#inicio").datepicker("option", "maxDate", endDate);
   }); 
+
+  $(".numaletc").on("click", function(e){
+    document.getElementById("textoc").innerHTML=NumeroALetras(this.value);
+});
+$(".numalets1").on("click", function(e){
+    document.getElementById("textos1").innerHTML=NumeroALetras(this.value);
+});
+$(".numalets2").on("click", function(e){
+    document.getElementById("textos2").innerHTML=NumeroALetras(this.value);
+}); 
+ 
+function Unidades(num){
+ 
+  switch(num)
+  {
+    case 1: return "UN";
+    case 2: return "DOS";
+    case 3: return "TRES";
+    case 4: return "CUATRO";
+    case 5: return "CINCO";
+    case 6: return "SEIS";
+    case 7: return "SIETE";
+    case 8: return "OCHO";
+    case 9: return "NUEVE";
+  }
+ 
+  return "";
+}
+ 
+function Decenas(num){
+ 
+  decena = Math.floor(num/10);
+  unidad = num - (decena * 10);
+ 
+  switch(decena)
+  {
+    case 1:
+      switch(unidad)
+      {
+        case 0: return "DIEZ";
+        case 1: return "ONCE";
+        case 2: return "DOCE";
+        case 3: return "TRECE";
+        case 4: return "CATORCE";
+        case 5: return "QUINCE";
+        default: return "DIECI" + Unidades(unidad);
+      }
+    case 2:
+      switch(unidad)
+      {
+        case 0: return "VEINTE";
+        default: return "VEINTI" + Unidades(unidad);
+      }
+    case 3: return DecenasY("TREINTA", unidad);
+    case 4: return DecenasY("CUARENTA", unidad);
+    case 5: return DecenasY("CINCUENTA", unidad);
+    case 6: return DecenasY("SESENTA", unidad);
+    case 7: return DecenasY("SETENTA", unidad);
+    case 8: return DecenasY("OCHENTA", unidad);
+    case 9: return DecenasY("NOVENTA", unidad);
+    case 0: return Unidades(unidad);
+  }
+}//Unidades()
+ 
+function DecenasY(strSin, numUnidades){
+  if (numUnidades > 0)
+    return strSin + " Y " + Unidades(numUnidades)
+ 
+  return strSin;
+}//DecenasY()
+ 
+function Centenas(num){
+ 
+  centenas = Math.floor(num / 100);
+  decenas = num - (centenas * 100);
+ 
+  switch(centenas)
+  {
+    case 1:
+      if (decenas > 0)
+        return "CIENTO " + Decenas(decenas);
+      return "CIEN";
+    case 2: return "DOSCIENTOS " + Decenas(decenas);
+    case 3: return "TRESCIENTOS " + Decenas(decenas);
+    case 4: return "CUATROCIENTOS " + Decenas(decenas);
+    case 5: return "QUINIENTOS " + Decenas(decenas);
+    case 6: return "SEISCIENTOS " + Decenas(decenas);
+    case 7: return "SETECIENTOS " + Decenas(decenas);
+    case 8: return "OCHOCIENTOS " + Decenas(decenas);
+    case 9: return "NOVECIENTOS " + Decenas(decenas);
+  }
+ 
+  return Decenas(decenas);
+}//Centenas()
+ 
+function Seccion(num, divisor, strSingular, strPlural){
+  cientos = Math.floor(num / divisor)
+  resto = num - (cientos * divisor)
+ 
+  letras = "";
+ 
+  if (cientos > 0)
+    if (cientos > 1)
+      letras = Centenas(cientos) + " " + strPlural;
+    else
+      letras = strSingular;
+ 
+  if (resto > 0)
+    letras += "";
+ 
+  return letras;
+}//Seccion()
+ 
+function Miles(num){
+  divisor = 1000;
+  cientos = Math.floor(num / divisor)
+  resto = num - (cientos * divisor)
+ 
+  strMiles = Seccion(num, divisor, "MIL", "MIL");
+  strCentenas = Centenas(resto);
+ 
+  if(strMiles == "")
+    return strCentenas;
+ 
+  return strMiles + " " + strCentenas;
+ 
+  //return Seccion(num, divisor, "UN MIL", "MIL") + " " + Centenas(resto);
+}//Miles()
+ 
+function Millones(num){
+  divisor = 1000000;
+  cientos = Math.floor(num / divisor)
+  resto = num - (cientos * divisor)
+ 
+  strMillones = Seccion(num, divisor, "UN MILLON", "MILLONES");
+  strMiles = Miles(resto);
+ 
+  if(strMillones == "")
+    return strMiles;
+ 
+  return strMillones + " " + strMiles;
+ 
+  //return Seccion(num, divisor, "UN MILLON", "MILLONES") + " " + Miles(resto);
+}//Millones()
+ 
+function NumeroALetras(num,centavos){
+  var data = {
+    numero: num,
+    enteros: Math.floor(num),
+    centavos: (((Math.round(num * 100)) - (Math.floor(num) * 100))),
+    letrasCentavos: "",
+  };
+  if(centavos == undefined || centavos==false) {
+    data.letrasMonedaPlural="";
+    data.letrasMonedaSingular="";
+  }else{
+    data.letrasMonedaPlural="";
+    data.letrasMonedaSingular="";
+  }
+ 
+  if (data.centavos > 0)
+    data.letrasCentavos = "CON " + NumeroALetras(data.centavos,true);
+ 
+  if(data.enteros == 0)
+    return "CERO " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+  if (data.enteros == 1)
+    return Millones(data.enteros) + " " + data.letrasMonedaSingular + " " + data.letrasCentavos;
+  else
+    return Millones(data.enteros) + " " + data.letrasMonedaPlural + " " + data.letrasCentavos;
+}//NumeroALetras()
+
 });
 
  
@@ -200,6 +399,20 @@ $(function() {
     }
 });
 
+function ellipsis_box(elemento, max_chars)
+{
+limite_text = $(elemento).text();
+if (limite_text.length > max_chars)
+{
+limite = limite_text.substr(0, max_chars)+" ...";
+$(elemento).text(limite);
+}
+}
+$(function()
+{
+ellipsis_box(".limitado", 95);
+});
+
 // Formato de moneda
 
 document.getElementById("currency-field").onblur =function (){    
@@ -208,3 +421,8 @@ document.getElementById("currency-field").onblur =function (){
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
+
+
