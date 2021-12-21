@@ -82,6 +82,7 @@
                             <?php $x=0;?>
                             <?php $tpagoconf = 0; ?>
                             @foreach($mrint as $integrante) 
+                            @if($integrante->nivel == 1)
                             @if((($integrante->cia<>1000) and ($integrante->cia)<>2000))
                             <?php $x=$x+1 ?>
                                 <tr>
@@ -92,6 +93,7 @@
                                     <td width="10%" class="text-right">{{ sprintf('$ %s', number_format(($integrante->ppp),0, '.', ',')) }}</td>
                                 </tr>
                             <?php $tpagoconf = $tpagoconf + $integrante->ppp; ?>
+                            @endif
                             @endif
                             @endforeach   
                         </tbody>
@@ -126,6 +128,7 @@
                             <?php $x=0;?>
                             <?php $tpagoconf = 0; ?>
                             @foreach($mrint as $integrante) 
+                            @if($integrante->nivel == 1)
                             @if(($integrante->cia) == 1000)
                             <?php $x=$x+1 ?>
                                 <tr>
@@ -136,6 +139,7 @@
                                     <td width="10%" class="text-right">{{ sprintf('$ %s', number_format(($integrante->ppp),0, '.', ',')) }}</td>
                                 </tr>
                             <?php $tpagoconf = $tpagoconf + $integrante->ppp; ?>
+                            @endif
                             @endif
                             @endforeach   
                         </tbody>
@@ -170,6 +174,7 @@
                             <?php $x=0;?>
                             <?php $tpagoconf = 0; ?>
                             @foreach($mrint as $integrante) 
+                            @if($integrante->nivel == 1)
                             @if(($integrante->cia) == 2000)
                             <?php $x=$x+1 ?>
                                 <tr>
@@ -180,6 +185,7 @@
                                     <td width="10%" class="text-right">{{ sprintf('$ %s', number_format(($integrante->ppp),0, '.', ',')) }}</td>
                                 </tr>
                             <?php $tpagoconf = $tpagoconf + $integrante->ppp; ?>
+                            @endif
                             @endif
                             @endforeach   
                         </tbody>

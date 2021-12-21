@@ -19,49 +19,52 @@
         </div>
         <br>
         <hr>
-        <div class="row ml-0 mr-0 col-sm-12">
-	        <div class="row col-sm-12 justify-content-end mlp justify-content-center">
-	        	<label style="width: 82%"><p></p></label>
-	        	<label style="width: 4%"><p class="titulos">Folio</p></label>
-	          	<label style="width: 5%" class="bordeline"><p class="lineatexto">{{ $mejora->id }}</p></label>
+        <div class="row">
+	        <div class="row col-sm-12 mlp justify-content-center">
+	        	<label style="width: 80%"><p></p></label>
+	        	<label style="width: 10%"><p class="titulosprint">FOLIO</p></label>
+	          	<label style="width: 10%" class="bordeline"><p class="folio">{{ $mejora->id }}</p></label>
 	        </div>
       	</div>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 10%"><p class="titulos">Asesor</p></label>	
-	        	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ $mejora->asesor }}</p></label>	
-	         	<label style="width: 15%"><p class="titulos">Fecha de Registro</p></label>
-	         	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ \carbon\carbon::parse($mejora->registro)->format('d   F   Y ') }}</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">ASESOR</p></label>	
+	        	<label style="width: 34%" class="bordeline"><p class="lineatexto">{{ $mejora->asesor }}</p></label>	
+	         	<label style="width: 20%"><p class="titulosprint">FECHA DE REGISTRO</p></label>
+	         	<?php $registro = \carbon\carbon::parse($mejora->registro)->formatLocalized('%d   %B   %Y '); ?>
+	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($registro) }}</p></label>
 	        </div>
       	</div>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 10%"><p class="titulos">Dirección</p></label>
-	        	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ $mejora->direccion }}</p></label>	
-	         	<label style="width: 15%"><p class="titulos">Departamento</p></label>
-	         	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ $mejora->departamento }}</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">DIRECCIÓN</p></label>
+	        	<label style="width: 34%" class="bordeline"><p class="lineatexto">{{ $mejora->direccion }}</p></label>	
+	         	<label style="width: 20%"><p class="titulosprint">DEPARTAMENTO</p></label>
+	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ $mejora->departamento }}</p></label>
 	        </div>
       	</div>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 10%"><p class="titulos">Subdirección</p></label>
-	        	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ $mejora->subdireccion }}</p></label>	
-	         	<label style="width: 15%"><p class="titulos">Valor Corporativo</p></label>
-	         	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ $mejora->valor }}</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">SUBDIRECCIÓN</p></label>
+	        	<label style="width: 34%" class="bordeline"><p class="lineatexto">{{ $mejora->subdireccion }}</p></label>	
+	         	<label style="width: 20%"><p class="titulosprint">VALOR CORPORATIVO</p></label>
+	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($mejora->valor) }}</p></label>
 	        </div>
       	</div>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 43%" class="mr-5"><p></p></label>
-	         	<label style="width: 15%"><p class="titulos">Fecha de Inicio</p></label>
-	         	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ \carbon\carbon::parse($mejora->inicio)->format('d   F   Y ') }}</p></label>
+	        	<label style="width: 47%"><p></p></label>
+	         	<label style="width: 20%"><p class="titulosprint">FECHA DE INICIO</p></label>
+	         	<?php $inicio = \carbon\carbon::parse($mejora->inicio)->formatLocalized('%d   %B   %Y '); ?>
+	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($inicio) }}</p></label>
 	        </div>
       	</div>
       	<div class="row">
       		<div class="row col-sm-12 mlp justify-content-center">
-	         	<label style="width: 43%" class="mr-5"><p class="titulos">Desperdicios Lean Manufacturing (Mudas):</p></label>
-	         	<label style="width: 15%"><p class="titulos">Fecha Final</p></label>
-	         	<label style="width: 33%" class="bordeline mr-5"><p class="lineatexto">{{ \carbon\carbon::parse($mejora->final)->format('d   F   Y ') }}</p></label>
+	         	<label style="width: 47%"><p class="titulos ml-5">DESPERDICIOS LEAN MANUFACTURING (MUDAS):</p></label>
+	         	<label style="width: 20%"><p class="titulosprint">FECHA FINAL</p></label>
+	         	<?php $final = \carbon\carbon::parse($mejora->final)->formatLocalized('%d   %B   %Y '); ?>
+	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($final) }}</p></label>
 	    	</div>
       	</div>  
 	  	<br> 
@@ -71,19 +74,19 @@
       			<div class="form-group row col-sm-1"></div>
 	         	<div class="custom-control custom-checkbox checkbox-xl col-sm-3">
 					<input class="custom-control-input" type="checkbox" id="Transportacion" value="Transporacion" disabled>
-					<label class="custom-control-label  p-3" for="Transportacion"><p class="titulos">Transportación</p></label>
+					<label class="custom-control-label  p-3" for="Transportacion"><p class="lineatexto">TRANSPORTACIÓN</p></label>
 				</div>
 				<div class="custom-control custom-checkbox checkbox-xl col-sm-3">
 					<input class="custom-control-input" type="checkbox" id="Sobreprocesamiento" value="Sobreprocesamiento" disabled>
-					<label class="custom-control-label  p-3" for="Sobreprocesamiento"><p class="titulos">Sobreprocesamiento</p></label>
+					<label class="custom-control-label  p-3" for="Sobreprocesamiento"><p class="lineatexto">SOBREPROCESAMIENTO</p></label>
 				</div>
 				<div class="custom-control custom-checkbox checkbox-xl col-sm-2">
 					<input class="custom-control-input" type="checkbox" id="Movimiento" value="Movimiento" disabled>
-					<label class="custom-control-label  p-3" for="Movimiento"><p class="titulos">Movimiento</p></label>
+					<label class="custom-control-label  p-3" for="Movimiento"><p class="lineatexto">MOVIMIENTO</p></label>
 				</div>
 				<div class="custom-control custom-checkbox checkbox-xl col-sm-2">
 					<input class="custom-control-input" type="checkbox" id="Espera" value="Espera" disabled>
-					<label class="custom-control-label  p-3" for="Espera"><p class="titulos">Espera</p></label>
+					<label class="custom-control-label  p-3" for="Espera"><p class="lineatexto">ESPERA</p></label>
 				</div>
 				<div class="form-group row col-sm-1"></div>
       		</div>
@@ -91,44 +94,45 @@
 	      			<div class="form-group row col-sm-1"></div>
 		         	<div class="custom-control custom-checkbox checkbox-xl col-sm-3">
 						<input class="custom-control-input" type="checkbox" id="Inventario" value="Inventario" disabled>
-						<label class="custom-control-label  p-3" for="Inventario"><p class="titulos">Inventario</p></label>
+						<label class="custom-control-label  p-3" for="Inventario"><p class="lineatexto">INVENTARIO</p></label>
 					</div>
 					<div class="custom-control custom-checkbox checkbox-xl col-sm-3">
 						<input class="custom-control-input" type="checkbox" id="Sobreproduccion" value="Sobreproduccion" disabled>
-						<label class="custom-control-label  p-3" for="Sobreproduccion"><p class="titulos">Sobreproducción</p></label>
+						<label class="custom-control-label  p-3" for="Sobreproduccion"><p class="lineatexto">SOBREPRODUCCIÓN</p></label>
 					</div>
 					<div class="custom-control custom-checkbox checkbox-xl col-sm-2">
 						<input class="custom-control-input" type="checkbox" id="Defectos" value="Defectos" disabled>
-						<label class="custom-control-label  p-3" for="Defectos"><p class="titulos">Defectos</p></label>
+						<label class="custom-control-label  p-3" for="Defectos"><p class="lineatexto">DEFECTOS</p></label>
 					</div>
 					<div class="custom-control custom-checkbox checkbox-xl col-sm-2">
 						<input class="custom-control-input" type="checkbox" id="Talentos" value="Talentos" disabled>
-						<label class="custom-control-label  p-3" for="Talentos"><p class="titulos">Talentos</p></label>
+						<label class="custom-control-label  p-3" for="Talentos"><p class="lineatexto">TALENTOS</p></label>
 					</div>
 					<div class="form-group row col-sm-1"></div>
 	      	</div>
       		<div class="row"><div class="form-group row col-sm-1"></div>
 	         	<div class="custom-control custom-checkbox checkbox-xl col-sm-3">
 					<input class="custom-control-input" type="checkbox" id="Metodo de Trabajo" value="Metodo de Trabajo" disabled>
-					<label class="custom-control-label  p-3" for="Metodo de Trabajo"><p class="titulos">Método de Trabajo</p></label>
+					<label class="custom-control-label  p-3" for="Metodo de Trabajo"><p class="lineatexto">MÉTODO DE TRABAJO</p></label>
 				</div>
 				<div class="form-group row col-sm-8">
-					<label for="inputEmail4" class=" p-3"><p class="titulos">Otros Conceptos:</p></label>
-					<label for="inputEmail4" class=" m-0 pl-0 pt-3"><p class="titulos">{{ $mejora->desperdicio }}</p></label>
+					<label for="inputEmail4" class=" p-3"><p class="lineatexto">OTROS CONCEPTOS:</p></label>
+					<label for="inputEmail4" class=" m-0 pl-0 pt-3"><p class="lineatexto">{{ $mejora->desperdicio }}</p></label>
 				</div>
       		</div>
       	</div>
       	<br>
       	<?php $x=0;?>
       	@foreach($mejora->empleadoss as $integrante)
+      	@if($integrante->nivel == 1)
       	<?php $x=$x+1 ?>
       	@if((($integrante->pivot->empleado_id)==0))
       	@if($x == 1)
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label class="mr-5" style="width: 5%"><p class="titulos">Autor</p></label>
-	        	<label style="width: 38%" class="bordeline mr-5"><p class="lineatexto"></p></label>
-	         	<label style="width: 5%"><p class="titulos">Ficha</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">AUTOR</p></label>
+	        	<label style="width: 36%" class="bordeline mr-5"><p class="lineatexto"></p></label>
+	         	<label style="width: 5%"><p class="titulos">FICHA</p></label>
 	         	<label style="width: 8%" class="bordeline"><p class="lineatexto"></p></label>
 	        	@if((($integrante->cia)==1000 or ($integrante->cia)==2000))
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">S</p></label>
@@ -137,7 +141,7 @@
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center">S</p></label>
 	         		<label class="mr-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">NS</p></label>
 	         	@endif
-	         	<label style="width: 3%"><p class="titulos">Cia.</p></label>
+	         	<label style="width: 5%"><p class="titulos">CIA.</p></label>
 	         	@if((($integrante->cia)==1000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto"></p></label>
 	         	@endif
@@ -155,9 +159,9 @@
       	@else
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label class="mr-5"  style="width: 5%"><p class="titulos">Integrante</p></label>
-	        	<label style="width: 38%" class="bordeline mr-5"><p class="lineatexto"></p></label>
-	         	<label style="width: 5%"><p class="titulos">Ficha</p></label>
+	        	<label  style="width:13%"><p class="titulosprint">INTEGRANTE</p></label>
+	        	<label style="width: 36%" class="bordeline mr-5"><p class="lineatexto"></p></label>
+	         	<label style="width: 5%"><p class="titulos">FICHA</p></label>
 	         	<label style="width: 8%" class="bordeline"><p class="lineatexto"></p></label>
 	        	@if((($integrante->cia)==1000 or ($integrante->cia)==2000))
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">S</p></label>
@@ -166,7 +170,7 @@
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center">S</p></label>
 	         		<label class="mr-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">NS</p></label>
 	         	@endif
-	         	<label style="width: 3%"><p class="titulos">Cia.</p></label>
+	         	<label style="width: 5%"><p class="titulos">CIA.</p></label>
 	         	@if((($integrante->cia)==1000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto"></p></label>
 	         	@endif
@@ -186,9 +190,9 @@
       	@if($x == 1)
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label class="mr-5" style="width: 5%"><p class="titulos">Autor</p></label>
-	        	<label style="width: 38%" class="bordeline mr-5"><p class="lineatexto">{{ $integrante->nombre }}</p></label>	
-	         	<label style="width: 5%"><p class="titulos">Ficha</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">AUTOR</p></label>
+	        	<label style="width: 36%" class="bordeline mr-5"><p class="lineatexto">{{ $integrante->nombre }}</p></label>	
+	         	<label style="width: 5%"><p class="titulos">FICHA</p></label>
 	         	<label style="width: 8%" class="bordeline"><p class="lineatexto">{{ $integrante->pivot->empleado_id }}</p></label>
 	        	@if((($integrante->cia)==1000 or ($integrante->cia)==2000))
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">S</p></label>
@@ -197,7 +201,7 @@
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center">S</p></label>
 	         		<label class="mr-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">NS</p></label>
 	         	@endif
-	         	<label style="width: 3%"><p class="titulos">Cia.</p></label>
+	         	<label style="width: 5%"><p class="titulos">CIA.</p></label>
 	         	@if((($integrante->cia)==1000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">AHMSA SIDERURGICA 1</p></label>
 	         	@endif
@@ -218,9 +222,9 @@
       	@else
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label class="mr-5" style="width: 5%"><p class="titulos">Integrante</p></label>
-	        	<label style="width: 38%" class="bordeline mr-5"><p class="lineatexto">{{ $integrante->nombre }}</p></label>	
-	         	<label style="width: 5%"><p class="titulos">Ficha</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">INTEGRANTE</p></label>
+	        	<label style="width: 36%" class="bordeline mr-5"><p class="lineatexto">{{ $integrante->nombre }}</p></label>	
+	         	<label style="width: 5%"><p class="titulos">FICHA</p></label>
 	         	<label style="width: 8%" class="bordeline"><p class="lineatexto">{{ $integrante->pivot->empleado_id }}</p></label>
 	        	@if((($integrante->cia)==1000 or ($integrante->cia)==2000))
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">S</p></label>
@@ -229,7 +233,7 @@
 	         		<label class="ml-2" style="width: 2%"><p class="titulos text-center">S</p></label>
 	         		<label class="mr-2" style="width: 2%"><p class="titulos text-center" style="background-color: gray">NS</p></label>
 	         	@endif
-	         	<label style="width: 3%"><p class="titulos">Cia.</p></label>
+	         	<label style="width: 5%"><p class="titulos">CIA.</p></label>
 	         	@if((($integrante->cia)==1000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">AHMSA SIDERURGICA 1</p></label>
 	         	@endif
@@ -247,19 +251,20 @@
 	         	@endif
 	        </div>
       	</div>
+      	@endif
       	@endif
       	@endif
       	@endforeach
       	@for($x = $x+1; $x < 6; $x++)
         <div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label class="mr-5" style="width: 5%"><p class="titulos">Integrante</p></label>
-	        	<label style="width: 38%" class="bordeline mr-5"><p class="lineatexto"></p></label>	
-	         	<label style="width: 5%"><p class="titulos">Ficha</p></label>
+	        	<label style="width: 13%"><p class="titulosprint">INTEGRANTE</p></label>
+	        	<label style="width: 36%" class="bordeline mr-5"><p class="lineatexto"></p></label>	
+	         	<label style="width: 5%"><p class="titulos">FICHA</p></label>
 	         	<label style="width: 8%" class="bordeline"><p class="lineatexto"></p></label>
 	         	<label class="ml-2" style="width: 2%"><p class="titulos text-center">S</p></label>
 	         	<label class="mr-2" style="width: 2%"><p class="titulos text-center">NS</p></label>
-	         	<label style="width: 3%"><p class="titulos">Cia.</p></label>
+	         	<label style="width: 5%"><p class="titulos">CIA.</p></label>
 	         	<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto"></p></label>
 	        </div>
       	</div>
@@ -269,21 +274,21 @@
       	<br>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 14%"><p class="titulos">¿Qué debe mejorarse?</p></label>
+	        	<label style="width: 14%"><p class="titulos">QUÉ DEBE MEJORARSE?</p></label>
 	        	<label style="width: 80%"><p class="lineadesc">{{ $mejora->amejorar }}</p></label>
 	        </div>
       	</div>
       	<br>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 14%"><p class="titulos">Objetivo</p></label>
+	        	<label style="width: 14%"><p class="titulos">OBJETIVO</p></label>
 	        	<label style="width: 80%"><p class="lineadesc">{{ $mejora->objetivo }}</p></label>
 	        </div>
       	</div>
       	<br>
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
-	        	<label style="width: 14%"><p class="titulos">Solución</p></label>
+	        	<label style="width: 14%"><p class="titulos">SOLUCIÓN</p></label>
 	        	<label style="width: 80%"><p class="lineadesc">{{ $mejora->solucion }}</p></label>
 	        </div>
       	</div>
@@ -294,15 +299,15 @@
       	    	<div class="col-sm-6 text-center">
       	    		<hr class="m-1 p-1">
       	    		<label class="m-0 p-0" id="idjefe"><i>{{ $mejora->id_autoriza }}</i></label>
-      	    		<label class="m-0 p-0"><p class="notas">{{ $mejora->jefes->nombre }}</p></label> <br>
-      	    		<label class="m-0 p-0"><p class="notas">{{ $mejora->jefes->posicion }}</p></label>
+      	    		<label class="m-0 p-0"><p class="titulos">{{ $mejora->jefes->nombre }}</p></label> <br>
+      	    		<label class="m-0 p-0"><p class="titulos">{{ $mejora->jefes->posicion }}</p></label>
       	    	</div>
       	    	<div class="col-sm-3"></div>
       		</div>
       		<div class="row">
       	    	<div class="col-sm-10"></div>
       	    	<div class="col-sm-2 text-center">
-      	    		<label><p class="notas">RHC-02-F-03</p></label>
+      	    		<label><p class="titulos">RHC-02-F-03</p></label>
       	    	</div>
       		</div>
       	</div> 
@@ -323,7 +328,7 @@
     <div class="row ml-0 mr-0">
 	    <div class="row ml-0 mr-0 col-md-12 justify-content-end">
 			<label class="mr-2"><p class="titulos">Folio</p></label>
-			<label class="etiqueta" style="width: 55px;"><p class="lineatexto">{{ $mejora->id }}</p></label>
+			<label class="etiqueta" style="width: 55px;"><p class="folio">{{ $mejora->id }}</p></label>
 		</div>
 	</div>
 	<div class="borde bs p-3">
@@ -350,7 +355,7 @@
 	        </div>
 	        <div class="row col-sm-6">
 	          	<div class="col-sm-4"><p class="titulos">Fecha de Registro:</p></div>
-	          	<div class="bordeline col-sm-7"><p class="lineatexto">{{\carbon\carbon::parse($mejora->registro)->format('d-M-Y')}}</p></div>
+	          	<div class="bordeline col-sm-7"><p class="lineatexto">{{\carbon\carbon::parse($mejora->registro)->formatLocalized('%d   %B   %Y ')}}</p></div>
 	        </div>
         </div>
         <div class="row ml-0 mr-0 col-sm-12">
@@ -364,6 +369,7 @@
 	        <?php $c=0;?>
 	        <?php $s=0;?>
 	      	@foreach($mejora->empleadoss as $integrante)
+	      	@if($integrante->nivel == 1)
 	      	<?php $x=$x+1 ?>
 	      	@if((($integrante->pivot->empleado_id)==0))
 	      	@if($x == 1)
@@ -498,6 +504,7 @@
 	        </div>
 	        <div class="col-sm-1"></div>
       	</div>
+      	@endif
       	@endif
       	@endif
       	@endforeach

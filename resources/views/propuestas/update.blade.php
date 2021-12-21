@@ -76,14 +76,14 @@
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Asesor:</h4></label>
             <select type="text" class="form-control" id="asesor" name="asesor" required>
                     <option value=""></option>
-                    <option value="Ing. Adriana Reyes">Ing. Adriana Reyes</option>
-                    <option value="Ing. Isabela San Miguel">Ing. Isabela San Miguel</option>
-                    <option value="Ing. Edith Ramos">Ing. Edith Ramos</option>
-                    <option value="Ing. Orlando Guerra">Ing. Orlando Guerra</option>
-                    <option value="Ing. Sergio Camacho">Ing. Sergio Camacho</option>
-                    <option value="Ing. Gerardo Rodriguez">Ing. Gerardo Rodriguez</option>
-                    <option value="Ing. Patricia Alvarez">Ing. Patricia Alvarez</option>
-                    <option value="Ing. Oscar Rios">Ing. Oscar Rios</option>
+                    <option value="ING. ADRIANA REYES">ING. ADRIANA REYES</option>
+                    <option value="ING. ISABELA SAN MIGUEL">ING. ISABELA SAN MIGUEL</option>
+                    <option value="ING. EDITH RAMOS">ING. EDITH RAMOS</option>
+                    <option value="ING. ORLANDO GUERRA">ING. ORLANDO GUERRA</option>
+                    <option value="ING. SERGIO CAMACHO">ING. SERGIO CAMACHO</option>
+                    <option value="ING. GERARDO RODRIGUEZ">ING. GERARDO RODRIGUEZ</option>
+                    <option value="ING. PATRICIA ALVAREZ">ING. PATRICIA ALVAREZ</option>
+                    <option value="ING. OSCAR RIOS">ING. OSCAR RIOS</option>
                   </select>
           </div>
         </div>

@@ -168,6 +168,7 @@
         </div>
       <?php $x=0;?>
       @foreach($mejora->empleadoss as $integrante)
+      @if($integrante->nivel == 1)
         <?php $x=$x+1 ?>
         <div class="row">
           <div class="form-group col-md-2">
@@ -190,6 +191,7 @@
             <a class="btn btn-lg btn-outline-danger fa fa-trash" id="limpiar{{$x}}"></a>
           </div>  
         </div>
+        @endif
       @endforeach
       @for($x = $x+1; $x < 6; $x++)
         <div class="row">

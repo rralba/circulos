@@ -52,7 +52,7 @@ class MejorasrapidasController extends Controller
         $mejoras = DB::table('mejoras')
         ->where('status', '=', '4')->paginate(20);
         $mrint = db::table('mejoras')
-        ->select('mejoras.id','mejoras.ppp','mejoras.status','integrants.empleado_id','empleados.nombre','empleados.cia')
+        ->select('mejoras.id','mejoras.ppp','mejoras.status','integrants.empleado_id','empleados.nombre','empleados.cia','empleados.nivel')
         ->join('integrants','mejoras.id','=','integrants.mejora_id')
         ->join('empleados','integrants.empleado_id','=','empleados.id')
         ->where('mejoras.status','=','4')
@@ -116,7 +116,7 @@ class MejorasrapidasController extends Controller
                 $mp->save();
         }
         return redirect()->route('mejoras.mrpago', [$gpgo]);
-        dd($mp);
+        //dd($mp);
     }
 
     public function mr($gpgo)
@@ -131,14 +131,18 @@ class MejorasrapidasController extends Controller
         ->groupBy('mejoras.id')
         ->get();
         $mrint = DB::table('mejoras')
-        ->select('mejoras.id','mejoras.pers1','mejoras.pers2','mejoras.perco','mejoras.ppp','mejoras.gpagos','mejoras.rcr','mejoras.mes_terminacion','integrants.empleado_id','empleados.nombre','empleados.cia')
+        ->select('mejoras.id','mejoras.pers1','mejoras.pers2','mejoras.perco','mejoras.ppp','mejoras.gpagos','mejoras.rcr','mejoras.mes_terminacion','integrants.empleado_id','empleados.nombre','empleados.cia','empleados.nivel')
         ->join('integrants','mejoras.id','=','integrants.mejora_id')
         ->join('empleados','integrants.empleado_id','=','empleados.id')
         ->where('mejoras.gpagos','=', $gpgo)
         ->where('integrants.empleado_id','>','0')
         ->orderBY('mejoras.rcr','asc')
         ->get();
-        return view('mejorasrapidas.pagos', compact('mrpago','mrint'));
+        foreach ($mrint as $intep) {
+            $intep;
+        }
+        //return view('mejorasrapidas.pagos', compact('mrpago','mrint'));
+        dd($mrint);
     }
 
     public function mreport(Request $request)
@@ -512,6 +516,6 @@ class MejorasrapidasController extends Controller
             }
             $eval->save();
             return redirect()->route('mr.finished');
-        //dd($request->all());
+        //dd($eval);
     }        
 }

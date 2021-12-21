@@ -46,17 +46,33 @@ option{
   z-index: -999;
 }
 .lineatexto{
+  font-family: arial;
   text-align: center;
   font-size: 18px;
 }
 .lineadesc{
+  font-family: arial;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
 }
 .titulos{
+  font-family: arial;
   font-weight: bold;
   font-size: 18px;
   text-align: left;
+}
+.titulosprint{
+  font-family: arial;
+  font-weight: bold;
+  font-size: 17px;
+  text-align: right;
+  margin-right: 7px;
+}
+.folio{
+  font-family: arial;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }
 .datosmr{
   text-align: left: ;
@@ -71,6 +87,7 @@ option{
 }
 
 .mudas{
+  font-family: arial;
   font-size: 18px;
   text-align: left;
 }
@@ -302,18 +319,9 @@ option{
   display: block;
   page-break-before:always;  
 }
-
-.evaluacion .lineatexto{
-  text-align: center;
-  font-size: 13px;
-}
-.imprime .lineatexto{
-  text-align: center;
-  font-size: 14px;
-}
 .evaluacion .titulos{
   font-weight: bold;
-  font-size: 13px;
+  font-size: 17px;
 }
 .mudas{
   font-size: 20px;
@@ -325,7 +333,7 @@ option{
 }
 .lineadesc{
   text-align: left;
-  font-size: 20px;
+  font-size: 16px;
 }
 .titulos{
   font-weight: bold;

@@ -69,10 +69,6 @@ class ProyectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('proyects.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -378,7 +374,7 @@ class ProyectController extends Controller
         $folio = $request->folio;
         $nproy = db::table('proyects')
             ->select('beneficios.proyect_id','proyects.proyecto','proyects.nivel','proyects.desc_proy','beneficios.id','beneficios.beneficio','beneficios.status','integrants.empleado_id','integrants.rol','integrants.pago','empleados.nombre','empleados.posicion',
-            'empleados.depto','beneficios.fecha_gen','beneficios.num_pago','integrants.pago','empleados.cia','descuentos.descuento','descuentos.beneficio_id','descuentos.sap_id')
+            'empleados.depto','empleados.nivel as relab','beneficios.fecha_gen','beneficios.num_pago','integrants.pago','empleados.cia','descuentos.descuento','descuentos.beneficio_id','descuentos.sap_id')
             ->join('beneficios', 'proyects.id', '=', 'beneficios.proyect_id')
             ->join('integrants', 'beneficios.proyect_id', '=', 'integrants.proyect_id')
             ->join('empleados', 'integrants.empleado_id', '=', 'empleados.id')
@@ -388,6 +384,7 @@ class ProyectController extends Controller
             ->where('proyects.proy_status', '=', '3')
             ->where('beneficios.fecha_gen', '=', $mes1)
             ->where('beneficios.status', '=', '0')
+            ->where('empleados.nivel', '=', '1')
             ->get();
             if ($nproy->isEmpty())
             {
@@ -416,7 +413,7 @@ class ProyectController extends Controller
                            $posicion = $x->posicion;
                            $depto = $x->depto;
                            $fecha_gen = $x->fecha_gen;
-                           //$num_pago = $npago;
+                           $relab = $x->relab;
                            $cia = $x->cia;
                            $descuento = $x->descuento;
                        }
@@ -437,7 +434,7 @@ class ProyectController extends Controller
                         $posicion = $x->posicion;
                         $depto = $x->depto;
                         $fecha_gen = $x->fecha_gen;
-                        //$num_pago = $npago;
+                        $relab = $x->relab;
                         $cia = $x->cia;
                         $descuento = $x->descuento;
                        }
@@ -458,7 +455,7 @@ class ProyectController extends Controller
                         $posicion = $x->posicion;
                         $depto = $x->depto;
                         $fecha_gen = $x->fecha_gen;
-                        //$num_pago = $npago;
+                        $relab = $x->relab;
                         $cia = $x->cia;
                         $descuento = $x->descuento;
                        }
@@ -479,7 +476,7 @@ class ProyectController extends Controller
                            $posicion = $x->posicion;
                            $depto = $x->depto;
                            $fecha_gen = $x->fecha_gen;
-                           //$num_pago = $npago;
+                           $relab = $x->relab;
                            $cia = $x->cia;
                            $descuento = $x->descuento;
                        }
@@ -516,7 +513,7 @@ class ProyectController extends Controller
                            $posicion = $x->posicion;
                            $depto = $x->depto;
                            $fecha_gen = $x->fecha_gen;
-                           //$num_pago = $npago;
+                           $relab = $x->relab;
                            $cia = $x->cia;
                            $descuento = $x->descuento;
                        }
@@ -537,7 +534,7 @@ class ProyectController extends Controller
                         $posicion = $x->posicion;
                         $depto = $x->depto;
                         $fecha_gen = $x->fecha_gen;
-                        //$num_pago = $npago;
+                        $relab = $x->relab;
                         $cia = $x->cia;
                         $descuento = $x->descuento;
                        }
@@ -558,7 +555,7 @@ class ProyectController extends Controller
                         $posicion = $x->posicion;
                         $depto = $x->depto;
                         $fecha_gen = $x->fecha_gen;
-                        //$num_pago = $npago;
+                        $relab = $x->relab;
                         $cia = $x->cia;
                         $descuento = $x->descuento;
                        }
@@ -579,7 +576,7 @@ class ProyectController extends Controller
                            $posicion = $x->posicion;
                            $depto = $x->depto;
                            $fecha_gen = $x->fecha_gen;
-                           //$num_pago = $npago;
+                           $relab = $x->relab;
                            $cia = $x->cia;
                            $descuento = $x->descuento;
                        }
@@ -601,7 +598,7 @@ class ProyectController extends Controller
                         ->count();
                         $npago = $npago + 1;
                     $num_pago = $npago;
-                    $datafin[] = array("beneficio"=>$beneficio,"proyecto"=>$proyecto,"proyect_id"=>$proyect_id,"nivel"=>$nivel,"desc_proy"=>$desc_proy,"id"=>$id,"status"=>$status,"empleado_id"=>$empleado_id,"rol"=>$rol,"pago"=>$pago,"nombre"=>$nombre,"posicion"=>$posicion,"depto"=>$depto,"fecha_gen"=>$fecha_gen,"num_pago"=>$num_pago,"cia"=>$cia,"descuento"=>$descuento); 
+                    $datafin[] = array("beneficio"=>$beneficio,"proyecto"=>$proyecto,"proyect_id"=>$proyect_id,"nivel"=>$nivel,"desc_proy"=>$desc_proy,"id"=>$id,"status"=>$status,"empleado_id"=>$empleado_id,"rol"=>$rol,"pago"=>$pago,"nombre"=>$nombre,"posicion"=>$posicion,"depto"=>$depto,"fecha_gen"=>$fecha_gen,"num_pago"=>$num_pago,"relab"=>$relab,"cia"=>$cia,"descuento"=>$descuento); 
                     $datafin = array_sort($datafin, 'empleado_id', SORT_DESC);
                     $datafin = array_sort($datafin, 'beneficio', SORT_DESC);   
                 }
@@ -733,6 +730,7 @@ class ProyectController extends Controller
             ->select('reconocimientos.empleado','reconocimientos.previo','reconocimientos.pago','reconocimientos.id','beneficios.num_pago','beneficios.foliopago','empleados.nombre','empleados.posicion','empleados.depto','empleados.cia','proyects.proyecto')
             ->where('beneficios.foliopago', '=', $fol)
             ->where('integrants.pago', '=', '1')
+            ->whereNotNull('reconocimientos.empleado')
             ->orderBy('proyecto', 'asc')
             ->orderBy('pago', 'des')
             ->groupBy('id')
@@ -753,6 +751,7 @@ class ProyectController extends Controller
                 })
             ->select('reconocimientos.empleado','reconocimientos.previo','reconocimientos.pago','reconocimientos.id','reconocimientos.ajuste','beneficios.num_pago','beneficios.foliopago','empleados.nombre','empleados.posicion','empleados.depto','empleados.cia','proyects.proyecto')
             ->where('beneficios.foliopago', '=', $fol)
+            ->whereNotNull('reconocimientos.empleado')
             ->where('integrants.pago', '=', '1')
             ->orderBy('proyecto', 'asc')
             ->orderBy('pago', 'des')

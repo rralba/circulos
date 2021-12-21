@@ -240,7 +240,7 @@ class PropuestaController extends Controller
       if($search == ''){
          $employees = empleado::orderby('nombre','asc')->select('id','nombre','posicion')->limit(5)->get();
       }else{
-         $employees = empleado::orderby('nombre','asc')->select('id','nombre','posicion','depto','cia','direccion')->where('nombre', 'like', '%' .$search . '%')->limit(20)->get();
+         $employees = empleado::orderby('nombre','asc')->select('id','nombre','posicion','depto','cia','direccion')->where('nombre', 'like', '%' .$search . '%')->where('nivel', '=', 1)->limit(20)->get();
       }
 
       $response = array();

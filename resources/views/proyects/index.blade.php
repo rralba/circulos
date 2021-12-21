@@ -5,12 +5,6 @@
 <br>
 <h1 align="center">Proyectos Activos, Nivel 1 y 2</h1>
 <br>
-    @can('proyects.create')
-        <a href="{{ route('proyects.create') }}" 
-        class="btn btn-sm btn-outline-primary float-right fa fa-file-o" title="Agregar Proyecto">
-        </a>
-    @endcan
-<br>
 <br>
 <div class="table-responsive">
    <table class="table table-striped table-hover table-bordered">

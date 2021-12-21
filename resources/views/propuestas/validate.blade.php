@@ -85,41 +85,41 @@
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Valor Corporativo:</h4></label>
             <select type="text" class="form-control" id="valor" name="valor">
                 <option value=""></option>
-                <option value="Calidad">Calidad</option>
-                <option value="Costos">Costos</option>
-                <option value="Cuidado al Medio Ambiente">Cuidado al Medio Ambiente</option>
-                <option value="Medio Ambiente">Medio Ambiente</option>
-                <option value="Método de Trabajo">Método de Trabajo</option>
-                <option value="Productividad">Productividad</option>
-                <option value="productividad y Calidad">productividad y Calidad</option>
-                <option value="Productividad y Costos">Productividad y Costos</option>
-                <option value="Productividad, Calidad y Costos">Productividad, Calidad y Costos</option>
-                <option value="Seguridad">Seguridad</option>
+                <option value="CALIDAD">CALIDAD</option>
+                <option value="COSTOS">COSTOS</option>
+                <option value="CUIDADO AL MEDIO AMBIENTE">CUIDADO AL MEDIO AMBIENTE</option>
+                <option value="MEDIO AMBIENTE">MEDIO AMBIENTE</option>
+                <option value="METODO DE TRABAJO">MÉTODO DE TRABAJO</option>
+                <option value="PRODUCTIVIDAD">PRODUCTIVIDAD</option>
+                <option value="PRODUCTIVIDAD Y CALIDAD">PRODUCTIVIDAD Y CALIDAD</option>
+                <option value="PRODUCTIVIDAD Y COSTOS">PRODUCTIVIDAD Y COSTOS</option>
+                <option value="PRODUCTIVIDAD, CALIDAD Y COSTOS">PRODUCTIVIDAD, CALIDAD Y COSTOS</option>
+                <option value="SEGURIDAD">SEGURIDAD</option>
               </select>
           </div>
           <div class=" form-group col-md-4" id="desperdiciovalid">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Desperdicios Lean Manufacturing:</h4></label>
             <select type="text" style="width: 70%;" class="form-control" id="desperdicio" name="desperdicio">
                 <option value=""></option>
-                <option value="Ahorro de Energia">Ahorro de Energia</option>
-                <option value="Ahorro de Suministros">Ahorro de Suministros</option>
-                <option value="Consumo de Refacciones">Consumo de Refacciones</option>
-                <option value="Costos">Costos</option>
-                <option value="Defectos">Defectos</option>
-                <option value="Demoras">Demoras</option>
-                <option value="Demoras y Accidentes">Demoras y Accidentes</option>
-                <option value="Desperdicio de Agua">Desperdicio de Agua</option>
-                <option value="Disponibilidad de Equipos">Disponibilidad de Equipos</option>
-                <option value="Espera">Espera</option>
-                <option value="Inventario">Inventario</option>
-                <option value="Medio Ambiente">Medio Ambiente</option>
-                <option value="Metodo de Trabajo">Método de Trabajo</option>
-                <option value="Movimiento">Movimiento</option>
-                <option value="Productividad">Productividad</option>
-                <option value="Sobreprocesamiento">Sobreprocesamiento</option>
-                <option value="Sobreproduccion">Sobreproduccion</option>
-                <option value="Talentos">Talentos</option>
-                <option value="Transporacion">Transporación</option>
+                <option value="AHORRO DE ENERGIA">AHORRO DE ENERGIA</option>
+                <option value="AHORRO DE SUMINISTROS">AHORRO DE SUMINISTROS</option>
+                <option value="CONSUMO DE REFACCIONES">CONSUMO DE REFACCIONES</option>
+                <option value="COSTOS">COSTOS</option>
+                <option value="DEFECTOS">DEFECTOS</option>
+                <option value="DEMORAS">DEMORAS</option>
+                <option value="DEMORAS Y ACCIDENTES">DEMORAS Y ACCIDENTES</option>
+                <option value="DESPERDICIO DE AGUA">DESPERDICIO DE AGUA</option>
+                <option value="DISPONIBILIDAD DE EQUIPO">DISPONIBILIDAD DE EQUIPO</option>
+                <option value="ESPERA">ESPERA</option>
+                <option value="INVENTARIO">INVENTARIO</option>
+                <option value="MEDIO AMBIENTE">MEDIO AMBIENTE</option>
+                <option value="METODO DE TRABAJO">MÉTODO DE TRABAJO</option>
+                <option value="MOVIMIENTO">MOVIMIENTO</option>
+                <option value="PRODUCTIVIDAD">PRODUCTIVIDAD</option>
+                <option value="SOBREPROCESAMIENTO">SOBREPROCESAMIENTO</option>
+                <option value="SOBREPRODUCCION">SOBREPRODUCCION</option>
+                <option value="TALENTOS">TALENTOS</option>
+                <option value="TRANSPORTACION">TRANSPORTACIÓN</option>
               </select>
           </div>
         </div>

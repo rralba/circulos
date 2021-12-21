@@ -62,8 +62,6 @@ Route::get('proyects', 'ProyectController@index')->name('proyects.index')
 ->middleware('permission:proyects.index');
 Route::get('proyects_finished', 'ProyectController@terminado')->name('proyects.finished')
 ->middleware('permission:proyects.finished');
-Route::get('proyects/create', 'ProyectController@create')->name('proyects.create')
-->middleware('permission:proyects.create');
 Route::put('proyects/{proyect}', 'ProyectController@update')->name('proyects.update')
 ->middleware('permission:proyects.edit');
 Route::get('proyects/{proyect}', 'ProyectController@show')->name('proyects.show')

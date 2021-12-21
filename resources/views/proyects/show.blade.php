@@ -118,7 +118,8 @@
                                 </tr>
                             </thead>
                         <tbody>  
-                            @foreach($proyect->empleados as $integrante) 
+                            @foreach($proyect->empleados as $integrante)
+                                @if(($integrante->nivel) == 1)
                                 <tr>
                                     <td>{{ $integrante->id }}</td>
                                     <td>{{ $integrante->nombre }}</td>
@@ -129,6 +130,7 @@
                                     <td>{{ $integrante->direccion }}</td>
                                     <td>{{ $integrante->cia }}</td> 
                                 </tr>
+                                @endif
                             @endforeach
                         </tbody>
                         </table>

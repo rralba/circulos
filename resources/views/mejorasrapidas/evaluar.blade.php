@@ -1,4 +1,4 @@
-@extends('layouts.appm')
+	@extends('layouts.appm')
 
 @section('content')
 
@@ -53,6 +53,7 @@
         $s2=0;
         ?>
       @foreach($mejora->empleadoss as $integrante)
+      @if($integrante->nivel == 1)
       	<?php $x=$x+1; ?>
       	@if((($integrante->id)==0))
       	@if($x == 1)
@@ -195,6 +196,7 @@
 	        </div>
 	        <div class="col-sm-1"></div>
       </div>
+      @endif
       @endif
       @endif
       @endforeach
