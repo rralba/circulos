@@ -62,19 +62,18 @@ Route::get('proyects', 'ProyectController@index')->name('proyects.index')
 ->middleware('permission:proyects.index');
 Route::get('proyects_finished', 'ProyectController@terminado')->name('proyects.finished')
 ->middleware('permission:proyects.finished');
-Route::put('proyects/{proyect}', 'ProyectController@update')->name('proyects.update')
+Route::post('proyects/update', 'ProyectController@update')->name('proyects.update')
 ->middleware('permission:proyects.edit');
 Route::get('proyects/{proyect}', 'ProyectController@show')->name('proyects.show')
 ->middleware('permission:proyects.show');
-Route::get('proyects/{proyect}/showmaster', 'ProyectController@showmaster')->name('proyects.showmaster')
+Route::get('proyects/registro/{proyect}', 'ProyectController@registro')->name('proyects.registro')
 ->middleware('permission:proyects.show');
-Route::post('proyects/destroy', 'ProyectController@destroy')->name('proyects.destroy')
-->middleware('permission:proyects.destroy');
 Route::get('proyects/{proyect}/edit', 'ProyectController@edit')->name('proyects.edit')
 ->middleware('permission:proyects.edit');
+Route::get('proyects/{proyect}/editm', 'ProyectController@editm')->name('proyects.editm')
+->middleware('permission:proyects.edit');
+
 //integrantes
-Route::get('proyects/{proyect}/editinteg', 'ProyectController@editar')->name('proyects.editinteg')
-->middleware('permission:integrants.edit');
 Route::post('proyect', 'ProyectController@delete')->name('integrants.delete')
 ->middleware('permission:integrants.edit');
 Route::post('proyects', 'ProyectController@save')->name('integrants.save')
@@ -188,6 +187,14 @@ Route::post('propuestas/accept', 'MejorasrapidasController@accept')->name('propu
 ->middleware('permission:propuestas.update');
 Route::get('propuestas/resumen/{propuesta}', 'PropuestaController@resumen')->name('propuesta.resumen')
 ->middleware('permission:propuestas.edit');
+
+//reportes
+Route::get('reportes/index', 'ReportController@index')->name('reportes.index')
+->middleware('permission:proyects.export');
+Route::post('proyects-activos-excel', 'ReportController@proyectexcel')->name('reportes.proyectexcel')
+->middleware('permission:proyects.export');
+Route::post('mejoras-activos-excel', 'ReportController@mejorasexcel')->name('reportes.mejorasexcel')
+->middleware('permission:proyects.export');
 
 
 //mantenimiento y actualizaciones

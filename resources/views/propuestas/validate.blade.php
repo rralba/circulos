@@ -83,7 +83,7 @@
           <div class="col-md-5"></div>
           <div class=" form-group col-md-3" id="valorvalid">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Valor Corporativo:</h4></label>
-            <select type="text" class="form-control" id="valor" name="valor">
+            <select type="text" class="form-control" id="valor" name="valor" required>
                 <option value=""></option>
                 <option value="CALIDAD">CALIDAD</option>
                 <option value="COSTOS">COSTOS</option>
@@ -99,7 +99,7 @@
           </div>
           <div class=" form-group col-md-4" id="desperdiciovalid">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Desperdicios Lean Manufacturing:</h4></label>
-            <select type="text" style="width: 70%;" class="form-control" id="desperdicio" name="desperdicio">
+            <select type="text" style="width: 70%;" class="form-control" id="desperdicio" name="desperdicio" required>
                 <option value=""></option>
                 <option value="AHORRO DE ENERGIA">AHORRO DE ENERGIA</option>
                 <option value="AHORRO DE SUMINISTROS">AHORRO DE SUMINISTROS</option>

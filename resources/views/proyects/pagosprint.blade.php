@@ -115,9 +115,9 @@
                     <h4 class="text-muted lead text-center">Vo.Bo.:</h4>
                     <br>
                     <h4 class="text-muted text-center">
-                    Lic. Fernando Monroy Guajardo<br>
-                    Director Corporativo de Recursos Humanos<br>
-                    </h4>
+	                Lic. Mónica Elizondo Ortiz<br>
+	                Directora Corporativa de Recursos Humanos<br>
+	                </h4>
                 </div>
                 <div class="col-xs-12 col-md-4 m-0 p-0">
                         <h4 class="text-muted lead text-center">Autorización:</h4>
@@ -245,9 +245,9 @@
                     <h4 class="text-muted lead text-center">Vo.Bo.:</h4>
                     <br>
                     <h4 class="text-muted text-center">
-                    Lic. Fernando Monroy Guajardo<br>
-                    Director Corporativo de Recursos Humanos<br>
-                    </h4>
+	                Lic. Mónica Elizondo Ortiz<br>
+	                Directora Corporativa de Recursos Humanos<br>
+	                </h4>
                 </div>
                 <div class="col-xs-12 col-md-4 m-0 p-0">
                             <h4 class="text-muted lead text-center">Autorización:</h4>
@@ -367,9 +367,9 @@
                 <h4 class="text-muted lead text-center">Vo.Bo.:</h4>
                 <br>
                 <h4 class="text-muted text-center">
-                Lic. Fernando Monroy Guajardo<br>
-                Director Corporativo de Recursos Humanos<br>
-                </h4>
+	                Lic. Mónica Elizondo Ortiz<br>
+	                Directora Corporativa de Recursos Humanos<br>
+	                </h4>
             </div>
             <div class="col-xs-12 col-md-4 m-0 p-0">
                 <h4 class="text-muted lead text-center">Autorización:</h4>

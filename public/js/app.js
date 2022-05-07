@@ -104,10 +104,10 @@
 
 
 
-         $("#currency-field").keyup(function () {
-        var value = $(this).val();
-        $("#beneficio_eco").val(value);
-    });
+        $("#currency-field").keyup(function () {
+          var value = $(this).val();
+          $("#beneficio_eco").val(value);
+        });
 
   $("#inicio").on("change", function(){ 
     startDate = $(this).datepicker("getDate"); 
@@ -382,6 +382,35 @@ $(function() {
       var fillSecondar = (function(){
         var selecte = $('#subdireccion').val();
         $('#departamento').empty()
+        option[selecte].forEach(function(element,index){
+          $('#departamento').append('<option value="'+element+'">'+element+'</option>');
+        });
+      });
+      $('#subdireccion').change(fillSecondar);
+      fillSecondar();
+    });
+
+    var results = document.getElementById("sub").value;
+    $(function(){
+      var fillSecondary = (function(){
+        var selected = $('#direccion').val();
+        $('#subdireccion').empty()
+        $('#subdireccion').append('<option selected="'+results+'">'+results+'</option>');
+        options[selected].forEach(function(element,index){
+          $('#subdireccion').append('<option value="'+element+'">'+element+'</option>');
+        });
+      });
+      $('#direccion').change(fillSecondary);
+      fillSecondary();
+    });
+    
+
+    var resulta = document.getElementById("depa").value;
+    $(function(){
+      var fillSecondar = (function(){
+        var selecte = $('#subdireccion').val();
+        $('#departamento').empty()
+        $('#departamento').append('<option selected="'+resulta+'">'+resulta+'</option>');
         option[selecte].forEach(function(element,index){
           $('#departamento').append('<option value="'+element+'">'+element+'</option>');
         });

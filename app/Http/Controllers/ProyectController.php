@@ -10,6 +10,7 @@ use App\reconocimiento;
 use App\descuento;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+
 use DB;
 
 class ProyectController extends Controller
@@ -47,9 +48,10 @@ class ProyectController extends Controller
         // dd($proyect->all());
     }
 
-    public function destroy(Request $request)
+    public function registro(Proyect $proyect)
     {
-        dd($request->all());
+        return view('proyects.registro', compact('proyect'));
+        //dd($proyect);
     }
  /**
      * Display a listing of the resource.
@@ -95,10 +97,6 @@ class ProyectController extends Controller
        return view('proyects.show', compact('proyect'));
     }
     
-    public function showmaster(Proyect $proyect, integrant $integrant)
-    {   
-       return view('proyects.showmaster', compact('proyect', 'integrant'));
-    }
       /**
      * Show the form for editing the specified resource.
      *
@@ -107,11 +105,18 @@ class ProyectController extends Controller
      */
     public function edit(Proyect $proyect)
     {
-        return view('proyects.edit', compact('proyect'));
+        if (($proyect->comite) == 0){
+            
+            return view('proyects.edit', compact('proyect'));
+        }
+        else{
+            return redirect()->action([ProyectController::class, 'index']);
+        }    
     }
-    public function editar(Proyect $proyect, integrant $integrant)
+
+    public function editm(Proyect $proyect)
     {
-        return view('proyects.editinteg', compact('proyect', 'integrant'));
+        return view('proyects.edit', compact('proyect'));   
     }
 
     /**
@@ -121,40 +126,90 @@ class ProyectController extends Controller
      * @param  \App\Proyect  $proyect
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $proyect)
+    public function update(Request $request)
     {   
         $proyectos = Proyect::where('id', '=', $request->id)->first();
         $proyectos->proyecto = $request->input('proyecto');
-        $proyectos->fecha_reg = $request->input('fecha_reg');
-        $proyectos->depto = $request->input('depto');
+        $proyectos->fecha_reg = $request->input('registro');
+        $proyectos->direccion = $request->input('direccion');
+        $proyectos->subdireccion = $request->input('subdireccion');
+        $proyectos->depto = $request->input('departamento');
         $proyectos->nivel = $request->input('nivel');
         $proyectos->comite = $request->input('comite');
         $proyectos->asesor = $request->input('asesor');
-        $proyectos->fecha_ini = $request->input('fecha_ini');
-        $proyectos->fecha_fin = $request->input('fecha_fin');
         $proyectos->valor = $request->input('valor');
         $proyectos->metodologia = $request->input('metodologia');
-        $proyectos->ahorro_anual_proy = $request->input('ahorro_anual_proy');
-        $proyectos->metrico_primario = $request->input('metrico_primario');
-        $proyectos->metrico_secundario = $request->input('metrico_secundario');
+        if(($request->input('beneficio_eco'))> 0){
+            $proyectos->ahorro_anual_proy = $request->input('beneficio_eco');
+        }
+        $proyectos->metrico_primario = $request->input('metricopim');
+        $proyectos->metrico_secundario = $request->input('metricosec');
         $proyectos->empresa = $request->input('empresa');
-        $proyectos->desc_proy = $request->input('desc_proy');
-        $proyectos->proy_status = $request->input('proy_status');
+        $proyectos->desc_proy = $request->input('descuento');
+        $proyectos->proy_status = $request->input('estatus');
+        $proyectos->creativo = $request->input('creativo');
+        $proyectos->areas_part = $request->input('areas');
+        $proyectos->skills_integ = $request->input('skills');
+        $proyectos->principales_act = $request->input('principales');
+        $proyectos->conocimiento_critico = $request->input('critico');
+        $proyectos->sindicalizados = $request->input('sindicalizados');
         $proyectos->save();
         return redirect()->back()->with('info', 'Proyecto Actualizado');
-        //dd($proyectos);
+        //dd($request->all());
     }
     public function save(Request $request, Proyect $proyect, integrant $integrant)
     {
+
         // $integrant->update($request->all());
         // return redirect()->back()->with('info', 'Integrante actualizado con exito');
-        $integrante = integrant::where('id', '=', $request->pin)->first();
-        $integrante->id = $request->input('pin');
-        $integrante->proyect_id = $request->input('proy_id');
-        $integrante->empleado_id = $request->input('edit_id');
-        $integrante->rol = $request->input('country');
-        $integrante->save();
-        return redirect()->back();
+        // $integrante = integrant::where('id', '=', $request->pin)->first();
+        // $integrante->id = $request->input('pin');
+        // $integrante->proyect_id = $request->input('proy_id');
+        // $integrante->empleado_id = $request->input('edit_id');
+        // $integrante->rol = $request->input('country');
+        // $integrante->save();
+        // return redirect()->back();
+        $autor = DB::table('integrants')
+            ->where('proyect_id','=',$request->proy_id)
+            ->where('rol','=', 1)
+            ->count();
+        $imp_a = DB::table('integrants')
+            ->where('proyect_id','=',$request->proy_id)
+            ->where('rol','=', '2')
+            ->count();     
+        if (($request->country) == 1){
+            if (($autor) > 0){
+                return redirect()->back()->with('info', 'Proyeto ya cuenta con autor');
+            }
+            else {
+                $integrante = integrant::where('id', '=', $request->pin)->first();
+                $integrante->rol = $request->input('country');
+                $integrante->save();
+            return redirect()->back();
+            }
+            }
+        else{
+            if (($request->country) == 2){
+                if (($imp_a) >= 2){
+                    return redirect()->back()->with('info', 'Numero maximo de Implementadores A alcanzado');
+                }
+                else {
+                    $integrante = integrant::where('id', '=', $request->pin)->first();
+                    $integrante->rol = $request->input('country');
+                    $integrante->save();
+                    return redirect()->back();
+                }
+            }
+            else{
+                if (($request->country) == 3){
+                    $integrante = integrant::where('id', '=', $request->pin)->first();
+                    $integrante->rol = $request->input('country');
+                    $integrante->save();
+                    return redirect()->back();  
+                }
+            }
+        }
+        // dd($request->all());
     }
 
     public function benedit(Request $request)
@@ -209,10 +264,10 @@ class ProyectController extends Controller
             ->count();
         $idsap = DB::table('integrants')
             ->where('proyect_id','=',$request->proyect_id)
-            ->where('empleado_id','=',$request->id)
+            ->where('empleado_id','=',$request->add_id)
             ->count();    
         $existe = DB::table('empleados')
-            ->where('id','=',$request->id)
+            ->where('id','=',$request->add_id)
             ->count();
         if (($existe) == 0){
             return redirect()->back()->with('info', 'No existe empleado');
@@ -232,7 +287,7 @@ class ProyectController extends Controller
             else {
                 $integrante = new integrant();
                 $integrante->proyect_id = $request->input('proyect_id');
-                $integrante->empleado_id = $request->input('id');
+                $integrante->empleado_id = $request->input('add_id');
                 $integrante->rol = $request->input('rol');
                 $integrante->save();
             return redirect()->back();
@@ -246,7 +301,7 @@ class ProyectController extends Controller
                 else {
                 $integrante = new integrant();
                 $integrante->proyect_id = $request->input('proyect_id');
-                $integrante->empleado_id = $request->input('id');
+                $integrante->empleado_id = $request->input('add_id');
                 $integrante->rol = $request->input('rol');
                 $integrante->save();
                 return redirect()->back();
@@ -256,7 +311,7 @@ class ProyectController extends Controller
                 if (($request->rol) == 3){
                     $integrante = new integrant();
                     $integrante->proyect_id = $request->input('proyect_id');
-                    $integrante->empleado_id = $request->input('id');
+                    $integrante->empleado_id = $request->input('add_id');
                     $integrante->rol = $request->input('rol');
                     $integrante->save();
                     return redirect()->back();  

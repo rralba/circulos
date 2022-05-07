@@ -54,7 +54,7 @@
       	<div class="row">
 	        <div class="row col-sm-12 mlp justify-content-center">
 	        	<label style="width: 47%"><p></p></label>
-	         	<label style="width: 20%"><p class="titulosprint">FECHA DE INICIO</p></label>
+	         	<label style="width: 20%"><p class="titulosprint">FECHA INICIO ESTIMADA</p></label>
 	         	<?php $inicio = \carbon\carbon::parse($mejora->inicio)->formatLocalized('%d   %B   %Y '); ?>
 	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($inicio) }}</p></label>
 	        </div>
@@ -62,7 +62,7 @@
       	<div class="row">
       		<div class="row col-sm-12 mlp justify-content-center">
 	         	<label style="width: 47%"><p class="titulos ml-5">DESPERDICIOS LEAN MANUFACTURING (MUDAS):</p></label>
-	         	<label style="width: 20%"><p class="titulosprint">FECHA FINAL</p></label>
+	         	<label style="width: 20%"><p class="titulosprint">FECHA FINAL ESTIMADA</p></label>
 	         	<?php $final = \carbon\carbon::parse($mejora->final)->formatLocalized('%d   %B   %Y '); ?>
 	         	<label style="width: 33%" class="bordeline"><p class="lineatexto">{{ strtoupper($final) }}</p></label>
 	    	</div>
@@ -209,9 +209,9 @@
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">AHMSA SIDERURGICA 2</p></label>
 	         	@endif
 	         	@if((($integrante->cia)>2000) and ($integrante->cia)<8000)
-	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">SERVICIOS CORPORATIVOS AHMSA</p></label>
+	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">FORJACERO</p></label>
 	         	@endif
-	         	@if((($integrante->cia)==8000 or ($integrante->cia)==9000))
+	         	@if((($integrante->cia)>=8000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">EMPLEADOS AHMSA</p></label>
 	         	@endif
 	         	@if((($integrante->cia)<1000))
@@ -241,9 +241,9 @@
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">AHMSA SIDERURGICA 2</p></label>
 	         	@endif
 	         	@if((($integrante->cia)>2000) and ($integrante->cia)<8000)
-	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">SERVICIOS CORPORATIVOS AHMSA</p></label>
+	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">FORJACERO</p></label>
 	         	@endif
-	         	@if((($integrante->cia)==8000 or ($integrante->cia)==9000))
+	         	@if((($integrante->cia)>=8000))
 	         		<label style="width: 20%" class="bordeline mr-5"><p class="lineatexto">EMPLEADOS AHMSA</p></label>
 	         	@endif
 	         	@if((($integrante->cia)<1000))

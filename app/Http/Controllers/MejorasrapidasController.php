@@ -141,8 +141,8 @@ class MejorasrapidasController extends Controller
         foreach ($mrint as $intep) {
             $intep;
         }
-        //return view('mejorasrapidas.pagos', compact('mrpago','mrint'));
-        dd($mrint);
+        return view('mejorasrapidas.pagos', compact('mrpago','mrint'));
+        //dd($mrint);
     }
 
     public function mreport(Request $request)
@@ -166,7 +166,7 @@ class MejorasrapidasController extends Controller
         ->orderBY('mejoras.rcr','asc')
         ->get();
         return view('mejorasrapidas.pagos', compact('mrpago','mrint'));
-        //dd($gpgo);
+        //dd($mrpago);
     }
 
     public function store(Request $request)
@@ -273,13 +273,22 @@ class MejorasrapidasController extends Controller
                 $proyect = new Proyect();
                 $proyect->proyecto = $request->input('proyecto');
                 $proyect->fecha_reg = $request->input('registro');
+                $proyect->direccion = $request->input('direccion');
+                $proyect->subdireccion = $request->input('subdireccion');
                 $proyect->depto = $request->input('depto');
                 $proyect->asesor = $request->input('asesor');
                 $proyect->fecha_ini = $request->input('inicio');
                 $proyect->fecha_fin = $request->input('final');
                 $proyect->valor = $request->input('valor');
                 $proyect->ahorro_anual_proy = $request->input('currency-field');
+                $proyect->creativo = $request->input('creativo');
+                $proyect->areas_part = $request->input('areas');
+                $proyect->skills_integ = $request->input('skills');
+                $proyect->principales_act = $request->input('principales');
+                $proyect->conocimiento_critico = $request->input('critico');
+                $proyect->sindicalizados = $request->input('sindicalizados');
                 $proyect->save();
+                //dd($proyect);
 
 
                     $propid = Proyect::all();
@@ -386,9 +395,14 @@ class MejorasrapidasController extends Controller
         else{
             $mejoraupdate = mejora::where('id', '=', $request->id)->first();
             $mejoraupdate->id_autoriza = $request->id_jefe;
-            $mejoraupdate->status = $request->status;
+            if (($request->status) < 2)
+            {
+                $mejoraupdate->status = $request->status;
+            }
             $mejoraupdate->valor = $request->valor;
             $mejoraupdate->desperdicio = $request->desperdicio;
+            $mejoraupdate->inicior = $request->ireal;
+            $mejoraupdate->finr = $request->freal;
             $mejoraupdate->amejorar = $request->mejorar;
             $mejoraupdate->objetivo = $request->objetivo;
             $mejoraupdate->solucion = $request->solucion;
@@ -489,7 +503,6 @@ class MejorasrapidasController extends Controller
     public function evaluar($id)
     {
         $mejora = mejora::where('id', '=', $id)->first();
-            return view('mejorasrapidas.evaluar', compact('mejora'));
         return view('mejorasrapidas.evaluar', compact('mejora'));
         //dd($mejora);
     }
@@ -500,6 +513,7 @@ class MejorasrapidasController extends Controller
             $eval->pers1 = $request->pers1;
             $eval->pers2 = $request->pers2;
             $eval->perco = $request->perc;
+            $eval->status = "2";
             $eval->beneficiomr = $request->beneficiomr;
             $eval->fecha_terminacion = $request->fecha;
             if (($request->beneficiomr) == 0){

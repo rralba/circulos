@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="container-fluid">
-        <br>
-         <h1 align="center">Maestro de Proyectos</h1>
-        <br>
-        <div class="table-responsive">
+    <br>
+    <h1 align="center">Maestro de Proyectos</h1>
+    <br>
+    <div class="table-responsive">
            <table class="table table-striped table-hover table-bordered">
                 <thead class="">
                     <tr>
@@ -18,45 +18,27 @@
                         <th>Comite</th>
                         <th>Metodologia</th>
                         <th>Proyeccion Anual</th>
-                        <th colspan="3">&nbsp;</th> 
+                        <th colspan="1">&nbsp;</th> 
                     </tr>
                 </thead>
                 <tbody id="developers">
-                    @foreach($proye as $proyect)
-                        <tr>
-                            <td>{{ $proyect->id }}</td>
-                            <td>{{ $proyect->proyecto }}</td>
-                            <td>{{ \carbon\carbon::parse($proyect->fecha_reg)->format('M-Y') }}</td>
-                            <td>{{ $proyect->nivel }}</td>
-                            <td>{{ $proyect->depto }}</td>
-                            <td>{{ $proyect->asesor }}</td>
-                            <td>{{ $proyect->comite }}</td>
-                            <td>{{ $proyect->metodologia }}</td>
-                            <td>{{ sprintf('$ %s', number_format($proyect->ahorro_anual_proy,0, '.', ',')) }}</td>
-                                @can('cancelados.edit')
-                                <td width="07px">
-                                    <a  href="{{ route('proyects.showmaster', $proyect->id) }}"
-                                    class="btn btn-sm btn-outline-primary fa fa-info-circle" title="Detalles del Proyecto">
-                                    </a>
-                                </td>
-                                @endcan
-                                @can('proyects.edit')
-                                    <td width="07px">
-                                        <a href="{{ route('proyects.edit', $proyect->id) }}"
-                                        class="btn btn-sm btn-outline-primary fa fa-pencil-square-o" title="Editar Proyecto">
-                                        </a>
-                                    </td> 
-                                @endcan
-                                @can('proyects.destroy')
-                                    <td width="07px">
-                                        <a href="{{ route('proyects.destroy', $proyect->id)  }}"
-                                        class="btn btn-sm btn-outline-danger fa fa-ban" title="Cancelar Proyecto">
-                                        </a>
-                                    </td>    
-                                @endcan
+                @foreach($proye as $proyect)
+                    <tr>
+                        <td>{{ $proyect->id }}</td>
+                        <td>{{ $proyect->proyecto }}</td>
+                        <td>{{ \carbon\carbon::parse($proyect->fecha_reg)->format('M-Y') }}</td>
+                        <td>{{ $proyect->nivel }}</td>
+                        <td>{{ $proyect->depto }}</td>
+                        <td>{{ $proyect->asesor }}</td>
+                        <td>{{ $proyect->comite }}</td>
+                        <td>{{ $proyect->metodologia }}</td>
+                        <td>{{ sprintf('$ %s', number_format($proyect->ahorro_anual_proy,0, '.', ',')) }}</td>
+                        <td width="07px">
+                            <a href="{{ route('proyects.editm', $proyect->id) }}"class="btn btn-sm btn-outline-primary fa fa-pencil-square-o" title="Editar Proyecto"></a>
+                        </td> 
                         </tr>
-                    @endforeach
+                @endforeach
                 </tbody>
            </table>
-        </div>
+    </div>
 @endsection 

@@ -135,6 +135,11 @@
                              </div>
                             @endcan
                         </div>
+                        @can('proyects.export')
+                        <li class="nav-item p-1">
+                            <a class="nav-link" href="{{ route('reportes.index') }}">Reportes</a>
+                        </li>
+                        @endcan
                     </div>
                         @can('users.index')
                         <li class="nav-item p-1">

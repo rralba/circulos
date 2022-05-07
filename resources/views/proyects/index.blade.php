@@ -56,10 +56,10 @@
                             </td>
                         @endif
                         @endcan
-                        @can('proyects.destroy')
+                        @can('proyects.show')
                             <td width="07px">
-                                <a href="{{ route('proyects.destroy', $proyect->id)  }}"
-                                class="btn btn-sm btn-outline-danger fa fa-ban" title="Cancelar Proyecto">
+                                <a href="{{ route('proyects.registro', $proyect->id)  }}"
+                                class="btn btn-sm btn-outline-primary fa fa-print" title="Imprimir Registro">
                                 </a>
                             </td>    
                         @endcan

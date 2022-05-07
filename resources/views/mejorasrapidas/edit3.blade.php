@@ -61,7 +61,7 @@
          <div class="row">
           <div class="col-md-10"></div>
           <div class=" form-group col-md-2">  
-            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Asesor:</h4></label>
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Asesor:</h6></label>
             <input type="text" class="form-control" id="asesor" name="asesor" value="{{ $mejora->asesor }}" readonly>
           </div>
         </div>
@@ -69,7 +69,7 @@
           <div class="col-md-10"></div>
           @if (($mejora->status) == 0)
             <div class=" form-group col-md-2">  
-            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Status:</h4></label>
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Status:</h6></label>
             <select type="text" class="form-control" id="status" name="status">
               @if (($mejora->status)== 0)
                 <option value="{{ $mejora->status }}" selected>Cancelada</option>
@@ -85,8 +85,8 @@
           </div>
           @else
           <div class=" form-group col-md-2">  
-            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Status:</h4></label>
-            <select type="text" class="form-control" id="status" name="status">
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Status:</h6></label>
+            <select type="text" class="form-control" id="status" name="status" onChange="mostrar(this.value);">
               @if (($mejora->status)== 0)
                 <option value="{{ $mejora->status }}" selected>Cancelada</option>
               @endif
@@ -103,10 +103,21 @@
           </div>
           @endif
         </div>
+        <div class="row" id="real" style="display: none;">
+          <div class="form-group col-md-7"></div>
+          <div class="form-group col-md-3">
+            <label for="from" class="col-form-label"><h6 class="p-0 m-0">Fecha Inicio Real:</h6></label>
+            <input type="text" class="form-control datepicker" id="ireal" name="ireal" style="width: 100px">
+          </div>
+          <div class="form-group col-md-2">  
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Fecha Final Real:</h6></label>
+            <input type="text" class="form-control datepicker" id="freal" name="freal" style="width: 100px">
+          </div>
+        </div>
         <div class="row" id="valor">
           <div class="col-md-7"></div>
           <div class=" form-group col-md-3 justify-content-end" id="valorvalid">  
-            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Valor Corporativo:</h4></label>
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Valor Corporativo:</h6></label>
             <select type="text" class="form-control float-left cancelado" style="width: 80%;" id="valor" name="valor">
                 <option value="{{ $mejora->valor }}" selected>{{ $mejora->valor }}</option>
                 <option value="Calidad">Calidad</option>
@@ -122,7 +133,7 @@
               </select>
           </div>
           <div class="form-group col-md-2 justify-content-end" id="desperdiciovalid">  
-            <label for="to" class="col-form-label"><h4 class="p-0 m-0">Lean Manufacturing:</h4></label>
+            <label for="to" class="col-form-label"><h6 class="p-0 m-0">Lean Manufacturing:</h6></label>
             <select type="text" class="form-control float-right cancelado" id="desperdicio" name="desperdicio">
                 <option value="{{ $mejora->desperdicio }}" selected>{{ $mejora->desperdicio }}</option>
                 <option value="Ahorro de Energia">Ahorro de Energia</option>
@@ -236,6 +247,24 @@
         event.preventDefault();
     }
 }, false);
+
+    function mostrar(id) {
+      if (id == 0) {
+        $("#real").hide();
+        $('#ireal').prop("required", false);
+        $('#freal').prop("required", false);
+      }
+      if (id == 1) {
+        $("#real").hide();
+        $('#ireal').prop("required", false);
+        $('#freal').prop("required", false);
+      }
+      if (id == 2) {
+        $("#real").show();
+        $('#ireal').prop("required", true);
+        $('#freal').prop("required", true);
+      }
+    }
 
     // CSRF Token
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');

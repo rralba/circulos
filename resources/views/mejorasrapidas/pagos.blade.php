@@ -169,8 +169,8 @@
 	                <br>
 	                <br>
 	                <h4 class=" text-center">
-	                Lic. Fernando Monroy Guajardo<br>
-	                Director Corporativo de Recursos Humanos<br>
+	                Lic. Mónica Elizondo Ortiz<br>
+	                Directora Corporativa de Recursos Humanos<br>
 	                </h4>
 	            </div>
 	            <div class="col-md-4 m-0 p-0">
@@ -328,9 +328,9 @@
 	                <h4 class="lead text-center">Vo.Bo.:</h4>
 	                <br>
 	                <br>
-	                <h4 class="text-center">
-	                Lic. Fernando Monroy Guajardo<br>
-	                Director Corporativo de Recursos Humanos<br>
+	                <h4 class=" text-center">
+	                Lic. Mónica Elizondo Ortiz<br>
+	                Directora Corporativa de Recursos Humanos<br>
 	                </h4>
 	            </div>
 	            <div class="col-md-4 m-0 p-0">
@@ -624,7 +624,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">DE:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Virginia Lozano Guajardo – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">PARA:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Luis Alberto Mata López. - Gerente de Relaciones Laborales Sid. No.2 </p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. José Luis Martinez Falco. - Gerente de Relaciones Laborales Sid. No.2 </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">COPIAS:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Expte.</p></label>
     			<br>

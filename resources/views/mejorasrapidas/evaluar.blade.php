@@ -1,7 +1,6 @@
 	@extends('layouts.appm')
 
 @section('content')
-
 <div class="container-fluid">
 	<div class="conta">
         <div class="left col-sm-4 m-0 p-0">
@@ -222,6 +221,7 @@
       </div>
       @endfor
 	</div>
+	<input type="hidden" id="numinteg" name="numinteg" value="{{$r = $c+$s1+$s2}}">
 	<br>
 	<br>
 	<form id="evaluar" class="evaluar" action="{{ route('mr.evaluar') }}" method = "POST" enctype="multipart/form-data">
@@ -245,7 +245,7 @@
     </div>
     <br>
     <div id="sinbenef" class="table-responsive">
-    	<table class="table table-bordered">
+    	<table class="table table-bordered mb-0">
 		  	<thead>
 			    <tr>
 			      	<th width="13%" class="text-center" scope="col"><h4>PORCENTAJE</h4></th>
@@ -351,17 +351,117 @@
 			    </tr>
 		  	</tbody>
 		</table>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-2"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">PROMEDIO PORCENTUAL</label>
+				</div>
+				<div class="col-md-4 borde">
+					<input type="text" id="prom" name="prom" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-2"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">MONTO TOTAL MAXIMO</label>
+				</div>
+				<div class="col-md-4 borde text-center">
+					<label>$5,000</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-2"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">PAGO POR EQUIPO</label>
+				</div>
+				<div class="col-md-4 borde">
+					<input type="text" id="pxe" name="pxe" class="text-center">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-2"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">PAGO POR PERSONA</label>
+				</div>
+				<div class="col-md-4 borde">
+					<input type="text" id="pxp" name="pxp" class="text-center">
+				</div>
+			</div>
+		</div>
     </div>
     <div id="conbenef">
     	<div class="row">
             <div class="col-md-10"></div>
             <div class="col-md-2">
                 <label for="recipient-name" class="col-form-label"><h5 class="p-0 m-0">Beneficio Económico</h5></label>
-                <input type="text" class="form-control requeridon1 validar" id="currency-field" name="currency-field" placeholder="$1,000,000.00" maxlength="10">
+                <input type="text" class="form-control requeridon1 validar evalua" id="currency-field" name="currency-field" placeholder="$1,000,000.00" maxlength="10">
                 <input type="hidden" class="form-control requeridon1 validar" id="beneficio_eco" name="beneficio_eco" value="#currency-field">
             </div>  
         </div>
+        <div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">BONIFICACIÓN</label>
+				</div>
+				<div class="col-md-3 borde">
+					<input type="text" id="bono" name="bono" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">5% BENEFICIO ECONÓMICO</label>
+				</div>
+				<div class="col-md-3 borde text-center">
+					<input type="text" id="beneco" name="beneco" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">TOTAL PAGO POR EQUIPO</label>
+				</div>
+				<div class="col-md-3 borde">
+					<input type="text" id="paxeq" name="paxeq" class="text-center">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9"></div>
+			<div class="row col-md-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 borde">
+					<label style="font-weight: bold;">PAGO POR PERSONA</label>
+				</div>
+				<div class="col-md-3 borde">
+					<input type="text" id="paxpe" name="paxpe" class="text-center">
+				</div>
+			</div>
+		</div>
     </div>
+    <input type="hidden" id="va1" name="va1">
+    <input type="hidden" id="va2" name="va2">
+    <input type="hidden" id="va3" name="va3">
     <div class="container-contact100-form-btn" id="evalsave">
         <button class="contact100-form-btn" type="submit">
             <span>
@@ -372,4 +472,51 @@
     </div>
     </form>
 </div>
+<script>
+$(document).ready(function(){
+    $("input[name=evala]").change(function(){
+  		$('input[name=va1]').val($(this).val());
+    });
+    $("input[name=evalo]").change(function(){
+  		$('input[name=va2]').val($(this).val());
+    });
+    $("input[name=evale]").change(function(){
+  		$('input[name=va3]').val($(this).val());
+    });
+});
+$('.beneficioeval').click(function (event) {
+    var va1 = parseInt($("input[name='evala']:checked").val());
+    var va2 = parseInt($("input[name='evalo']:checked").val());
+    var va3 = parseInt($("input[name='evale']:checked").val());
+    var sumev = (va1 + va2 + va3);
+    var porcent = parseInt(sumev/3);
+    var porcent1 = porcent+"%";
+    $('input[name=prom]').val(porcent1);
+    var pxe = parseInt(5000*porcent)/100;
+    var pxe1 = "$"+pxe;
+    $('input[name=pxe]').val(pxe1);
+    var numinteg = document.getElementById("numinteg").value;
+    var pxp = "$"+parseInt(pxe/numinteg);
+    $('input[name=pxp]').val(pxp);
+    var bono = parseInt(numinteg*700);
+    var bono1 = "$"+parseInt(numinteg*700);
+    $('input[name=bono]').val(bono1);
+});
+$('.evalua').change(function (event) {
+	var numinteg = document.getElementById("numinteg").value;
+	var bono = parseInt(numinteg*700);
+    var bono1 = "$"+parseInt(numinteg*700);
+    $('input[name=bono]').val(bono1);
+    var benfeco = document.getElementById("currency-field").value;
+    var beneco =parseInt(benfeco*.05);
+    var beneco1 ="$"+parseInt(beneco);
+    $('input[name=beneco]').val(beneco1);
+    var paxeq = parseInt(bono+beneco);
+    var paxeq1 = "$"+parseInt(bono+beneco);
+    $('input[name=paxeq]').val(paxeq1);
+    var paxpe = parseInt(paxeq/numinteg);
+    var paxpe1 = "$"+parseInt(paxeq/numinteg);
+    $('input[name=paxpe]').val(paxpe1);
+});
+</script>
 @endsection

@@ -33,6 +33,9 @@
   margin: 0;
   padding: 0;
 }
+.titulore{
+  font-size: 32px;
+}
 
 .mr .contenido{
   font-size: 16px;

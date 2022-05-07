@@ -6,13 +6,6 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="list-group list-group-flush">
                     <a href="{{ url('/home') }}" class="list-group-item list-group-item-action bg-light">Inicio</a>
-                @can('integrants.edit')
-                @if ($proyect->comite == 0 && $proyect->proy_status == 1)
-                    <a href="   {{ route('proyects.editinteg', $proyect->id) }}" class="list-group-item list-group-item-action bg-light">Editar integrantes</a>
-                @else
-                    <a href="#" class="list-group-item list-group-item-action bg-light disabled">Editar integrantes</a>   
-                @endif        
-                @endcan
                 @can('beneficios.index')
                     <a href="{{ route('beneficios.index', $proyect->id) }}" class="list-group-item list-group-item-action bg-light">Beneficios</a>
                 @endcan
@@ -22,84 +15,137 @@
                 @can('proceso.index')
                     <a href="{{ route('procesos.index') }}" class="list-group-item list-group-item-action bg-light">Proceso de Pago</a>
                 @endcan
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="">   
-                <h1 align="center">{{ $proyect->proyecto }}</h1>  
-                <br>
-            <div class="card">
-                <div class="card-group">
-                    <div class="card">
-                        <h5>
-                        <a>Fecha de Registro</a>
-                        <small class="text-muted">{{ \carbon\carbon::parse($proyect->fecha_reg)->format('M-Y') }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Nivel del Proyecto</a>
-                        <small class="text-muted">{{ $proyect->nivel }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Asesor Asignado</a>
-                        <small class="text-muted">{{ $proyect->asesor }}</small>
-                        </h5>
-                    </div>
-                </div>
-                <div class="card-group">
-                    <div class="card">    
-                        <h5>
-                        <a>Fecha de Inicio del Proyecto</a>
-                        <small class="text-muted">{{ \carbon\carbon::parse($proyect->fecha_ini)->format('M-Y') }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Fecha Fin del Proyecto</a>
-                        <small class="text-muted">{{ \carbon\carbon::parse($proyect->fecha_fin)->format('M-Y') }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Comite Evaluador</a>
-                        <small class="text-muted">{{ $proyect->comite }}</small>
-                        </h5>
-                    </div>
-                </div>
-                <div class="card-group">
-                    <div class="card"> 
-                        <h5>
-                        <a>Valor Corporativo</a>
-                        <small class="text-muted">{{ $proyect->valor }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Metodologia Aplicada</a>
-                        <small class="text-muted">{{ $proyect->metodologia }}</small>
-                        </h5>
-                    </div>
-                    <div class="card">
-                        <h5>
-                        <a>Ahorro Anual Proyectado</a>
-                        <small class="text-muted">{{ sprintf('$ %s', number_format($proyect->ahorro_anual_proy,0, '.', ',')) }}</small>
-                        </h5>
-                    </div>
-                </div>
+        <div class="container-fluid m-4">
+            <span class="contact100-form-title">
+      <h1 class="text-center">{{ $proyect->proyecto }}</h1>
+    </span>
+        <div class="row">
+          <div class="form-group col-md-5"></div>
+          <div class="form-group col-md-5"></div>
+            <div class="form-group row col-md-2 justify-content-end">
+                <label for="inputEmail4"><h6 class="mt-2">Folio</h6></label>
+                <input type="text" class="form-control ml-3" style="width: 25%;"  id="id" name="id" value="{{ $proyect->id }}" readonly>
             </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-9"></div>
+            <div class="form-group col-md-1">
+                <label for="inputEmail4"><h6>Registro</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->fecha_reg }}" readonly>
             </div>
+            <div class="form-group col-md-1">
+                <label for="inputEmail4"><h6>Fecha Inicio</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->fecha_ini }}" readonly>
+            </div>
+            <div class="form-group col-md-1">
+                <label for="inputPassword4"><h6>Fecha Fin</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->fecha_fin }}" readonly>
+            </div>
+        </div>
+        <div class="row">
+        <div class="form-group col-md-2"></div>
+        <div class="form-group col-md-4">
+            <label for="inputEmail4"><h6>Departamento</h6></label>
+            <input type="text" class="form-control" value="{{ $proyect->depto }}" readonly>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputPassword4"><h6>Asesor</h6></label>
+            <input type="text" class="form-control" value="{{ $proyect->asesor }}" readonly>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputEmail4"><h6>Estatus</h6></label>
+            @if(($proyect->proy_status) == 0)
+                    <input type="text" class="form-control" value="CANCELADO" readonly>
+                @endif
+                @if(($proyect->proy_status) == 1)
+                    <input type="text" class="form-control" value="EN PROCESO" readonly>
+                @endif
+                @if(($proyect->proy_status) == 2)
+                   <input type="text" class="form-control" value="TERMINADO" readonly>
+                @endif
+                @if(($proyect->proy_status) == 3)
+                   <input type="text" class="form-control" value="TERMINADO EN PROCESO DE PAGO" readonly>
+                @endif
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputEmail4"><h6>Nivel</h6></label>
+            <input type="text" class="form-control"value="{{ $proyect->nivel }}" readonly>
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputEmail4"><h6>Comite</h6></label>
+            <input type="text" class="form-control" value="{{ $proyect->comite }}" readonly>
+        </div>
+      </div>
+        <div class="row" id="valor">
+            <div class="col-md-2"></div>
+            <div class=" form-group col-md-3">  
+                <label for="inputEmail4"><h6>Valor Corporativo:</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->valor }}" readonly>
+            </div>
+            <div class=" form-group col-md-3">  
+                <label for="inputEmail4"><h6>Metodologia del Proyecto:</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->metodologia }}" readonly>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputEmail4"><h6>Empresa</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->empresa }}" readonly>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputEmail4"><h6>Ahorro Anual Proyectado</h6></label>
+                <input type="text" class="form-control" value="{{ sprintf('$ %s', number_format($proyect->ahorro_anual_proy,0, '.', ',')) }}" readonly>
+            </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>Metrico Primario</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->metrico_primario }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>Metrico secundario</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->metrico_secundario }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Porqué consideras que el proyecto es creativo y/o innovador?</h6></label>
+            <textarea type="text" class="form-control tomayus" maxlength="499" rows="4" readonly>{{ $proyect->creativo }}</textarea>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Qué áreas deben participar en el desarrollo del proyecto?</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->areas_part }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Qué conocimientos, especialidades y/o habilidades se requieren de los integrantes?</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->skills_integ }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Cuáles son las principales actividades a realizar por el equipo?</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->principales_act }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Cuál es el conocimiento crítico requerido para el desarrollo del proyecto?</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->conocimiento_critico }}" readonly>
+          </div> 
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="inputEmail4"><h6>¿Cómo participa el personal sindicalizado?</h6></label>
+            <input type="text" class="form-control tomayus" maxlength="249" value="{{ $proyect->sindicalizados }}" readonly>
+          </div> 
+        </div>
                 <br>
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Integrantes</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-                </div>
-            </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="col-md-12">  
@@ -111,9 +157,7 @@
                                     <th data-column-id="nombre">Nombre</th>
                                     <th data-column-id="departamento">Departamento</th>
                                     <th data-column-id="posicion">Posicion</th>
-                                    <th data-column-id="nivel">Nivel</th>
                                     <th data-column-id="rol">Rol</th>
-                                    <th data-column-id="direccion">Direccion</th>
                                     <th data-column-id="compañia">Compañia</th>
                                 </tr>
                             </thead>
@@ -125,10 +169,30 @@
                                     <td>{{ $integrante->nombre }}</td>
                                     <td>{{ $integrante->depto }}</td>
                                     <td>{{ $integrante->posicion }}</td>
-                                    <td>{{ $integrante->nivel }}</td>
-                                    <td>{{ $integrante->pivot->rol }}</td> 
-                                    <td>{{ $integrante->direccion }}</td>
-                                    <td>{{ $integrante->cia }}</td> 
+                                    @if(($integrante->pivot->rol)== 1)
+                                        <td>Autor</td>
+                                    @endif
+                                    @if(($integrante->pivot->rol)== 2)
+                                        <td>Implementador A</td>
+                                    @endif 
+                                    @if(($integrante->pivot->rol)== 3)
+                                        <td>Implementador B</td>
+                                    @endif 
+                                    @if(($integrante->cia)== 1000)
+                                        <td>SIDERURGICA 1</td>
+                                    @endif
+                                    @if(($integrante->cia)== 2000)
+                                        <td>SIDERURGICA 2</td>
+                                    @endif
+                                    @if(($integrante->cia)> 7999)
+                                        <td>AHMSA</td>
+                                    @endif
+                                    @if((($integrante->cia)>2999) and ($integrante->cia)<8000)
+                                        <td>FORJACERO</td>
+                                    @endif
+                                    @if((($integrante->cia)<1000))
+                                        <td>SERVICIOS MONCLOVA</td>
+                                    @endif 
                                 </tr>
                                 @endif
                             @endforeach
@@ -137,8 +201,6 @@
                     </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
             </div>
         </div>
     </div>  

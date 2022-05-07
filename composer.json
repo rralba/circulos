@@ -16,7 +16,9 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.7",
         "laraveles/spanish": "^1.2",
+        "maatwebsite/excel": "^3.1",
         "nesbot/carbon": "1.35.1",
+        "psr/simple-cache": "^1.0",
         "sineld/bladeset": "^5.6"
     },
     "require-dev": {
