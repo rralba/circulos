@@ -11,19 +11,19 @@
                         <ul class="nav navbar-nav m-auto">
                             @can('propuestas.edit')
                             <li class="nav-item">
-                                <a class="nav-link mr-2" href="{{ route('propuesta1.index') }}"><h6>Propuestas CE nivel 1 y 2 no asignadas</h6></a>
+                                <a class="nav-link mr-2" href="{{ route('propuesta1.index') }}"><h6>Propuestas CE nivel 1 y 2 sin asesor asignado</h6></a>
                             </li>
                             @endcan
                             @can('propuestas.edit')
                             <li class="nav-item">
-                                <a class="nav-link mr-2" href="{{ route('propuesta2.index') }}"><h6>Propuestas CE nivel 3 no asignadas</h6></a>
+                                <a class="nav-link mr-2" href="{{ route('propuesta2.index') }}"><h6>Propuestas CE nivel 3 sin asesor asignado</h6></a>
                             </li>
                             @endcan
                             <li class="nav-item">
-                                <a class="nav-link mr-2" href="{{ route('propuesta3.index') }}"><h6>Propuestas CE nivel 1 y 2 asignadas</h6></a>
+                                <a class="nav-link mr-2" href="{{ route('propuesta3.index') }}"><h6>Propuestas CE nivel 1 y 2 con asesor asignado</h6></a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{ route('propuesta4.index') }}"><h6>Propuestas CE nivel 3 asignadas</h6></a>
+                                <a class="nav-link" href="{{ route('propuesta4.index') }}"><h6>Propuestas CE nivel 3 con asesor asignado</h6></a>
                             </li>
                         </ul>
                     </div>

@@ -135,11 +135,17 @@
                              </div>
                             @endcan
                         </div>
-                        @can('proyects.export')
-                        <li class="nav-item p-1">
-                            <a class="nav-link" href="{{ route('reportes.index') }}">Reportes</a>
-                        </li>
-                        @endcan
+                        <div class="dropdown p-1">
+                            @can('proyects.export')
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Reportes
+                            </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('reportes.index') }}">Reportes</a>
+                                <a class="dropdown-item" href="{{ route('reportes.semanal') }}">Reporte Semanal</a>
+                             </div>
+                            @endcan
+                        </div>
                     </div>
                         @can('users.index')
                         <li class="nav-item p-1">

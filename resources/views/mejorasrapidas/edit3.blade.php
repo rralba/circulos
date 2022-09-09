@@ -51,11 +51,11 @@
         </div>
         <div class="form-group col-md-1">
           <label for="inputEmail4"><h6>Fecha Inicio</h6></label>
-          <input type="text" class="form-control datepicker" id="inicio" name="inicio" value="{{ $mejora->inicio }}" readonly>
+          <input type="text" class="form-control datepicker" id="ini" name="inicio" value="{{ $mejora->inicio }}" readonly>
         </div>
         <div class="form-group col-md-1">
           <label for="inputPassword4"><h6>Fecha Final</h6></label>
-          <input type="text" class="form-control datepicker" id="final" name="final" value="{{ $mejora->final }}" readonly>
+          <input type="text" class="form-control datepicker" id="fin" name="final" value="{{ $mejora->final }}" readonly>
         </div>
       </div>
          <div class="row">
@@ -107,11 +107,11 @@
           <div class="form-group col-md-7"></div>
           <div class="form-group col-md-3">
             <label for="from" class="col-form-label"><h6 class="p-0 m-0">Fecha Inicio Real:</h6></label>
-            <input type="text" class="form-control datepicker" id="ireal" name="ireal" style="width: 100px">
+            <input type="text" class="form-control datepickerreal" id="inicio" name="ireal" style="width: 100px">
           </div>
           <div class="form-group col-md-2">  
             <label for="to" class="col-form-label"><h6 class="p-0 m-0">Fecha Final Real:</h6></label>
-            <input type="text" class="form-control datepicker" id="freal" name="freal" style="width: 100px">
+            <input type="text" class="form-control datepickerreal" id="final" name="freal" style="width: 100px">
           </div>
         </div>
         <div class="row" id="valor">
@@ -251,18 +251,18 @@
     function mostrar(id) {
       if (id == 0) {
         $("#real").hide();
-        $('#ireal').prop("required", false);
-        $('#freal').prop("required", false);
+        $('#inicio').prop("required", false);
+        $('#final').prop("required", false);
       }
       if (id == 1) {
         $("#real").hide();
-        $('#ireal').prop("required", false);
-        $('#freal').prop("required", false);
+        $('#inicio').prop("required", false);
+        $('#final').prop("required", false);
       }
       if (id == 2) {
         $("#real").show();
-        $('#ireal').prop("required", true);
-        $('#freal').prop("required", true);
+        $('#inicio').prop("required", true);
+        $('#final').prop("required", true);
       }
     }
 

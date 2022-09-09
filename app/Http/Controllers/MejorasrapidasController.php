@@ -206,7 +206,7 @@ class MejorasrapidasController extends Controller
                 $mejora->direccion = $request->input('direccion');
                 $mejora->subdireccion = $request->input('subdireccion');
                 $mejora->departamento = $request->input('depto');
-                $mejora->valor = $request->input('valor');
+                $mejora->valor = $request->input('valorprp');
                 $mejora->desperdicio = $request->input('desperdicio');
                 $mejora->inicio = $request->input('inicio');
                 $mejora->final = $request->input('final');
@@ -279,7 +279,7 @@ class MejorasrapidasController extends Controller
                 $proyect->asesor = $request->input('asesor');
                 $proyect->fecha_ini = $request->input('inicio');
                 $proyect->fecha_fin = $request->input('final');
-                $proyect->valor = $request->input('valor');
+                $proyect->valor = $request->input('valorprp');
                 $proyect->ahorro_anual_proy = $request->input('currency-field');
                 $proyect->creativo = $request->input('creativo');
                 $proyect->areas_part = $request->input('areas');
@@ -347,12 +347,17 @@ class MejorasrapidasController extends Controller
             return redirect()->route('propuesta3.index');
         }
 
-        dd($request->all());
+        //dd($request->all());
     }
 
     public function print(mejora $mejora)
     {
         return view('mejorasrapidas.print', compact('mejora'));
+        //dd($request);
+    }
+    public function printreco(mejora $mejora)
+    {
+        return view('mejorasrapidas.printreco', compact('mejora'));
         //dd($request);
     }   
     public function edit(mejora $mejora)

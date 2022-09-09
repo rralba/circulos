@@ -155,6 +155,8 @@ Route::get('mejorarapida/create', 'MejorasrapidasController@create')->name('mr.c
 ->middleware('permission:mr.create');
 Route::get('mejorarapidas/print/{mejora}', 'MejorasrapidasController@print')->name('mejoras.print')
 ->middleware('permission:mr.index');
+Route::get('mejorarapidas/printreco/{mejora}', 'MejorasrapidasController@printreco')->name('mejoras.printreco')
+->middleware('permission:mr.index');
 Route::get('mejorarapidas/edit/{mejora}', 'MejorasrapidasController@edit')->name('mejoras.edit')
 ->middleware('permission:mr.edit');
 Route::get('mejorarapidas/validar/{mejora}', 'MejorasrapidasController@validar')->name('mejoras.validar')
@@ -190,6 +192,10 @@ Route::get('propuestas/resumen/{propuesta}', 'PropuestaController@resumen')->nam
 
 //reportes
 Route::get('reportes/index', 'ReportController@index')->name('reportes.index')
+->middleware('permission:proyects.export');
+Route::get('reportes/semanal', 'ReportController@semanal')->name('reportes.semanal')
+->middleware('permission:proyects.export');
+Route::post('reportes/data', 'ReportController@data')->name('reportes.data')
 ->middleware('permission:proyects.export');
 Route::post('proyects-activos-excel', 'ReportController@proyectexcel')->name('reportes.proyectexcel')
 ->middleware('permission:proyects.export');

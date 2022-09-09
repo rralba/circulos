@@ -128,6 +128,7 @@ class ProyectController extends Controller
      */
     public function update(Request $request)
     {   
+        $current_date = date('Y-m-d');
         $proyectos = Proyect::where('id', '=', $request->id)->first();
         $proyectos->proyecto = $request->input('proyecto');
         $proyectos->fecha_reg = $request->input('registro');
@@ -147,6 +148,9 @@ class ProyectController extends Controller
         $proyectos->empresa = $request->input('empresa');
         $proyectos->desc_proy = $request->input('descuento');
         $proyectos->proy_status = $request->input('estatus');
+        if(($request->input('estatus')) == 3){
+            $proyectos->fecha_finreal = $current_date;
+        }
         $proyectos->creativo = $request->input('creativo');
         $proyectos->areas_part = $request->input('areas');
         $proyectos->skills_integ = $request->input('skills');
@@ -770,7 +774,7 @@ class ProyectController extends Controller
             $i++;
         }
           return redirect()->action([ProyectController::class, 'printpago'], [$fol]);  
-        //dd($rea);
+        //dd($fol, $benef, $empl, $prev, $rea);
     }
 
     public function printpago($fol)

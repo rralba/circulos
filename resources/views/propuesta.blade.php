@@ -131,7 +131,7 @@
                 <div class="col-md-8"></div>
                 <div class="col-md-4">  
                   <label for="to" class="col-form-label"><h4 class="p-0 m-0">Asesor:</h4></label>
-                  <select type="text" class="form-control datepicker" id="asesor" name="asesor">
+                  <select type="text" class="form-control" id="asesor" name="asesor">
                     <option value="N/A">N/A</option>
                     <option value="ING. ADRIANA REYES">ING. ADRIANA REYES</option>
                     <option value="ING. ISABELA SAN MIGUEL">ING. ISABELA SAN MIGUEL</option>

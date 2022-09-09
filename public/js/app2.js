@@ -5,7 +5,7 @@
         $('#observalid').hide();
         $('#evaluacion').hide();
         $('#observacioness').prop("required", false);
-        $('#valor').prop("required", true);
+        $('#valorprp').prop("required", true);
         $('#desperdicio').prop("required", true);
         $("#aprobada1").on( "click", function() {
             $('#aprobada1').hide();
@@ -18,7 +18,7 @@
             $('#inputeval').prop("required", false);
             $('#valorvalid').hide();
             $('#desperdiciovalid').hide();
-            $('#valor').prop("required", false);
+            $('#valorprp').prop("required", false);
             $('#desperdicio').prop("required", false);
         });
         $("#aprobada2").on( "click", function() {
@@ -32,8 +32,6 @@
             $('#observacioness').prop("required", false);
             $('#valorvalid').show();
             $('#desperdiciovalid').show();
-            $('#valor').prop("required", true);
-            $('#desperdicio').prop("required", true);
         });
 
         $('#aprobadavalid1').click(function() {

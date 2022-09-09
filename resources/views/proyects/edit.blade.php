@@ -11,7 +11,7 @@
         <div class="row">
             <div class="form-group col-md-10">
                 <label for="inputEmail4"><h6>Proyecto</h6></label>
-                <input type="text" class="form-control" id="proyecto" name="proyecto" value="{{ $proyect->proyecto }}">
+                <input type="text" class="form-control tomayus" id="proyecto" name="proyecto" value="{{ $proyect->proyecto }}">
             </div>
             <div class="form-group col-md-1">
                 <label for="inputEmail4"><h6>Folio</h6></label>
@@ -103,6 +103,7 @@
             <label for="inputEmail4"><h6>Comite</h6></label>
             <select type="text" class="form-control" id="comite" name="comite" required>
                 <option value="{{ $proyect->comite }}">{{ $proyect->comite }}</option>
+                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -173,24 +174,33 @@
         <div class="form-group col-md-2">
             <label for="inputEmail4"><h6>Estatus</h6></label>
                 @if(($proyect->proy_status) == 0)
+                    <input type="hidden" class="form-control" id="estatus" name="estatus" value="{{ $proyect->proy_status }}">
                     <input type="text" class="form-control" value="Cancelado" readonly>
                 @endif
                 @if(($proyect->proy_status) == 1)
+                    <input type="hidden" class="form-control" id="estatus" name="estatus" value="{{ $proyect->proy_status }}">
                     <input type="text" class="form-control" value="En Proceso" readonly>
                 @endif
                 @if(($proyect->proy_status) == 2)
+                    <input type="hidden" class="form-control" id="estatus" name="estatus" value="{{ $proyect->proy_status }}">
                     <input type="text" class="form-control" value="Terminado" readonly>
                 @endif
                 @if(($proyect->proy_status) == 3)
+                    <input type="hidden" class="form-control" id="estatus" name="estatus" value="{{ $proyect->proy_status }}">
                     <input type="text" class="form-control" value="Terminado en Proceso de Pago" readonly>
                 @endif
         </div>
+        <input type="hidden" class="form-control" id="descuento" name="descuento" value="{{ $proyect->desc_proy }}">
+        <input type="hidden" class="form-control" id="empresa" name="empresa" value="{{ $proyect->empresa }}">
+        <input type="hidden" class="form-control" id="asesor" name="asesor" value="{{ $proyect->asesor }}">
         <div class="form-group col-md-1">
             <label for="inputEmail4"><h6>Nivel</h6></label>
+            <input type="hidden" class="form-control" id="nivel" name="nivel" value="{{ $proyect->nivel }}">
             <input type="text" class="form-control" value="{{ $proyect->nivel }}" readonly>
         </div>
         <div class="form-group col-md-1">
             <label for="inputEmail4"><h6>Comite</h6></label>
+            <input type="hidden" class="form-control" id="comite" name="comite" value="{{ $proyect->comite }}">
             <input type="text" class="form-control" value="{{ $proyect->comite }}" readonly>                
         </div>
         <div class="form-group col-md-1">

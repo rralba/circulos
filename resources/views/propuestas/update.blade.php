@@ -1,6 +1,7 @@
 @extends('layouts.appm')
 
 @section('content')
+<div class="m-1">
 <span class="contact100-form-title">
   <h1 class="text-center">Propuesta de Círculo de Eficiencia</h1>
 </span>
@@ -9,7 +10,7 @@
     <input type="hidden" id="id" name="id" value="{{ $propuesta->id }}">
     <input type="hidden" id="identificador" name="identificador" value="{{ $propuesta->identificador }}">
     <input type="hidden" id="asignacion" name="asignacion" value="{{ date("Y-m-d") }}">
-    <fieldset disabled>
+    <fieldset disabled class="p-3">
       <div class="row">
         <div class="form-group col-md-4">
           <label for="inputEmail4"><h6>Dirección</h6></label>
@@ -70,7 +71,7 @@
       </div>
          <br>
         </fieldset>
-         <div class="row">
+         <div class="row m-1">
           <div class="col-md-10"></div>
           <div class=" form-group col-md-2">  
             <label for="to" class="col-form-label"><h4 class="p-0 m-0">Asesor:</h4></label>
@@ -88,7 +89,7 @@
           </div>
         </div>
         <br>
-        <fieldset disabled>
+        <fieldset disabled class="p-3">
       @if (($propuesta->identificador) == (1))
         <div class="row">
           <div class="form-group col-md-12">
@@ -198,5 +199,6 @@
     </button>
   </div> 
 </div>
-</form>    
+</form> 
+</div>   
 @endsection

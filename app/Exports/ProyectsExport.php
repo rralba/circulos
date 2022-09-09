@@ -7,7 +7,6 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-
 class ProyectsExport implements FromCollection, WithHeadings
 {
 	use Exportable;
@@ -36,6 +35,8 @@ class ProyectsExport implements FromCollection, WithHeadings
             'proyecto',
              'fecha reg',
             'nivel',
+            'direccion',
+             'subdireccion',
              'departamento',
             'asesor',
              'inicio',
@@ -46,6 +47,12 @@ class ProyectsExport implements FromCollection, WithHeadings
             'ahorro anual',
              'metrico primario',
             'metrico secundario',
+            'creativo',
+            'areas participantes',
+            'habilidades integrantes',
+            'actividades principales',
+            'conocimiento critico',
+            'participacion sindicalizados',
              'empresa',
             'descuento',
              'status',

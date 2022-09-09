@@ -410,6 +410,7 @@
                 <input type="hidden" class="form-control requeridon1 validar" id="beneficio_eco" name="beneficio_eco" value="#currency-field">
             </div>  
         </div>
+        <br>
         <div class="row">
 			<div class="col-md-9"></div>
 			<div class="row col-md-3">

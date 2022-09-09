@@ -37,6 +37,11 @@
                                         class="btn btn-sm btn-outline-primary fa fa-print" title="Imprimir Mejora Rapida">
                                     </a>
                                 </td>
+                                <td width="07px">
+                                    <a  href="{{ route('mejoras.printreco', $mejora->id) }}"
+                                        class="btn btn-sm btn-outline-primary fa fa-money" title="Imprimir Reconocimiento">
+                                    </a>
+                                </td>
                                 @can('mrprocesos.create')
                                 <td width="07px">
                                     <a href="{{ route('mejoras.validar', $mejora->id) }}"
