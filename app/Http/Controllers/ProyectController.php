@@ -96,6 +96,11 @@ class ProyectController extends Controller
     {   
        return view('proyects.show', compact('proyect'));
     }
+
+    public function rcr(Proyect $proyect)
+    {   
+       return view('proyects.rcr', compact('proyect'));
+    }
     
       /**
      * Show the form for editing the specified resource.

@@ -66,6 +66,8 @@ Route::post('proyects/update', 'ProyectController@update')->name('proyects.updat
 ->middleware('permission:proyects.edit');
 Route::get('proyects/{proyect}', 'ProyectController@show')->name('proyects.show')
 ->middleware('permission:proyects.show');
+Route::get('proyects/{proyect}/rcr', 'ProyectController@rcr')->name('proyects.rcr')
+->middleware('permission:proyects.show');
 Route::get('proyects/registro/{proyect}', 'ProyectController@registro')->name('proyects.registro')
 ->middleware('permission:proyects.show');
 Route::get('proyects/{proyect}/edit', 'ProyectController@edit')->name('proyects.edit')

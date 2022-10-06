@@ -39,6 +39,11 @@
                                     class="btn btn-sm btn-outline-primary fa fa-info-circle" title="Detalles del Proyecto">
                                 </a>
                             </td>
+                            <td width="07px">
+                                <a  href="{{ route('proyects.rcr', $proyect->id) }}" 
+                                    class="btn btn-sm btn-outline-primary fa fa-address-card" aria-hidden="true" title="Reporte de Caso Resuelto">
+                                </a>
+                            </td>
                         @endcan
                 </tr>
             @endforeach

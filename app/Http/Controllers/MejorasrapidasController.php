@@ -357,8 +357,16 @@ class MejorasrapidasController extends Controller
     }
     public function printreco(mejora $mejora)
     {
-        return view('mejorasrapidas.printreco', compact('mejora'));
-        //dd($request);
+        if(($mejora->asesor) === "ING. SERGIO CAMACHO"){
+            $jefe = "Ing. Oscar Rios Carrera";
+        }elseif(($mejora->asesor) === "ING. ORLANDO GUERRA"){
+                $jefe = "Ing. Oscar Rios Carrera";
+            }else
+            {
+                $jefe = "Ing. Patricia Alvarez Huerta";
+            }
+        return view('mejorasrapidas.printreco', compact('mejora','jefe'));
+        //dd($mejora->asesor, $jefe);
     }   
     public function edit(mejora $mejora)
     {

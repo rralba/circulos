@@ -17,6 +17,13 @@
     font-size: 10px;
 }
 
+.fila {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
 .invisible{
   display: none !important;
 }
