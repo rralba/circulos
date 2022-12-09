@@ -204,6 +204,67 @@ Route::post('proyects-activos-excel', 'ReportController@proyectexcel')->name('re
 Route::post('mejoras-activos-excel', 'ReportController@mejorasexcel')->name('reportes.mejorasexcel')
 ->middleware('permission:proyects.export');
 
+//filiales
+//hercules
+Route::get('proyectsh', 'ProyectherController@index')->name('hercules.index')
+->middleware('permission:filial.index');
+Route::post('proyectsh/store', 'ProyectherController@store')->name('hercules.store')
+->middleware('permission:filial.index');
+Route::get('proyectsh/{proyect}', 'ProyectherController@show')->name('hercules.show')
+->middleware('permission:filial.index');
+Route::get('proyectsh/{proyect}/edit', 'ProyectherController@edit')->name('hercules.edit')
+->middleware('permission:filial.index');
+Route::post('proyectsh/update', 'ProyectherController@update')->name('hercules.update')
+->middleware('permission:filial.index');
+Route::get('proyectsh/{proyect}/beneficios', 'ProyectherController@beneindex')->name('hercules.beneficios')
+->middleware('permission:filial.index');
+Route::POST('proyectsh/beneficios', 'ProyectherController@addbenef')->name('hercules.storebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsh/beneficio', 'ProyectherController@benupdate')->name('hercules.updatebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsh', 'ProyectherController@benefdestroy')->name('hercules.destroybenef')
+->middleware('permission:filial.index');
+
+//mimosa
+Route::get('proyectsm', 'ProyectmimController@index')->name('mimosa.index')
+->middleware('permission:filial.index');
+Route::post('proyectsm/store', 'ProyectmimController@store')->name('mimosa.store')
+->middleware('permission:filial.index');
+Route::get('proyectsm/{proyect}', 'ProyectmimController@show')->name('mimosa.show')
+->middleware('permission:filial.index');
+Route::get('proyectsm/{proyect}/edit', 'ProyectmimController@edit')->name('mimosa.edit')
+->middleware('permission:filial.index');
+Route::post('proyectsm/update', 'ProyectmimController@update')->name('mimosa.update')
+->middleware('permission:filial.index');
+Route::get('proyectsm/{proyect}/beneficios', 'ProyectmimController@beneindex')->name('mimosa.beneficios')
+->middleware('permission:filial.index');
+Route::POST('proyectsm/beneficios', 'ProyectmimController@addbenef')->name('mimosa.storebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsm/beneficio', 'ProyectmimController@benupdate')->name('mimosa.updatebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsm', 'ProyectmimController@benefdestroy')->name('mimosa.destroybenef')
+->middleware('permission:filial.index');
+
+//nasa
+Route::get('proyectsn', 'ProyectnasController@index')->name('nasa.index')
+->middleware('permission:filial.index');
+Route::post('proyectsn/store', 'ProyectnasController@store')->name('nasa.store')
+->middleware('permission:filial.index');
+Route::get('proyectsn/{proyect}', 'ProyectnasController@show')->name('nasa.show')
+->middleware('permission:filial.index');
+Route::get('proyectsn/{proyect}/edit', 'ProyectnasController@edit')->name('nasa.edit')
+->middleware('permission:filial.index');
+Route::post('proyectsn/update', 'ProyectnasController@update')->name('nasa.update')
+->middleware('permission:filial.index');
+Route::get('proyectsn/{proyect}/beneficios', 'ProyectnasController@beneindex')->name('nasa.beneficios')
+->middleware('permission:filial.index');
+Route::POST('proyectsn/beneficios', 'ProyectnasController@addbenef')->name('nasa.storebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsn/beneficio', 'ProyectnasController@benupdate')->name('nasa.updatebenef')
+->middleware('permission:filial.index');
+Route::post('proyectsn', 'ProyectnasController@benefdestroy')->name('nasa.destroybenef')
+->middleware('permission:filial.index');
+
 
 //mantenimiento y actualizaciones
 

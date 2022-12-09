@@ -112,7 +112,7 @@
                 <h4 class="text-muted lead text-center">Atentamente:</h4>
                 <br>
                 <h4 class="text-muted text-center">
-                Lic. Virginia Lozano Guajardo<br>
+                Lic. Luis Segundo Gonzalez Ibarra<br>
                 Gerente de Capacitación<br>
                 </h4>
             </div>
@@ -249,7 +249,7 @@
                 <h4 class="text-muted lead text-center">Atentamente:</h4>
                 <br>
                 <h4 class="text-muted text-center">
-                Lic. Virginia Lozano Guajardo<br>
+                Lic. Luis Segundo Gonzalez Ibarra<br>
                 Gerente de Capacitación<br>
                 </h4>
             </div>
@@ -386,7 +386,7 @@
                 <h4 class="text-muted lead text-center">Atentamente:</h4>
                 <br>
                 <h4 class="text-muted text-center">
-                Lic. Virginia Lozano Guajardo<br>
+                Lic. Luis Segundo Gonzalez Ibarra<br>
                 Gerente de Capacitación<br>
                 </h4>
             </div>

@@ -2,6 +2,10 @@
 
 @section('content')
 <style type="text/css">
+.textrs{
+	font-weight: bold;
+	text-align: center;
+}
 .table td {
 	padding: 0.15rem;
 }
@@ -94,14 +98,23 @@
         		</thead>
         		<tbody>
         			<tr>
-        				@isset($data, $pyn1, $pycont, $orlandopfs, $checopfs, $isabelapfs, $edithpfs, $adrianapfs)
+        				@isset($data, $pyn1, $pyn1, $pycont, $orlandopfs, $checopfs, $isabelapfs, $edithpfs, $adrianapfs, $pyprocesoh, $pyproceson, $pyprocesom, $pycontf, $finsemh, $finsemn, $finsemm)
         				<td>
         					<p>Proyectos - Nivel 1 y 2</p>
         					<p>{{$pyn2}} Nivel 2</p>
         					<p>{{$pyn1}} Nivel 1</p>
+        					<br>
+        					<p>{{$pyprocesoh}} - Hércules</p>
+        					<p>{{$pyproceson}} - NASA</p>
+        					<p>{{$pyprocesom}} - MIMOSA</p>
         				</td>
         				<td>
         					<p>{{$pycont}} AHMSA</p>
+        					<br>
+        					<br>
+        					<br>
+        					<br>
+        					<p>{{$pycontf}} Filiales</p>
         				</td>
         				<td>
         					@if($orlandopfs > 0)
@@ -119,10 +132,23 @@
         					@if($adrianapfs > 0)
         						<p>{{$adrianapfs}} Adriana</p>
         					@endif
+        					<br>
+        					<br>
+        					<br>
+        					<br>
+        					@if($finsemh > 0)
+        						<p>{{$finsemh}} Hércules</p>
+        					@endif
+        					@if($finsemm > 0)
+        						<p>{{$finsemm}} MIMOSA</p>
+        					@endif
+        					@if($finsemn > 0)
+        						<p>{{$finsemn}} NASA</p>
+        					@endif
         				</td>
         				@endisset
         				<td>
-        					@isset($orlando, $checo, $isabela, $edith, $adriana, $pydepto, $subm, $bensem, $array)
+        					@isset($orlando, $checo, $isabela, $edith, $adriana, $pydepto, $subm, $submh, $submn, $submm, $bensem, $bensemh, $bensemn, $bensemm, $array, $pynuevosh, $pynuevosm, $pynuevosn)
         					@if($orlando > 0)
         						<p>{{$orlando}} Orlando</p>
         					@endif
@@ -138,8 +164,37 @@
         					@if($adriana > 0)
         						<p>{{$adriana}} Adriana</p>
         					@endif
-        					<td class="text-center">{{ sprintf('$ %s', number_format(($subm),1, '.', ',')) }}</td>
-        					<td class="text-center">{{ sprintf('$ %s', number_format(($bensem),1, '.', ',')) }}</td>
+        					<br>
+        					<br>
+        					<br>
+        					<br>
+        					@if($pynuevosh > 0)
+        						<p>{{$pynuevosh}} Hércules</p>
+        					@endif
+        					@if($pynuevosm > 0)
+        						<p>{{$pynuevosm}} MIMOSA</p>
+        					@endif
+        					@if($pynuevosn > 0)
+        						<p>{{$pynuevosn}} NASA</p>
+        					@endif
+        					<td class="text-center">
+        						<p>{{ sprintf('$ %s', number_format(($subm),1, '.', ',')) }} AHMSA</p>
+        						<br>
+        						<br>
+        						<br>
+        						<p>{{ sprintf('$ %s', number_format(($submh),1, '.', ',')) }} Hércules</p>
+        						<p>{{ sprintf('$ %s', number_format(($submn),1, '.', ',')) }} NASA</p>
+        						<p>{{ sprintf('$ %s', number_format(($submm),1, '.', ',')) }} MIMOSA</p>
+        					</td>
+        					<td class="text-center">
+        						<p>{{ sprintf('$ %s', number_format(($bensem),1, '.', ',')) }} AHMSA</p>
+        						<br>
+        						<br>
+        						<br>
+        						<p>{{ sprintf('$ %s', number_format(($bensemh),1, '.', ',')) }} Hércules</p>
+        						<p>{{ sprintf('$ %s', number_format(($bensemn),1, '.', ',')) }} NASA</p>
+        						<p>{{ sprintf('$ %s', number_format(($bensemm),1, '.', ',')) }} MIMOSA</p>
+        					</td>
         					<td>
         						@foreach(json_decode($array) as $depa)
         							{{$depa->depto}},
@@ -149,7 +204,7 @@
         				</td>
         			</tr>
         			<tr>
-        				@isset($orlandom, $checom, $isabelam, $edithm, $adrianam, $mrproceso,$orlandomt, $checomt, $isabelamt, $edithmt, $adrianamt, $mrs, $mrm)
+        				@isset($orlandom, $checom, $isabelam, $edithm, $adrianam, $mrproceso,$orlandomt, $checomt, $isabelamt, $edithmt, $adrianamt, $mrs, $mrm, $mrt, $mrn)
         				<td>
         					<p>Mejoras Rápidas - Nivel 3</p>
         				</td>
@@ -195,6 +250,10 @@
         					@foreach(json_decode($mrt) as $mrt)
         							{{$mrt->id}},
         						@endforeach
+        					<p>MR Nuevas:</p>
+        					@foreach(json_decode($mrn) as $mrn)
+        							{{$mrn->id}},
+        						@endforeach
         				</td>
         				@endisset
         			</tr>
@@ -217,7 +276,18 @@
         		<tbody>
         			<?php $r=0; ?>
         			<?php $pagosuma=0; ?>
-        			@isset($data)
+        			<?php $rh=0; ?>
+        			<?php $pagosumah=0; ?>
+        			<?php $rn=0; ?>
+        			<?php $pagosuman=0; ?>
+        			<?php $rm=0; ?>
+        			<?php $pagosumam=0; ?>
+        			@isset($data, $datah, $datan, $datam)
+        				<tr>
+                			<td><p class="textrs">AHMSA</p></td>
+                			<td></td>
+                			<td></td>
+                		</tr>
                 	@foreach($data as $data)
                 		<tr>
                         	<td>{{ $data->proyecto }}</td>
@@ -227,6 +297,55 @@
                         		$r = $data->beneficio;
                             	$pagosuma = $pagosuma + $r;
                             ?>
+                        </tr>
+                	@endforeach
+                		<tr>
+                			<td><p class="textrs">Hércules</p></td>
+                			<td></td>
+                			<td></td>
+                		</tr>
+                	@foreach($datah as $datah)
+                		<tr>
+                        	<td>{{ $datah->proyecto }}</td>
+                        	<td>{{ $datah->depto }}</td>
+                        	<td class="text-right">{{ sprintf('$ %s', number_format(($datah->beneficio),0, '.', ',')) }}</td>
+                        	<?php
+                        		$rh = $datah->beneficio;
+                            	$pagosumah = $pagosumah + $rh;
+                            ?>
+                        </tr>
+                	@endforeach
+                		<tr>
+                			<td><p class="textrs">NASA</p></td>
+                			<td></td>
+                			<td></td>
+                		</tr>
+                	@foreach($datan as $datan)
+                		<tr>
+                        	<td>{{ $datan->proyecto }}</td>
+                        	<td>{{ $datan->depto }}</td>
+                        	<td class="text-right">{{ sprintf('$ %s', number_format(($datan->beneficio),0, '.', ',')) }}</td>
+                        	<?php
+                        		$rn = $datan->beneficio;
+                            	$pagosuman = $pagosuman + $rn;
+                            ?>
+                        </tr>
+                	@endforeach
+                		<tr>
+                			<td><p class="textrs">MIMOSA</p></td>
+                			<td></td>
+                			<td></td>
+                		</tr>
+                	@foreach($datam as $datam)
+                		<tr>
+                        	<td>{{ $datam->proyecto }}</td>
+                        	<td>{{ $datam->depto }}</td>
+                        	<td class="text-right">{{ sprintf('$ %s', number_format(($datam->beneficio),0, '.', ',')) }}</td>
+                        	<?php
+                        		$rm = $datam->beneficio;
+                            	$pagosumam = $pagosumam + $rm;
+                            ?>
+                        </tr>
                 	@endforeach
                 	@endisset
         		</tbody>
@@ -236,10 +355,13 @@
 	                <p class="font-weight-bold float-right">Total de Pago:</p>
 	            </div>
 	            <div class="col col-md-6 float-left m-0 p-0">
-	                <p class="font-weight-bold text-center">{{ sprintf('$ %s', number_format(($pagosuma),0, '.', ',')) }}</p>
+	                <p class="font-weight-bold text-center">{{ sprintf('$ %s', number_format(($pagosuma+$pagosumah+$pagosuman+$pagosumam),0, '.', ',')) }}</p>
 	            </div>
         	</div>	
 		</div>
-	</div>	
+	</div>
+	@isset($proppy, $propmr)
+		<p>*Actualmente se cuenta con {{$proppy}} propuestas de Proyectos nivel 1 y 2 y con {{$propmr}} propuestas de Mejoras Rapidas</p>
+	@endisset
 </div>
 @endsection

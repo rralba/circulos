@@ -121,6 +121,24 @@
                             @endcan
                         </div>
                         <div class="dropdown p-1">
+                            @can('filial.index')
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Filiales
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('hercules.index') }}">Hércules</a>
+                                @endcan
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('mimosa.index') }}">MIMOSA</a>
+                                @endcan
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('nasa.index') }}">NASA</a>
+                                @endcan
+                             </div>
+                            @endcan
+                        </div>
+                        <div class="dropdown p-1">
                             @can('proyects.index')
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Propuestas

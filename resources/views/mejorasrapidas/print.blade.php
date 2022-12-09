@@ -745,6 +745,10 @@
     $('.imprimir').click(function(){
         window.print();
         return false;
-    });       
+    });  
+    $(function()
+	{
+		ellipsis_box(".limitado", 95);
+	});     
 </script>
 @endsection

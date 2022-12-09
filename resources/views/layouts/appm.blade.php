@@ -21,47 +21,39 @@
     <!-- jquery-ui -->
     <link href="{!! asset('jqueryui/jquery-ui.css') !!}" rel="stylesheet">
     <script src="{!! asset('jqueryui/jquery-ui.js') !!}" ></script>
-
     <style>
-      .navbar-custom {
-          position: relative;
-          background-color: #154398;
-          background-image: url("overlay.svg"),linear-gradient(45deg, #154398 0%, #006fe6 100%);
-          background-size: cover;
-          z-index: 1000;
-}
-      
-
-      .navbar-custom .navbar-brand,
-      .navbar-custom .navbar-text {
-          color: #ffffff;
-      }
-
-      .navbar-custom .navbar-nav .nav-link {
-          color: #ffffff;
-      }
-
-      .navbar-custom .nav-item.active .nav-link,
-      .navbar-custom .nav-item:hover .nav-link {
-          color: #ffffff;
-      }
-
-      .navbar-custom .dropdown-menu {}
-
-      .navbar-custom .dropdown-item {
-          color: #ffffff;
-      }
-
-      .navbar-custom .dropdown-item:hover,
-      .navbar-custom .dropdown-item:focus {
-      }
-  </style>
+        .navbar-custom {
+            position: relative;
+            background-color: #154398;
+            background-image: url("overlay.svg"),linear-gradient(45deg, #154398 0%, #006fe6 100%);
+            background-size: cover;
+            z-index: 1000;
+        }
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: #ffffff;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+        .navbar-custom .nav-item.active .nav-link,
+        .navbar-custom .nav-item:hover .nav-link {
+            color: #ffffff;
+        }
+        .navbar-custom .dropdown-menu {}
+        .navbar-custom .dropdown-item {
+            color: #ffffff;
+        }
+        .navbar-custom .dropdown-item:hover,
+        .navbar-custom .dropdown-item:focus {
+        }
+    </style>
 </head>
 <body>
     <div>
         <nav class="navbar navbar-expand-sm navbar-custom static-top">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="{!! asset('jpg/logo_CE.png') !!}" alt="Logo CE"></a>
+                <a class="navbar-brand"><img class="logoce" src="{!! asset('jpg/logo_CE.png') !!}" alt="Logo CE"></a>
                 <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
                     @guest
                     @else
@@ -119,7 +111,25 @@
                                 @endcan
                              </div>
                             @endcan
-                        </div> 
+                        </div>
+                        <div class="dropdown p-1">
+                            @can('filial.index')
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Filiales
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('hercules.index') }}">Hércules</a>
+                                @endcan
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('mimosa.index') }}">MIMOSA</a>
+                                @endcan
+                                @can('filial.index')
+                                    <a class="dropdown-item" href="{{ route('nasa.index') }}">NASA</a>
+                                @endcan
+                             </div>
+                            @endcan
+                        </div>
                         <div class="dropdown p-1">
                             @can('proyects.index')
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

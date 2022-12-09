@@ -14,23 +14,10 @@
     		text-align: center;
     		vertical-align: middle;
 		}
-	@page imprimer {
-		size: letter landscape;
-		margin-top: 25px;
-		margin-left: 15px;
-		margin-right: 15px;
-		margin-bottom: 5px;
-	}	
-	.imprimer{
-		page: imprimer;
-	}
-	.tsb{
-		overflow: hidden;
-	}
-	@media print{
-		.imprimer{
-			width: 100%;
+		.tsb{
+			overflow: hidden;
 		}
+	@media print{
 		.imprimer table, td, th{
 		    font-size: 8px;
 		}
@@ -48,10 +35,6 @@
 		}
 		h5{
 		    font-size: 11px;
-		}
-		.imprimer img{
-			width: 200px;
-			height: 60px;
 		}
 		.fondo{
 			background-color: #ffff;
@@ -427,7 +410,7 @@
 					<h6 class="text-center">Jefe de Circulos de Eficiencia</h6>
 				</div>
 				<div class="col-md-3">
-					<h6 class="text-center">Lic. Virginia Lozano Guajardo</h6>
+					<h6 class="text-center">Lic. Luis Segundo Gonzalez Ibarra</h6>
 					<h6 class="text-center">Gerente de Capacitacion</h6>
 				</div>
 				<div class="col-md-2"></div>
@@ -544,7 +527,7 @@
 					<h6 class="text-center">Jefe de Circulos de Eficiencia</h6>
 				</div>
 				<div class="col-md-3">
-					<h6 class="text-center">Lic. Virginia Lozano Guajardo</h6>
+					<h6 class="text-center">Lic. Luis Segundo Gonzalez Ibarra</h6>
 					<h6 class="text-center">Gerente de Capacitacion</h6>
 				</div>
 				<div class="col-md-2"></div>

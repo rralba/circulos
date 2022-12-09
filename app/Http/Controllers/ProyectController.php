@@ -133,6 +133,7 @@ class ProyectController extends Controller
      */
     public function update(Request $request)
     {   
+        $filtro = Proyect::where('id', '=', $request->id)->first();
         $current_date = date('Y-m-d');
         $proyectos = Proyect::where('id', '=', $request->id)->first();
         $proyectos->proyecto = $request->input('proyecto');
@@ -154,7 +155,9 @@ class ProyectController extends Controller
         $proyectos->desc_proy = $request->input('descuento');
         $proyectos->proy_status = $request->input('estatus');
         if(($request->input('estatus')) == 3){
-            $proyectos->fecha_finreal = $current_date;
+            if(($filtro->proy_status) <> 3){
+                $proyectos->fecha_finreal = $current_date;
+            }
         }
         $proyectos->creativo = $request->input('creativo');
         $proyectos->areas_part = $request->input('areas');
@@ -164,7 +167,7 @@ class ProyectController extends Controller
         $proyectos->sindicalizados = $request->input('sindicalizados');
         $proyectos->save();
         return redirect()->back()->with('info', 'Proyecto Actualizado');
-        //dd($request->all());
+        //dd($proyectos);
     }
     public function save(Request $request, Proyect $proyect, integrant $integrant)
     {
