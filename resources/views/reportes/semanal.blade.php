@@ -300,6 +300,11 @@
                         </tr>
                 	@endforeach
                 		<tr>
+                			<td></td>
+                			<td><p class="textrs">Total AHMSA</p></td>
+                			<td><p class="textrs">{{ sprintf('$ %s', number_format(($pagosuma),0, '.', ',')) }}</p></td>
+                		</tr>
+                		<tr>
                 			<td><p class="textrs">Hércules</p></td>
                 			<td></td>
                 			<td></td>
@@ -315,6 +320,11 @@
                             ?>
                         </tr>
                 	@endforeach
+                		<tr>
+                			<td></td>
+                			<td><p class="textrs">Total Hércules</p></td>
+                			<td><p class="textrs">{{ sprintf('$ %s', number_format(($pagosumah),0, '.', ',')) }}</p></td>
+                		</tr>
                 		<tr>
                 			<td><p class="textrs">NASA</p></td>
                 			<td></td>
@@ -332,6 +342,11 @@
                         </tr>
                 	@endforeach
                 		<tr>
+                			<td></td>
+                			<td><p class="textrs">Total NASA</p></td>
+                			<td><p class="textrs">{{ sprintf('$ %s', number_format(($pagosuman),0, '.', ',')) }}</p></td>
+                		</tr>
+                		<tr>
                 			<td><p class="textrs">MIMOSA</p></td>
                 			<td></td>
                 			<td></td>
@@ -347,6 +362,11 @@
                             ?>
                         </tr>
                 	@endforeach
+                		<tr>
+                			<td></td>
+                			<td><p class="textrs">Total MIMOSA</p></td>
+                			<td><p class="textrs">{{ sprintf('$ %s', number_format(($pagosumam),0, '.', ',')) }}</p></td>
+                		</tr>
                 	@endisset
         		</tbody>
    			</table>

@@ -29,32 +29,30 @@
           background-image: url("overlay.svg"),linear-gradient(45deg, #154398 0%, #006fe6 100%);
           background-size: cover;
           z-index: 1000;
-}
-      
-
+        }
       .navbar-custom .navbar-brand,
       .navbar-custom .navbar-text {
           color: #ffffff;
       }
-
       .navbar-custom .navbar-nav .nav-link {
           color: #ffffff;
       }
-
       .navbar-custom .nav-item.active .nav-link,
       .navbar-custom .nav-item:hover .nav-link {
           color: #ffffff;
       }
-
       .navbar-custom .dropdown-menu {}
-
       .navbar-custom .dropdown-item {
           color: #ffffff;
       }
-
       .navbar-custom .dropdown-item:hover,
       .navbar-custom .dropdown-item:focus {
       }
+      @media only screen and (max-width: 1400px){   
+        .navbar-custom img{
+            width: 230px;
+            height: 50px;
+        } 
   </style>
 </head>
 <body>
@@ -165,16 +163,6 @@
                             @endcan
                         </div>
                     </div>
-                        @can('users.index')
-                        <li class="nav-item p-1">
-                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
-                        </li>
-                        @endcan
-                        @can('roles.index')
-                        <li class="nav-item p-1">
-                            <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
-                        </li>
-                        @endcan
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto mr-5">
@@ -202,6 +190,12 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    @can('users.index')
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
+                                    @endcan
+                                    @can('roles.index')
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
+                                    @endcan
                                 </div>
                             </li>
                         @endguest

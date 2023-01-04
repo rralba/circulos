@@ -185,7 +185,7 @@
 								<br>
 								<br>
 								<br>
-								Lic. Luis Segundo Gonzalez Ibarra
+								Lic. Elena Aracely Flores Lopez
 							</td>
 							<td>
 								<br>

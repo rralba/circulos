@@ -293,7 +293,9 @@ class ReportController extends Controller
         $subn = $benefanualn/1000000;
         $benefanualh = beneficiosher::whereYear("fecha_gen","=",$request->iniciors)->sum('beneficio');
         $subh = $benefanualh/1000000;
-        $sub = $suba+$submim+$subn+$subh;
+        $benefmr = mejora::whereYear("fecha_terminacion","=",$request->iniciors)->sum('beneficio');
+        $submr = $benefmr/1000000;
+        $sub = $suba+$submim+$subn+$subh+$submr;
 
         $benefmensual = beneficio::whereYear("fecha_gen","=",$request->iniciors)->whereMonth("created_at","=",$mes)->sum('beneficio');
         $subm = $benefmensual/1000000;

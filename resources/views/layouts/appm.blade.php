@@ -47,6 +47,11 @@
         .navbar-custom .dropdown-item:hover,
         .navbar-custom .dropdown-item:focus {
         }
+        @media only screen and (max-width: 1400px){   
+        .navbar-custom img{
+            width: 230px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -157,29 +162,19 @@
                             @endcan
                         </div>
                     </div>
-                        @can('users.index')
-                        <li class="nav-item p-1">
-                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
-                        </li>
-                        @endcan
-                        @can('roles.index')
-                        <li class="nav-item p-1">
-                            <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
-                        </li>
-                        @endcan
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto mr-5">
                         <!-- Authentication Links -->
                         @guest
-                            {{-- <li class="nav-item p-1">
+                            <li class="nav-item p-1">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item p-1">
                                 @if (Route::has('register'))
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
-                            </li> --}}
+                            </li>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -194,6 +189,12 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    @can('users.index')
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">Usuarios</a>
+                                    @endcan
+                                    @can('roles.index')
+                                        <a class="dropdown-item" href="{{ route('roles.index') }}">Roles</a>
+                                    @endcan
                                 </div>
                             </li>
                         @endguest
@@ -215,9 +216,7 @@
         </div>
         @endif
         <main class="py-1">
-           
-                    @yield('content')
-            
+            @yield('content')
         </main>
     </div>
 </body>

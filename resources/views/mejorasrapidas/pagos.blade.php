@@ -160,7 +160,7 @@
 	                <br>
 	                <br>
 	                <h4 class=" text-center">
-	                Lic. Luis Segundo Gonzalez Ibarra<br>
+	                Lic. Elena Aracely Flores Lopez<br>
 	                Gerente de Capacitación<br>
 	                </h4>
 	            </div>
@@ -326,7 +326,7 @@
 	                <br>
 	                <br>
 	                <h4 class="text-center">
-	                Lic. Luis Segundo Gonzalez Ibarra<br>
+	                Lic. Elena Aracely Flores Lopez<br>
 	                Gerente de Capacitación<br>
 	                </h4>
 	            </div>
@@ -383,9 +383,9 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">NÚMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-1{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Luis Segundo Gonzalez Ibarra – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">PARA:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Lilia Angelina Valenzuela Ruiz. - Gerente de Administración de personal de Confianza. </p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Jose Luis Rios Moreno. - Gerente de Administración de personal de Confianza. </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">COPIAS:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Expte.</p></label>
     			<br>
@@ -464,7 +464,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Luis Segundo Gonzalez Ibarra<br>
+			                	Lic. Elena Aracely Flores Lopez<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>
@@ -506,7 +506,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">NUMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-2{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Luis Segundo Gonzalez Ibarra – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">PARA:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Joel Enrique Garcia Haro - Gerente de Relaciones Laborales Sid. No.1  </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">COPIAS:</p></label>
@@ -586,7 +586,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Luis Segundo Gonzalez Ibarra<br>
+			                	Lic. Elena Aracely Flores Lopez<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>
@@ -628,7 +628,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">NUMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-3{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Luis Segundo Gonzalez Ibarra – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">PARA:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. José Luis Martinez Falco. - Gerente de Relaciones Laborales Sid. No.2 </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">COPIAS:</p></label>
@@ -709,7 +709,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Luis Segundo Gonzalez Ibarra<br>
+			                	Lic. Elena Aracely Flores Lopez<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>
