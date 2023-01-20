@@ -20,6 +20,20 @@
               minDate: today
             }); 
         });
+        $(function() { 
+          $('#datepickeryear').datepicker({
+            changeYear: true,
+            showButtonPanel: true,
+            dateFormat: "yy"
+          }).focus(function() {
+            var tCalendar = $(this);
+            $('.ui-datepicker-calendar').detach();
+            $('.ui-datepicker-close').click(function() {
+              var año = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+              tCalendar.datepicker('setDate', new Date(año, 1));
+            });
+          });
+        });
 
         $(function() { 
             $(".datepickerreal").datepicker({
@@ -58,6 +72,14 @@
               changeMonth: true,
               changeYear: true
             }); 
+        });
+
+        $(function(){
+          var com = $("#com").val();
+          if (com > 0)
+          {
+            $('.nomover').prop("disabled", true);
+          }
         });
 
           //seccion de ocultar y mostrar contenido en formulario de evaluacion MR

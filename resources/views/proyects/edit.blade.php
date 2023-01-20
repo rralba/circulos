@@ -8,10 +8,11 @@
     </span>
     <form id="editpy" name="editpy" action="{{ route('proyects.update') }} " method = "POST">
         {{ csrf_field() }}
+        <input type="hidden" id="com" name="com" value="{{ $proyect->comite }}">
         <div class="row">
             <div class="form-group col-md-10">
                 <label for="inputEmail4"><h6>Proyecto</h6></label>
-                <input type="text" class="form-control tomayus" id="proyecto" name="proyecto" value="{{ $proyect->proyecto }}">
+                <input type="text" class="form-control tomayus nomover" id="proyecto" name="proyecto" value="{{ $proyect->proyecto }}">
             </div>
             <div class="form-group col-md-1">
                 <label for="inputEmail4"><h6>Folio</h6></label>
@@ -26,9 +27,9 @@
         <input type="hidden" id="sub" name="sub" value="{{ $proyect->subdireccion }}">
         <input type="hidden" id="depa" name="depa" value="{{ $proyect->depto }}">
         <div class="row">
-        <div class="form-group col-md-4">  
+        <div class="form-group col-md-4 nomover">  
             <label for="recipient-name"><h6>Dirección:</h6></label>
-            <select class="form-control" id="direccion" name="direccion" required>
+            <select class="form-control nomover" id="direccion" name="direccion" required>
                 <option value="{{ $proyect->direccion }}">{{ $proyect->direccion }}</option>
                 <option value="CONSEJO">CONSEJO</option>
                 <option value="DIRECCIONGENERAL">DIRECCION GENERAL</option>
@@ -52,11 +53,11 @@
         </div>
         <div class="col-md-4">
             <label for="recipient-name"><h6>Subdirección:</h6></label>
-            <select class="form-control" id="subdireccion" name="subdireccion" required></select>
+            <select class="form-control nomover" id="subdireccion" name="subdireccion" required></select>
         </div>
         <div class="form-group col-md-4">
             <label for="inputEmail4"><h6>Departamento</h6></label>
-            <select class="form-control" id="departamento" name="departamento"></select>
+            <select class="form-control nomover" id="departamento" name="departamento"></select>
         </div>
       </div>
      @if (Auth::user()->can('mestro.index'))
@@ -64,7 +65,7 @@
         <div class="form-group col-md-4"></div>
         <div class="form-group col-md-2">
             <label for="inputEmail4"><h6>Estatus</h6></label>
-            <select type="text" class="form-control" id="estatus" name="estatus" required>
+            <select type="text" class="form-control nomover" id="estatus" name="estatus" required>
                 @if(($proyect->proy_status) == 0)
                     <option value="{{ $proyect->proy_status }}">Cancelado</option>
                     <option value="1">En Proceso</option>
@@ -93,7 +94,7 @@
         </div>
         <div class="form-group col-md-1">
             <label for="inputEmail4"><h6>Nivel</h6></label>
-            <select type="text" class="form-control" id="nivel" name="nivel" required>
+            <select type="text" class="form-control nomover" id="nivel" name="nivel" required>
                 <option value="{{ $proyect->nivel }}">{{ $proyect->nivel }}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -101,7 +102,7 @@
         </div>
         <div class="form-group col-md-1">
             <label for="inputEmail4"><h6>Comite</h6></label>
-            <select type="text" class="form-control" id="comite" name="comite" required>
+            <select type="text" class="form-control nomover" id="comite" name="comite" required>
                 <option value="{{ $proyect->comite }}">{{ $proyect->comite }}</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
@@ -140,10 +141,38 @@
         </div>
       </div>
       <div class="row">
+          <div class="form-group col-md-9"></div>
+          <div class="form-group col-md-1">
+            <label for="inputEmail4"><h6>Avance</h6></label>
+            <select type="text" class="form-control" id="avance" name="avance" required>
+                <option value="{{ $proyect->avance }}">{{ $proyect->avance }}</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputPassword4"><h6>Etapa</h6></label>
+            <select type="text" class="form-control" id="etapa" name="etapa" required>
+                <option value="{{ $proyect->etapa }}">{{ $proyect->etapa }}</option>
+                <option value="DISEÑO">DISEÑO</option>
+                <option value="IMPLEMENTACION">IMPLEMENTACIÓN</option>
+                <option value="VALIDACION">VALIDACIÓN</option>
+            </select>
+        </div>
+      </div>
+      <div class="row">
           <div class="form-group col-md-8"></div>
           <div class="form-group col-md-2">
             <label for="inputEmail4"><h6>Empresa</h6></label>
-            <select type="text" class="form-control" id="empresa" name="empresa" required>
+            <select type="text" class="form-control nomover" id="empresa" name="empresa" required>
                 <option value="{{ $proyect->empresa }}">{{ $proyect->empresa }}</option>
                 <option value="AHMSA 1">AHMSA 1</option>
                 <option value="AHMSA 2">AHMSA 2</option>
@@ -155,7 +184,7 @@
         </div>
         <div class="form-group col-md-2">
             <label for="inputPassword4"><h6>Descuento</h6></label>
-            <select type="text" class="form-control" id="descuento" name="descuento" required>
+            <select type="text" class="form-control nomover" id="descuento" name="descuento" required>
                 @if(($proyect->desc_proy) == 0)
                     <option value="{{ $proyect->desc_proy }}">Proyecto con Descuento</option>
                     <option value="1">Proyecto sin Descuento</option>
@@ -217,7 +246,7 @@
           <div class="col-md-4"></div>
           <div class=" form-group col-md-3" id="valorvalid">  
             <label for="to" class="col-form-label"><h6 class="p-0 m-0">Valor Corporativo:</h6></label>
-            <select type="text" class="form-control" id="valor" name="valor" required>
+            <select type="text" class="form-control nomover" id="valor" name="valor" required>
                 <option value="{{ $proyect->valor }}">{{ $proyect->valor }}</option>
                 <option value="CALIDAD">CALIDAD</option>
                 <option value="COSTOS">COSTOS</option>
@@ -233,7 +262,7 @@
           </div>
           <div class=" form-group col-md-3" id="desperdiciovalid">  
             <label for="to" class="col-form-label"><h6 class="p-0 m-0">Metodologia del Proyecto:</h6></label>
-            <select type="text" class="form-control" id="metodologia" name="metodologia" required>
+            <select type="text" class="form-control nomover" id="metodologia" name="metodologia" required>
                 <option value="{{ $proyect->metodologia }}">{{ $proyect->metodologia }}</option>
                 <option value="DMAIC">DMAIC</option>
                 <option value="PDCA">PDCA</option>
@@ -245,56 +274,56 @@
           </div>
           <div class="form-group col-md-2">
             <label for="inputEmail4"><h6>Ahorro Anual Proyectado</h6></label>
-            <input type="text" class="form-control requeridon1 validar" id="currency-field" name="currency-field" placeholder="$1,000,000.00" maxlength="10" value="{{ $proyect->ahorro_anual_proy   }}" onkeyup="PasarValor();">
-            <input type="hidden" class="form-control requeridon1 validar" id="beneficio_eco" name="beneficio_eco">
+            <input type="text" class="form-control requeridon1 validar nomover" id="currency-field" name="currency-field" placeholder="$1,000,000.00" maxlength="10" value="{{ $proyect->ahorro_anual_proy   }}" onkeyup="PasarValor();">
+            <input type="hidden" class="form-control requeridon1 validar nomover" id="beneficio_eco" name="beneficio_eco">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>Metrico Primario</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="metricopim" name="metricopim" value="{{ $proyect->metrico_primario }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="metricopim" name="metricopim" value="{{ $proyect->metrico_primario }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>Metrico secundario</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="metricosec" name="metricosec" value="{{ $proyect->metrico_secundario }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="metricosec" name="metricosec" value="{{ $proyect->metrico_secundario }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Porqué consideras que el proyecto es creativo y/o innovador?</h6></label>
-            <textarea type="text" class="form-control tomayus" maxlength="499" rows="4" id="creativo" name="creativo">{{ $proyect->creativo }}</textarea>
+            <textarea type="text" class="form-control tomayus nomover" maxlength="499" rows="4" id="creativo" name="creativo">{{ $proyect->creativo }}</textarea>
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Qué áreas deben participar en el desarrollo del proyecto?</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="areas" name="areas" value="{{ $proyect->areas_part }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="areas" name="areas" value="{{ $proyect->areas_part }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Qué conocimientos, especialidades y/o habilidades se requieren de los integrantes?</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="skills" name="skills" value="{{ $proyect->skills_integ }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="skills" name="skills" value="{{ $proyect->skills_integ }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Cuáles son las principales actividades a realizar por el equipo?</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="principales" name="principales" value="{{ $proyect->principales_act }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="principales" name="principales" value="{{ $proyect->principales_act }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Cuál es el conocimiento crítico requerido para el desarrollo del proyecto?</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="critico" name="critico" value="{{ $proyect->conocimiento_critico }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="critico" name="critico" value="{{ $proyect->conocimiento_critico }}">
           </div> 
         </div>
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>¿Cómo participa el personal sindicalizado?</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="sindicalizados" name="sindicalizados" value="{{ $proyect->sindicalizados }}">
+            <input type="text" class="form-control tomayus nomover" maxlength="249" id="sindicalizados" name="sindicalizados" value="{{ $proyect->sindicalizados }}">
           </div> 
         </div>
         <div class="container-contact100-form-btn">
@@ -310,7 +339,7 @@
 <br>
 <br>
 <div class="container-fluid">
-    <button type="button" class="btn btn-outline-primary btn-lg float-right fa fa-user-plus" data-toggle="modal" data-target="#adduser"></button>
+    <button type="button" class="btn btn-outline-primary btn-lg float-right fa fa-user-plus nomover" data-toggle="modal" data-target="#adduser"></button>
     <br>
     <div class="table-responsive">
         <table id="grid-basic" class="w3-table-all w3-card-4">
@@ -511,8 +540,8 @@
           formatters: {
             "actions": function(column, row)
             {
-              return "<button onclick=\"document.getElementById('edit').style.display='block'\" data-pin=\"" + row.pin + "\" data-proyect_id=\"" + row.proyect_id + "\" data-id=\"" + row.id + "\" data-nombre=\"" + row.nombre + "\" data-departamento=\"" + row.departamento + "\" data-posicion=\"" + row.posicion + "\" data-rol=\"" + row.rol + "\" data-direccion=\"" + row.direccion + "\" data-cia=\"" + row.cia + "\" class=\"btn btn-outline-primary small edit\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"fa fa-pencil\"></span></button> " +
-                   "<button onclick=\"document.getElementById('delete').style.display='block'\" data-pin=\"" + row.pin + "\" data-proyect_id=\"" + row.proyect_id + "\" data-id=\"" + row.id + "\" data-rol=\"" + row.rol + "\" class=\"btn btn-outline-danger smalll delete\"><span class=\"fa fa-trash\"></span></button>";
+              return "<button onclick=\"document.getElementById('edit').style.display='block'\" data-pin=\"" + row.pin + "\" data-proyect_id=\"" + row.proyect_id + "\" data-id=\"" + row.id + "\" data-nombre=\"" + row.nombre + "\" data-departamento=\"" + row.departamento + "\" data-posicion=\"" + row.posicion + "\" data-rol=\"" + row.rol + "\" data-direccion=\"" + row.direccion + "\" data-cia=\"" + row.cia + "\" class=\"btn btn-outline-primary small edit nomover\" data-toggle=\"modal\" data-target=\"#edit\"><span class=\"fa fa-pencil nomover\"></span></button> " +
+                   "<button onclick=\"document.getElementById('delete').style.display='block'\" data-pin=\"" + row.pin + "\" data-proyect_id=\"" + row.proyect_id + "\" data-id=\"" + row.id + "\" data-rol=\"" + row.rol + "\" class=\"btn btn-outline-danger smalll delete nomover\"><span class=\"fa fa-trash nomover\"></span></button>";
             }
           }}).on("loaded.rs.jquery.bootgrid", function (){
             /* Executes after data is loaded and rendered */
@@ -536,6 +565,13 @@
               $('#delete_name').html($(this).data("id"));
             });
           });
+          $(function(){
+          var com = $("#com").val();
+          if (com > 0)
+          {
+            $('.nomover').prop("disabled", true);
+          }
+        });
         });
 
     function PasarValor()
@@ -605,8 +641,8 @@
            $('#comp').val(ui.item.cia);
            return false;
         }
-      });  
-
+      }); 
     });
+  
 </script>
 @endsection 

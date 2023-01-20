@@ -128,7 +128,7 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label for="inputEmail4"><h6>Nombre del Proyecto</h6></label>
-            <input type="text" class="form-control tomayus" maxlength="249" id="proyecto" name="proyecto" value="{{ $propuesta->proyecto }}">
+            <input type="text" class="form-control tomayus" maxlength="249" id="proyecto" name="proyecto" value="{{ $propuesta->proyecto }}" required>
           </div> 
         </div>
         <div class="row">

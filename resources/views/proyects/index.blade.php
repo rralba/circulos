@@ -42,19 +42,11 @@
                         </td>
                         @endcan
                         @can('proyects.edit')
-                        @if ($proyect->comite == 0) 
                             <td width="07px">
                                 <a href="{{ route('proyects.edit', $proyect->id) }}"
                                 class="btn btn-sm btn-outline-primary fa fa-pencil-square-o" title="Editar Proyecto">
                                 </a>
                             </td> 
-                        @else
-                            <td width="07px">
-                                <a href="{{ route('proyects.edit', $proyect->id) }}"
-                                class="btn btn-sm btn-outline-primary fa fa-pencil-square-o disabled" title="Editar Proyecto">
-                                </a>
-                            </td>
-                        @endif
                         @endcan
                         @can('proyects.show')
                             <td width="07px">

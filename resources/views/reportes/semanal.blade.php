@@ -39,8 +39,8 @@
         		<thead class="">
 		            <tr>
 		                <th class="text-center">Principales KPI´s Círculos de Eficiencia</th>
-		                <th class="text-center">2021</th>
-		                <th class="text-center">Meta 2022</th>
+		                <th class="text-center">2022</th>
+		                <th class="text-center">Meta 2023</th>
 		                <th class="text-center">Actual</th>
 		                <th class="text-center">Avance</th>
 		            </tr>
@@ -49,29 +49,29 @@
         		<tbody class="text-center">
         			<tr>
         				<td><p class="text-left">Proyectos Terminados</p></td>
-        				<td><p>12</p></td>
+        				<td><p>10</p></td>
         				<td><p>15</p></td>
         				<td><p>{{$pfin}}</p></td>
         				<td><p></p></td>
         			</tr>
         			<tr>
         				<td><p class="text-left">Nuevos Proyectos</p></td>
-        				<td><p>28</p></td>
-        				<td><p>33</p></td>
+        				<td><p>29</p></td>
+        				<td><p>34</p></td>
         				<td><p>{{$pnew}}</p></td>
         				<td><p></p></td>
         			</tr>
         			<tr>
         				<td><p class="text-left">Mejoras Rápidas Terminadas</p></td>
-        				<td><p>126</p></td>
-        				<td><p>145</p></td>
+        				<td><p>164</p></td>
+        				<td><p>183</p></td>
         				<td><p>{{$mnew}}</p></td>
         				<td><p></p></td>
         			</tr>
         			<tr>
         				<td><p class="font-weight-bold text-left">Ahorros Financieros (millones)</p></td>
-        				<td><p class="font-weight-bold">540.6</p></td>
-        				<td><p class="font-weight-bold">622</p></td>
+        				<td><p class="font-weight-bold">691</p></td>
+        				<td><p class="font-weight-bold">795</p></td>
         				<td class="font-weight-bold">{{ sprintf('$ %s', number_format(($sub),1, '.', ',')) }}</td>
         				<td><p></p></td>
         			</tr>

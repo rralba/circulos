@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\facades\Excel;
 use App\Exports\ProyectsExport;
 use App\Exports\MejorasExport;
+use App\Exports\ConsejoExport;
 use DB;
 
 class ReportController extends Controller
@@ -65,6 +66,45 @@ class ReportController extends Controller
     	if (($status) > 3){
         	return (new MejorasExport($status))->download('mejoras rapidas.xlsx');
     	}
+    }
+    public function beneficiosexcel(Request $request)
+    {
+        $status = $request->identificador;
+        $todo = $request->todos;
+        $año = $request->año;
+            if (($status) == 0){
+                return (new ConsejoExport($status, $todo, $año))->download('Beneficios AHMSA.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 1){
+                return (new ConsejoExport($status, $todo, $año))->download('Beneficios NASA.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 2){
+                return (new ConsejoExport($status, $todo, $año))->download('Beneficios HERCULES.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 3){
+                return (new ConsejoExport($status, $todo, $año))->download('Beneficios MIMOSA.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 4){
+                return (new ConsejoExport($status, $todo, $año))->download('consejo AHMSA.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 5){
+                return (new ConsejoExport($status, $todo, $año))->download('consejo NASA.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 6){
+                return (new ConsejoExport($status, $todo, $año))->download('consejo HERCULES.xlsx');
+                //dd($request->all());
+            }
+            if (($status) == 7){
+                return (new ConsejoExport($status, $todo, $año))->download('consejo MIMOSA.xlsx');
+                //dd($request->all());
+            }
+        //dd($request->all());
     }
     public function semanal()
     {

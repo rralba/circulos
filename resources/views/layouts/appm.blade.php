@@ -10,6 +10,7 @@
     <!-- Styles -->
     <script src="{!! asset('js/jquery-3.3.1.js') !!}" ></script>
     <script src="{!! asset('js/bootstrap.bundle.min.js') !!}" ></script>
+    <script src="{!! asset('js/bootstrap-datepicker.js') !!}" ></script>
     <link href="{!! asset('css/bootstrap.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/jquery.bootgrid.css') !!}" rel="stylesheet">
     <script src="{!! asset('js/jquery.bootgrid.js') !!}" ></script>
@@ -17,7 +18,8 @@
     <link href="{!! asset('css/w3.css') !!}" rel="stylesheet"> 
     <link href="{!! asset('css/app.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/main.css') !!}" rel="stylesheet">
-    <link href="{!! asset('css/style.css') !!}" rel="stylesheet"> 
+    <link href="{!! asset('css/style.css') !!}" rel="stylesheet">
+    <link href="{!! asset('css/bootstrap-datepicker.css') !!}" rel="stylesheet">
     <!-- jquery-ui -->
     <link href="{!! asset('jqueryui/jquery-ui.css') !!}" rel="stylesheet">
     <script src="{!! asset('jqueryui/jquery-ui.js') !!}" ></script>

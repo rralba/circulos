@@ -109,14 +109,8 @@ class ProyectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Proyect $proyect)
-    {
-        if (($proyect->comite) == 0){
-            
-            return view('proyects.edit', compact('proyect'));
-        }
-        else{
-            return redirect()->action([ProyectController::class, 'index']);
-        }    
+    {            
+        return view('proyects.edit', compact('proyect'));    
     }
 
     public function editm(Proyect $proyect)
@@ -136,12 +130,23 @@ class ProyectController extends Controller
         $filtro = Proyect::where('id', '=', $request->id)->first();
         $current_date = date('Y-m-d');
         $proyectos = Proyect::where('id', '=', $request->id)->first();
+        if(($proyectos->comite)>0)
+        {
+            $proyectos->avance = $request->input('avance');
+            $proyectos->etapa = $request->input('etapa');
+            $proyectos->save();
+            return redirect()->back()->with('info', 'Proyecto Actualizado');
+            //dd($proyectos);
+        }
+        else{
         $proyectos->proyecto = $request->input('proyecto');
         $proyectos->fecha_reg = $request->input('registro');
         $proyectos->direccion = $request->input('direccion');
         $proyectos->subdireccion = $request->input('subdireccion');
         $proyectos->depto = $request->input('departamento');
         $proyectos->nivel = $request->input('nivel');
+        $proyectos->avance = $request->input('avance');
+        $proyectos->etapa = $request->input('etapa');
         $proyectos->comite = $request->input('comite');
         $proyectos->asesor = $request->input('asesor');
         $proyectos->valor = $request->input('valor');
@@ -168,6 +173,7 @@ class ProyectController extends Controller
         $proyectos->save();
         return redirect()->back()->with('info', 'Proyecto Actualizado');
         //dd($proyectos);
+        }
     }
     public function save(Request $request, Proyect $proyect, integrant $integrant)
     {

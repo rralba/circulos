@@ -203,6 +203,8 @@ Route::post('proyects-activos-excel', 'ReportController@proyectexcel')->name('re
 ->middleware('permission:proyects.export');
 Route::post('mejoras-activos-excel', 'ReportController@mejorasexcel')->name('reportes.mejorasexcel')
 ->middleware('permission:proyects.export');
+Route::post('beneficios/data', 'ReportController@beneficiosexcel')->name('reportes.beneficiosexcel')
+->middleware('permission:proyects.export');
 
 //filiales
 //hercules

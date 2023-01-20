@@ -45,11 +45,14 @@
             </div>
         </div>
         <div class="row">
-        <div class="form-group col-md-2"></div>
-        <div class="form-group col-md-4">
-            <label for="inputEmail4"><h6>Departamento</h6></label>
-            <input type="text" class="form-control" value="{{ $proyect->depto }}" readonly>
+            <div class="form-group col-md-8"></div>
+            <div class="form-group col-md-4">
+                <label for="inputEmail4"><h6>Departamento</h6></label>
+                <input type="text" class="form-control" value="{{ $proyect->depto }}" readonly>
         </div>
+        </div>
+        <div class="row">
+        <div class="form-group col-md-3"></div>
         <div class="form-group col-md-2">
             <label for="inputPassword4"><h6>Asesor</h6></label>
             <input type="text" class="form-control" value="{{ $proyect->asesor }}" readonly>
@@ -76,6 +79,14 @@
         <div class="form-group col-md-1">
             <label for="inputEmail4"><h6>Comite</h6></label>
             <input type="text" class="form-control" value="{{ $proyect->comite }}" readonly>
+        </div>
+        <div class="form-group col-md-1">
+            <label for="inputEmail4"><h6>Avance</h6></label>
+            <input type="text" class="form-control" value="{{ $proyect->avance }}" readonly>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputEmail4"><h6>Etapa</h6></label>
+            <input type="text" class="form-control" value="{{ $proyect->etapa }}" readonly>
         </div>
       </div>
         <div class="row" id="valor">
