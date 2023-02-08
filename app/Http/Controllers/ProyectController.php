@@ -61,6 +61,7 @@ class ProyectController extends Controller
      */
     public function master()
     {
+        $editm = 1;
         $proye = DB::table('proyects')->get();
         return view('proyects.master', ['proye' => $proye]);
         // dd($proye->all());
@@ -109,13 +110,22 @@ class ProyectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Proyect $proyect)
-    {            
-        return view('proyects.edit', compact('proyect'));    
+    {
+        if (($proyect->comite)==0)
+        {
+            $emr = 1;     
+        }
+        else
+        {
+            $emr = 0;
+        }
+        return view('proyects.edit', compact('proyect', 'emr'));    
     }
 
     public function editm(Proyect $proyect)
     {
-        return view('proyects.edit', compact('proyect'));   
+        $emr = 1;
+        return view('proyects.edit', compact('proyect', 'emr'));   
     }
 
     /**

@@ -74,14 +74,6 @@
             }); 
         });
 
-        $(function(){
-          var com = $("#com").val();
-          if (com > 0)
-          {
-            $('.nomover').prop("disabled", true);
-          }
-        });
-
           //seccion de ocultar y mostrar contenido en formulario de evaluacion MR
           $('#sinbenef').hide(); //ocultar mediante id
           $('#conbenef').hide(); //ocultar mediante id
@@ -494,6 +486,8 @@ document.getElementById("currency-field").onblur =function (){
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
 
 
 

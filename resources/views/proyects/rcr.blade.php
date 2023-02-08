@@ -185,7 +185,7 @@
 								<br>
 								<br>
 								<br>
-								Lic. Elena Aracely Flores Lopez
+								Ing. Elena Aracely Flores López
 							</td>
 							<td>
 								<br>

@@ -410,7 +410,7 @@
 					<h6 class="text-center">Jefe de Circulos de Eficiencia</h6>
 				</div>
 				<div class="col-md-3">
-					<h6 class="text-center">Lic. Elena Aracely Flores Lopez</h6>
+					<h6 class="text-center">Ing. Elena Aracely Flores López</h6>
 					<h6 class="text-center">Gerente de Capacitacion</h6>
 				</div>
 				<div class="col-md-2"></div>
@@ -527,7 +527,7 @@
 					<h6 class="text-center">Jefe de Circulos de Eficiencia</h6>
 				</div>
 				<div class="col-md-3">
-					<h6 class="text-center">Lic. Elena Aracely Flores Lopez</h6>
+					<h6 class="text-center">Ing. Elena Aracely Flores López</h6>
 					<h6 class="text-center">Gerente de Capacitacion</h6>
 				</div>
 				<div class="col-md-2"></div>

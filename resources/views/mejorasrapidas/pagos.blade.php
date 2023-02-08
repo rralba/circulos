@@ -160,7 +160,7 @@
 	                <br>
 	                <br>
 	                <h4 class=" text-center">
-	                Lic. Elena Aracely Flores Lopez<br>
+	                Ing. Elena Aracely Flores López<br>
 	                Gerente de Capacitación<br>
 	                </h4>
 	            </div>
@@ -326,7 +326,7 @@
 	                <br>
 	                <br>
 	                <h4 class="text-center">
-	                Lic. Elena Aracely Flores Lopez<br>
+	                Ing. Elena Aracely Flores López<br>
 	                Gerente de Capacitación<br>
 	                </h4>
 	            </div>
@@ -383,7 +383,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">NÚMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-1{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Ing. Elena Aracely Flores López – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">PARA:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">Lic. Jose Luis Rios Moreno. - Gerente de Administración de personal de Confianza. </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">COPIAS:</p></label>
@@ -392,11 +392,11 @@
     			<br>
     			<br>
     			<label class="m-0 p-0" style="width: 13%"><p class="m-0 p-0 titulosmr">ASUNTO:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><u class="m-0 p-0 notasmr">SOLICITUD DE CUPONES.</u></label>
+    			<label class="m-0 p-0" style="width: 75%"><u class="m-0 p-0 notasmr">SOLICITUD DE PAGO.</u></label>
     			<br>
     			<br>
     			<br>
-    			<p class="notasmr ml-5" style="width: 100%">Solicito a usted cupones por la cantidad de $<input type="text" class="identificador notasmr numaletc" id="notaconf" size="5" readonly> (<span id="textoc"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p>
+    			<p class="notasmr ml-5" style="width: 100%">Solicito a usted el pago por la cantidad de $<input type="text" class="identificador notasmr numaletc" id="notaconf" size="5" readonly> (<span id="textoc"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p>
     		</div>
     		<br>
     		<br>	
@@ -464,7 +464,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Elena Aracely Flores Lopez<br>
+			                	Ing. Elena Aracely Flores López<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>
@@ -506,7 +506,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">NUMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-2{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Ing. Elena Aracely Flores López – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">PARA:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Joel Enrique Garcia Haro - Gerente de Relaciones Laborales Sid. No.1  </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">COPIAS:</p></label>
@@ -515,11 +515,11 @@
     			<br>
     			<br>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">ASUNTO:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><u class="notasmr">SOLICITUD DE CUPONES.</u></label>
+    			<label class="m-0 p-0" style="width: 75%"><u class="notasmr">SOLICITUD DE PAGO.</u></label>
     			<br>
     			<br>
     			<br>
-    			<label class="ml-5" style="width: 100%"><p class="notasmr">Solicito a usted cupones por la cantidad de $<input type="text" class="identificadors1 notasmr numalets1" id="notas1" size="5" readonly> (<span id="textos1"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p></label>
+    			<label class="ml-5" style="width: 100%"><p class="notasmr">Solicito a usted el pago por la cantidad de $<input type="text" class="identificadors1 notasmr numalets1" id="notas1" size="5" readonly> (<span id="textos1"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p></label>
     		</div>
     		<br>
     		<br>
@@ -586,7 +586,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Elena Aracely Flores Lopez<br>
+			                	Ing. Elena Aracely Flores López<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>
@@ -628,7 +628,7 @@
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">NUMERO:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="m-0 p-0 notasmr">CC-3{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('m') }}-{{ \carbon\carbon::parse($mrpagoo->mes_terminacion)->format('y') }}.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">DE:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. Elena Aracely Flores Lopez – Gerente de Capacitación.</p></label>
+    			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Ing. Elena Aracely Flores López – Gerente de Capacitación.</p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">PARA:</p></label>
     			<label class="m-0 p-0" style="width: 75%"><p class="notasmr">Lic. José Luis Martinez Falco. - Gerente de Relaciones Laborales Sid. No.2 </p></label>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">COPIAS:</p></label>
@@ -637,11 +637,11 @@
     			<br>
     			<br>
     			<label class="m-0 p-0" style="width: 13%"><p class="titulosmr">ASUNTO:</p></label>
-    			<label class="m-0 p-0" style="width: 75%"><u class="notasmr">SOLICITUD DE CUPONES.</u></label>
+    			<label class="m-0 p-0" style="width: 75%"><u class="notasmr">SOLICITUD DE PAGO.</u></label>
     			<br>
     			<br>
     			<br>
-    			<label class="ml-5" style="width: 100%"><p class="notasmr">Solicito a usted cupones por la cantidad de $<input type="text" class="identificadors2 notasmr numalets2" id="notas2" size="5" readonly> (<span id="textos2"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p></label>
+    			<label class="ml-5" style="width: 100%"><p class="notasmr">Solicito a usted el pago por la cantidad de $<input type="text" class="identificadors2 notasmr numalets2" id="notas2" size="5" readonly> (<span id="textos2"></span> 00/100 MN), que se entregarán a los integrantes de los Equipos de Trabajo que a continuación se describe:</p></label>
     		</div>
     		<br>
     		<br>
@@ -709,7 +709,7 @@
 			                <br>
 			                <br>
 			                <p class="text-muted text-center titulosmr">
-			                	Lic. Elena Aracely Flores Lopez<br>
+			                	Ing. Elena Aracely Flores López<br>
 			                	Gerente de Capacitación<br>
 			                </p>
 			            </div>

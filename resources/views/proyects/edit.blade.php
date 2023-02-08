@@ -8,7 +8,7 @@
     </span>
     <form id="editpy" name="editpy" action="{{ route('proyects.update') }} " method = "POST">
         {{ csrf_field() }}
-        <input type="hidden" id="com" name="com" value="{{ $proyect->comite }}">
+        <input type="hidden" id="edmr" name="edmr" value="{{ $emr }}">
         <div class="row">
             <div class="form-group col-md-10">
                 <label for="inputEmail4"><h6>Proyecto</h6></label>
@@ -241,6 +241,34 @@
             <input type="text" class="form-control" value="{{ $proyect->fecha_fin }}" readonly>
         </div>
       </div>
+      <div class="row">
+          <div class="form-group col-md-9"></div>
+          <div class="form-group col-md-1">
+            <label for="inputEmail4"><h6>Avance</h6></label>
+            <select type="text" class="form-control" id="avance" name="avance" required>
+                <option value="{{ $proyect->avance }}">{{ $proyect->avance }}</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+                <option value="90">90</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputPassword4"><h6>Etapa</h6></label>
+            <select type="text" class="form-control" id="etapa" name="etapa" required>
+                <option value="{{ $proyect->etapa }}">{{ $proyect->etapa }}</option>
+                <option value="DISEÑO">DISEÑO</option>
+                <option value="IMPLEMENTACION">IMPLEMENTACIÓN</option>
+                <option value="VALIDACION">VALIDACIÓN</option>
+            </select>
+        </div>
+      </div>
       @endunless
       <div class="row" id="valor">
           <div class="col-md-4"></div>
@@ -338,7 +366,7 @@
 </div>
 <br>
 <br>
-<div class="container-fluid">
+<div class="container-fluid tablainteg">
     <button type="button" class="btn btn-outline-primary btn-lg float-right fa fa-user-plus nomover" data-toggle="modal" data-target="#adduser"></button>
     <br>
     <div class="table-responsive">
@@ -565,14 +593,16 @@
               $('#delete_name').html($(this).data("id"));
             });
           });
-          $(function(){
-          var com = $("#com").val();
-          if (com > 0)
-          {
+
+        $(function(){
+          var edmr = $("#edmr").val();
+          if (edmr == 0){
             $('.nomover').prop("disabled", true);
+            $('.tablainteg').hide();
+            console.log(edmr);
           }
         });
-        });
+    });
 
     function PasarValor()
     {
